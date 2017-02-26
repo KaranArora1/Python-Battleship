@@ -92,18 +92,7 @@ def Player1():
     confirm_title.draw(winP1)
     text_box_title.draw(winP1)
 
-    for i in BoxesP1A:
-        i.draw(winP1)
-    for i in BoxesP1B:
-        i.draw(winP1)
-    for i in BoxesP1C:
-        i.draw(winP1)
-    for i in BoxesP1D:
-        i.draw(winP1)
-    for i in BoxesP1E:
-        i.draw(winP1)
-    for i in BoxesP1F:
-        i.draw(winP1)
+    drawer1(winP1)
 
     FinalFiller1()
     Looper(3, winP1, Player1_Locations)
@@ -201,7 +190,11 @@ def Player2():
  
 Player1()
 winP1.close()
-Player1()
+
+writer= open("Pickler.py", "wb")
+pickle.dump("", writer, protocol=2)
+writer.close()
+
 
 
 
