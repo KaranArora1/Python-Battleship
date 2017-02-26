@@ -2,7 +2,6 @@ import time
 import pickle
 import zellegraphics
 from var import *
-import threading
 
 xvar=-1
 liststart=-1
@@ -91,7 +90,19 @@ def FinalFiller1():
     for i in range(10):
         AfterFiller(boxrunner(BoxesP1F), stringrun(Fstr), Player1_Locations,
                     P1confirmlist)
-
+    for i in range(10):
+        AfterFiller(boxrunner(BoxesP1G), stringrun(Gstr), Player1_Locations,
+                    P1confirmlist)
+    for i in range(10):
+        AfterFiller(boxrunner(BoxesP1H), stringrun(Hstr), Player1_Locations,
+                    P1confirmlist)
+    for i in range(10):
+        AfterFiller(boxrunner(BoxesP1I), stringrun(Istr), Player1_Locations,
+                    P1confirmlist)
+    for i in range(10):
+        AfterFiller(boxrunner(BoxesP1J), stringrun(Jstr), Player1_Locations,
+                    P1confirmlist)
+                    
 #FinalFiller2
 def FinalFiller2():
     pass
@@ -131,6 +142,18 @@ def ListofListAppenders1():
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 325, 378, Player1_Locations,
                      stringrun(Fstr), P1confirmlist)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 378, 431, Player1_Locations,
+                     stringrun(Gstr), P1confirmlist)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 431, 484, Player1_Locations,
+                     stringrun(Hstr), P1confirmlist)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 484, 537, Player1_Locations,
+                     stringrun(Istr), P1confirmlist)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 537, 590, Player1_Locations,
+                     stringrun(Jstr), P1confirmlist)
 
 #Listoflistappenders2
 def ListofListAppenders2():
@@ -178,3 +201,26 @@ def click_getter(win):
         writer= open("Pickler.py", "wb")
         pickle.dump(clicknames, writer, protocol=2)
         writer.close()
+
+def drawer1(win):
+    for i in BoxesP1A:
+        i.draw(win)
+    for i in BoxesP1B:
+        i.draw(win)
+    for i in BoxesP1C:
+        i.draw(win)
+    for i in BoxesP1D:
+        i.draw(win)
+    for i in BoxesP1E:
+        i.draw(win)
+    for i in BoxesP1F:
+        i.draw(win)
+    for i in BoxesP1G:
+        i.draw(win)
+    for i in BoxesP1H:
+        i.draw(win)
+    for i in BoxesP1I:
+        i.draw(win)
+    for i in BoxesP1J:
+        i.draw(win)
+    
