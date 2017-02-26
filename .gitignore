@@ -1,11 +1,6 @@
 /__pycache__
-<<<<<<< HEAD
 __pycache__
 /zellegraphics.py
 zellegraphics.py
-=======
-/zellegraphics.py
-zellegraphics.py
-
-
->>>>>>> origin/master
+/replace.py
+replace.py
