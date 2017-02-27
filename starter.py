@@ -11,8 +11,6 @@ def Instructions():
     global choice_ok
     global choice_next
     global choice_start
-    global player1_name
-    global player2_name
 
     #Rectangles
     win=GraphWin("Start",600, 325)
@@ -235,14 +233,9 @@ def Instructions():
     next_detector(262.5, 337.5, 260, 225, choice_start, win)
     time.sleep(1)
     win.close()
+    return player1_name, player2_name
     
-Instructions()
 
-names=[player1_name, player2_name]
-
-sender= open("Pickler.py", "wb")
-pickle.dump(names, sender, protocol=2)
-sender.close()
 
 
 

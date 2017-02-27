@@ -4,16 +4,12 @@ import sys
 from zellegraphics import *
 from definitions import *
 from var import *
+from starter import *
 
 #Instructions
-'''import starter'''
+player1_name, player2_name=Instructions()
 
-#Naming
-reader= open("Pickler.py", "rb")
-names=pickle.load(reader)
-reader.close()
-
-player1_name, player2_name=names
+print(player2_name)
 
 #########################################################################
 #Confirmer
