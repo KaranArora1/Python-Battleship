@@ -7,9 +7,7 @@ from var import *
 from starter import *
 
 #Instructions
-player1_name, player2_name=Instructions()
-
-print(player2_name)
+'''player1_name, player2_name=Instructions()'''
 
 #########################################################################
 #Confirmer
@@ -22,9 +20,9 @@ def Confirmer(location1, location2):
 
 #Looper
 def Looper(length, win, location):
-    global click
+    global x_click, y_click
     while True:
-        click_getter(winP1)
+        x_click, y_click=click_getter(winP1)
         if len(location) is length:
             if Confirmer(P1confirmlist, Player1_Locations) is True:
                 break

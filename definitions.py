@@ -202,6 +202,7 @@ def click_getter(win):
         writer= open("Pickler.py", "wb")
         pickle.dump(clicknames, writer, protocol=2)
         writer.close()
+        return x_click, y_click
 
 def drawer1(win):
     for i in BoxesP1A:
