@@ -9,6 +9,8 @@ from starter import *
 #Instructions
 '''player1_name, player2_name=Instructions()'''
 
+'''hahahha'''
+
 #########################################################################
 #Confirmer
 def Confirmer(location1, location2):
