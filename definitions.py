@@ -73,44 +73,17 @@ def AfterFiller(square1 ,square2,location, confirmed_spot_list):
 
 #FinalFiller1
 def FinalFiller1():
-    for i in range(10):
-        AfterFiller(boxrunner(BoxesP1A), stringrun(Astr) , Player1_Locations,
-                    P1confirmlist)
-    for i in range(10):
-        AfterFiller(boxrunner(BoxesP1B), stringrun(Bstr), Player1_Locations,
-                    P1confirmlist)
-    for i in range(10):
-        AfterFiller(boxrunner(BoxesP1C), stringrun(Cstr), Player1_Locations,
-                    P1confirmlist)
-    for i in range(10):
-        AfterFiller(boxrunner(BoxesP1D), stringrun(Dstr), Player1_Locations,
-                    P1confirmlist)
-    for i in range(10):
-        AfterFiller(boxrunner(BoxesP1E), stringrun(Estr), Player1_Locations,
-                    P1confirmlist)
-    for i in range(10):
-        AfterFiller(boxrunner(BoxesP1F), stringrun(Fstr), Player1_Locations,
-                    P1confirmlist)
-    for i in range(10):
-        AfterFiller(boxrunner(BoxesP1G), stringrun(Gstr), Player1_Locations,
-                    P1confirmlist)
-    for i in range(10):
-        AfterFiller(boxrunner(BoxesP1H), stringrun(Hstr), Player1_Locations,
-                    P1confirmlist)
-    for i in range(10):
-        AfterFiller(boxrunner(BoxesP1I), stringrun(Istr), Player1_Locations,
-                    P1confirmlist)
-    for i in range(10):
-        AfterFiller(boxrunner(BoxesP1J), stringrun(Jstr), Player1_Locations,
-                    P1confirmlist)
+    for i in P1BoxConf:
+        i.setFill("slategray")
                     
 #FinalFiller2
 def FinalFiller2():
     pass
 
 #ListAppender
-def ListAppender(left, right, top, bottom, location, appender,
-                 confirmlist):
+def ListAppender(left, right, top, bottom, location, boxapp, appender,
+                 confirmlist, boxloc):
+    
     reader= open("Pickler.py", "rb")
     x_click, y_click=pickle.load(reader)
     reader.close()
@@ -119,42 +92,46 @@ def ListAppender(left, right, top, bottom, location, appender,
 
         if (appender) not in location:
             (location).append(appender)
+            (boxloc).append(boxapp)
+            boxapp.setFill("gray")
 
         elif (appender) in location and (appender) not in confirmlist:
             (location).remove(appender)
+            (boxloc).remove(boxapp)
+            boxapp.setFill("cyan4")
 
 #Listoflistappenders1
 def ListofListAppenders1():
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 60, 113, Player1_Locations,
-                     stringrun(Astr), P1confirmlist)
+                    boxrunner(BoxesP1A) ,stringrun(Astr), P1confirmlist, P1BoxLoc)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 113, 166, Player1_Locations,
-                     stringrun(Bstr), P1confirmlist)
+                    boxrunner(BoxesP1B), stringrun(Bstr), P1confirmlist, P1BoxLoc)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 166, 219, Player1_Locations,
-                     stringrun(Cstr), P1confirmlist)
+                     boxrunner(BoxesP1C), stringrun(Cstr), P1confirmlist, P1BoxLoc)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 219, 272, Player1_Locations,
-                     stringrun(Dstr), P1confirmlist)
+                     boxrunner(BoxesP1D), stringrun(Dstr), P1confirmlist, P1BoxLoc)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 272, 325, Player1_Locations,
-                     stringrun(Estr), P1confirmlist)
+                     boxrunner(BoxesP1E),stringrun(Estr), P1confirmlist, P1BoxLoc)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 325, 378, Player1_Locations,
-                     stringrun(Fstr), P1confirmlist)
+                     boxrunner(BoxesP1F), stringrun(Fstr), P1confirmlist, P1BoxLoc)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 378, 431, Player1_Locations,
-                     stringrun(Gstr), P1confirmlist)
+                     boxrunner(BoxesP1G), stringrun(Gstr), P1confirmlist, P1BoxLoc)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 431, 484, Player1_Locations,
-                     stringrun(Hstr), P1confirmlist)
+                     boxrunner(BoxesP1H), stringrun(Hstr), P1confirmlist, P1BoxLoc)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 484, 537, Player1_Locations,
-                     stringrun(Istr), P1confirmlist)
+                     boxrunner(BoxesP1I), stringrun(Istr), P1confirmlist, P1BoxLoc)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 537, 590, Player1_Locations,
-                     stringrun(Jstr), P1confirmlist)
+                     boxrunner(BoxesP1J), stringrun(Jstr), P1confirmlist, P1BoxLoc)
 
 #Listoflistappenders2
 def ListofListAppenders2():
@@ -190,7 +167,7 @@ def boxrunner(li):
     boxvar=boxvar+1
     if boxvar is 9:
         boxvar=-1
-    return li[boxvar]
+    return li[boxvar] 
 
 #clickgetter
 def click_getter(win):

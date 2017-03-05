@@ -9,15 +9,16 @@ from starter import *
 #Instructions
 '''player1_name, player2_name=Instructions()'''
 
-'''hahahha'''
-
 #########################################################################
 #Confirmer
-def Confirmer(location1, location2):
+def Confirmer(conflist, stringli, boxloc, boxconf):
     if single_detector(1100, 1260, 520, 450, confirmP1, winP1) is True:
-        for x in location2:
-            if x not in location1:
-                location1.append(x)
+        for x in stringli:
+            if x not in conflist:
+                conflist.append(x)
+        for x in boxloc:
+            if x not in boxconf:
+                boxconf.append(x)
         return True
 
 #Looper
@@ -26,12 +27,13 @@ def Looper(length, win, location):
     while True:
         x_click, y_click=click_getter(winP1)
         if len(location) is length:
-            if Confirmer(P1confirmlist, Player1_Locations) is True:
+            if Confirmer(P1confirmlist, Player1_Locations, P1BoxLoc, P1BoxConf) is True:
                 break
         try:
             if win is winP1:
                 ListofListAppenders1()
                 FinalFiller1()
+                print(location)
         except:
             NameError
         try:
@@ -44,9 +46,8 @@ def Looper(length, win, location):
 ####################### PLAYER1 BOARD ######################################
 #Player 1's Board
 def Player1():
-    global winP1
-    global click
-    global confirmP1
+    global winP1, click, confirmP1, Player1_Locations, Aircraft1, Pat1, Sub1
+    global Frig1, Bship1
 
     winP1=GraphWin("Battleship Board", 1275, 650)
     
@@ -89,19 +90,26 @@ def Player1():
     text_box_title.draw(winP1)
 
     drawer1(winP1)
-
     FinalFiller1()
-    Looper(3, winP1, Player1_Locations)
-
-    FinalFiller1()
-
+    
     Looper(5, winP1, Player1_Locations)
-
+    for i in P1confirmlist:
+        Aircraft1.append(i)
     FinalFiller1()
-
-    Looper(6, winP1, Player1_Locations)
+    
+    Looper(9, winP1, Player1_Locations)
+    for i in range(5, 9):
+        Bship1.append(P1confirmlist[i])
+    FinalFiller1()
+  
+    '''Looper(11, winP1, Player1_Locations)'''
+    '''Pat1.append(Player1_Locations[9], Player1_Locations[10])'''
+    FinalFiller1()
 
     print("im here")
+    print("bship is",Bship1)
+    print("Aircraft is", Aircraft1)
+    print("Patrol boat is", Pat1)
 
 #####################
 def Player2():
@@ -185,7 +193,6 @@ def Player2():
     Looper(3, winP2)
  
 Player1()
-winP1.close()
 
 writer= open("Pickler.py", "wb")
 pickle.dump("", writer, protocol=2)
