@@ -59,18 +59,6 @@ def single_detector(ok_left, ok_right, ok_top, ok_bottom, box, win):
             (box).setFill("AntiqueWhite2")
             return True
 
-#AfterFiller
-def AfterFiller(square1 ,square2,location, confirmed_spot_list):
-
-    if square2 in location and square2 not in confirmed_spot_list:
-        (square1).setFill("gray")
-
-    elif square2 in confirmed_spot_list:
-        (square1).setFill("slategray")
-
-    elif square2 not in location:
-        (square1).setFill("cyan4")
-
 #ListAppender
 def ListAppender(left, right, top, bottom, location, boxapp, appender,
                  confirmlist, boxloc):
