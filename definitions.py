@@ -71,15 +71,6 @@ def AfterFiller(square1 ,square2,location, confirmed_spot_list):
     elif square2 not in location:
         (square1).setFill("cyan4")
 
-#FinalFiller1
-def FinalFiller1():
-    for i in P1BoxConf:
-        i.setFill("slategray")
-                    
-#FinalFiller2
-def FinalFiller2():
-    pass
-
 #ListAppender
 def ListAppender(left, right, top, bottom, location, boxapp, appender,
                  confirmlist, boxloc):
