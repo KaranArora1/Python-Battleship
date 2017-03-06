@@ -65,7 +65,7 @@ def Player1():
     text_box.setFill("AntiqueWhite")
     button1.setFill("AntiqueWhite")
     button2.setFill("AntiqueWhite")
-    confirmP1.setFill("AntiqueWhite")
+    confirmP1.setFill("AntiqueWhite2")
     
     attack.draw(winP1)
     fleet.draw(winP1)
@@ -97,14 +97,24 @@ def Player1():
     Looper(9, winP1, Player1_Locations)
     for i in range(5, 9):
         Bship1.append(P1confirmlist[i])
-  
-    '''Looper(11, winP1, Player1_Locations)'''
-    '''Pat1.append(Player1_Locations[9], Player1_Locations[10])'''
 
-    print("im here")
-    print("bship is",Bship1)
-    print("Aircraft is", Aircraft1)
-    print("Patrol boat is", Pat1)
+    Looper(12, winP1, Player1_Locations)
+    for i in range(9, 12):
+        Frig1.append(P1confirmlist[i])
+
+    Looper(15, winP1, Player1_Locations)
+    for i in range(12, 15):
+        Sub1.append(P1confirmlist[i])
+
+    Looper(17, winP1, Player1_Locations)
+    for i in range(15, 17):
+        Pat1.append(P1confirmlist[i])
+        
+    print("Aircraft Carrier has points", Aircraft1)
+    print("Battleship has points",Bship1)
+    print("Frigate has points", Frig1)
+    print("Submarine has points", Sub1)
+    print("Patrol Boat has points", Pat1)
 
 #####################
 def Player2():
@@ -154,7 +164,6 @@ def Player2():
 
  
 Player1()
-winP1.close()
 
 writer= open("Pickler.py", "wb")
 pickle.dump("", writer, protocol=2)
