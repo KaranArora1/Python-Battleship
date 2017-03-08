@@ -1,3 +1,4 @@
+import subprocess
 import pickle
 import time
 import sys
@@ -44,7 +45,7 @@ def Looper(length, win, location):
 
 ####################### PLAYER1 BOARD ######################################
 #Player 1's Board
-def Player1():
+def Player1(stage):
     global winP1, click, confirmP1, Player1_Locations, Aircraft1, Pat1, Sub1
     global Frig1, Bship1
 
@@ -71,7 +72,6 @@ def Player1():
     fleet.draw(winP1)
 
     text_box.draw(winP1)
-    confirmP1.draw(winP1)
 
     fleet_title= Text(Point(277.5, 25), "FLEET")
     radar_title= Text(Point(882.5, 25), "RADAR")
@@ -85,36 +85,45 @@ def Player1():
 
     fleet_title.draw(winP1)
     radar_title.draw(winP1)
-    confirm_title.draw(winP1)
     text_box_title.draw(winP1)
 
     drawer1(winP1)
+
+    if "1"== stage:
+        confirmP1.draw(winP1)
+        confirm_title.draw(winP1)
     
-    Looper(5, winP1, Player1_Locations)
-    for i in P1confirmlist:
-        Aircraft1.append(i)
-    
-    Looper(9, winP1, Player1_Locations)
-    for i in range(5, 9):
-        Bship1.append(P1confirmlist[i])
-
-    Looper(12, winP1, Player1_Locations)
-    for i in range(9, 12):
-        Frig1.append(P1confirmlist[i])
-
-    Looper(15, winP1, Player1_Locations)
-    for i in range(12, 15):
-        Sub1.append(P1confirmlist[i])
-
-    Looper(17, winP1, Player1_Locations)
-    for i in range(15, 17):
-        Pat1.append(P1confirmlist[i])
+        Looper(5, winP1, Player1_Locations)
+        for i in P1confirmlist:
+            Aircraft1.append(i)
         
-    print("Aircraft Carrier has points", Aircraft1)
-    print("Battleship has points",Bship1)
-    print("Frigate has points", Frig1)
-    print("Submarine has points", Sub1)
-    print("Patrol Boat has points", Pat1)
+        Looper(9, winP1, Player1_Locations)
+        for i in range(5, 9):
+            Bship1.append(P1confirmlist[i])
+
+        Looper(12, winP1, Player1_Locations)
+        for i in range(9, 12):
+            Frig1.append(P1confirmlist[i])
+
+        Looper(15, winP1, Player1_Locations)
+        for i in range(12, 15):
+            Sub1.append(P1confirmlist[i])
+
+        Looper(17, winP1, Player1_Locations)
+        for i in range(15, 17):
+            Pat1.append(P1confirmlist[i])
+
+        time.sleep(0.25)
+        
+        confirm_title.undraw()
+        confirm_title= Text(Point(1180, 485), "Done!")
+        confirm_title.draw(winP1)
+
+        while True:
+            click_getter(winP1)
+            if single_detector(1100, 1260, 520, 450, confirmP1, winP1) is True:
+                winP1.close()
+                break        
 
 #####################
 def Player2():
@@ -162,8 +171,11 @@ def Player2():
     button1_text.draw(winP2)
     button2_text.draw(winP2)
 
- 
-Player1()
+'''audio_file="/Users/karanarora/Desktop/Music/New/Sandmang.wav"
+subprocess.call(["afplay", audio_file])
+Player2()'''
+
+Player1("1")
 
 writer= open("Pickler.py", "wb")
 pickle.dump("", writer, protocol=2)

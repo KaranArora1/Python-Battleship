@@ -160,6 +160,7 @@ def click_getter(win):
         writer.close()
         return x_click, y_click
 
+#Drawer
 def drawer1(win):
     for i in BoxesP1A:
         i.draw(win)
@@ -181,4 +182,26 @@ def drawer1(win):
         i.draw(win)
     for i in BoxesP1J:
         i.draw(win)
+        
+    for i in BoxesP1ATT_A:
+        i.draw(win)
+    for i in BoxesP1ATT_B:
+        i.draw(win)
+    for i in BoxesP1ATT_C:
+        i.draw(win)
+    for i in BoxesP1ATT_D:
+        i.draw(win)
+    for i in BoxesP1ATT_E:
+        i.draw(win)
+    for i in BoxesP1ATT_F:
+        i.draw(win)
+    for i in BoxesP1ATT_G:
+        i.draw(win)
+    for i in BoxesP1ATT_H:
+        i.draw(win)
+    for i in BoxesP1ATT_I:
+        i.draw(win)
+    for i in BoxesP1ATT_J:
+        i.draw(win)
+    
     
