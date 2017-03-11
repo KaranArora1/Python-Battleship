@@ -12,8 +12,8 @@ from starter import *
 
 #########################################################################
 #Confirmer
-def Confirmer(conflist, stringli, boxloc, boxconf):
-    if single_detector(1100, 1260, 520, 450, confirmP1, winP1) is True:
+def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win):
+    if single_detector(1100, 1260, 520, 450, confirmbox, win) is True:
         for x in stringli:
             if x not in conflist:
                 conflist.append(x)
@@ -25,12 +25,12 @@ def Confirmer(conflist, stringli, boxloc, boxconf):
         return True
 
 #Looper
-def Looper(length, win, location):
+def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox):
     global x_click, y_click
     while True:
-        x_click, y_click=click_getter(winP1)
+        x_click, y_click=click_getter(win)
         if len(location) is length:
-            if Confirmer(P1confirmlist, Player1_Locations, P1BoxLoc, P1BoxConf) is True:
+            if Confirmer(confirmlist, location, boxloc, boxconf, confirmbox, win) is True:
                 break
         try:
             if win is winP1:
@@ -93,23 +93,23 @@ def Player1(stage):
         confirmP1.draw(winP1)
         confirm_title.draw(winP1)
     
-        Looper(5, winP1, Player1_Locations)
+        Looper(5, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
         for i in P1confirmlist:
             Aircraft1.append(i)
         
-        Looper(9, winP1, Player1_Locations)
+        Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
         for i in range(5, 9):
             Bship1.append(P1confirmlist[i])
 
-        Looper(12, winP1, Player1_Locations)
+        Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
         for i in range(9, 12):
             Frig1.append(P1confirmlist[i])
 
-        Looper(15, winP1, Player1_Locations)
+        Looper(15, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
         for i in range(12, 15):
             Sub1.append(P1confirmlist[i])
 
-        Looper(17, winP1, Player1_Locations)
+        Looper(17, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
         for i in range(15, 17):
             Pat1.append(P1confirmlist[i])
 
@@ -126,7 +126,7 @@ def Player1(stage):
                 break        
 
 #####################
-def Player2():
+def Player2(stage):
     global winP2, click, confirmP2, Player2_Locations, Aircraft2, Pat2, Sub2
     global Frig2, Bship2
 
@@ -151,7 +151,6 @@ def Player2():
 
     attack.draw(winP2)
     fleet.draw(winP2)
-    confirmP2.draw(winP2)
 
     text_box.draw(winP2)
 
@@ -169,15 +168,50 @@ def Player2():
     radar_title.draw(winP2)
 
     text_box_title.draw(winP2)
-    confirm_title.draw(winP2)
 
     drawer2(winP2)
+
+    if "1"== stage:
+        confirmP2.draw(winP2)
+        confirm_title.draw(winP2)
+    
+        Looper(5, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        for i in P2confirmlist:
+            Aircraft2.append(i)
+        
+        Looper(9, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        for i in range(5, 9):
+            Bship2.append(P2confirmlist[i])
+
+        Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        for i in range(9, 12):
+            Frig2.append(P2confirmlist[i])
+
+        Looper(15, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        for i in range(12, 15):
+            Sub2.append(P2confirmlist[i])
+
+        Looper(17, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        for i in range(15, 17):
+            Pat2.append(P2confirmlist[i])
+
+        time.sleep(0.25)
+        
+        confirm_title.undraw()
+        confirm_title= Text(Point(1180, 485), "Done!")
+        confirm_title.draw(winP2)
+
+        while True:
+            click_getter(winP2)
+            if single_detector(1100, 1260, 520, 450, confirmP2, winP2) is True:
+                winP2.close()
+                break        
 
 '''audio_file="/Users/karanarora/Desktop/Music/New/Sandmang.wav"
 subprocess.call(["afplay", audio_file])
 Player2()'''
 
-Player2()
+Player1('1')
 
 writer= open("Pickler.py", "wb")
 pickle.dump("", writer, protocol=2)

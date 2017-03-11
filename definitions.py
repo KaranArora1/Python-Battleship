@@ -114,7 +114,36 @@ def ListofListAppenders1():
 
 #Listoflistappenders2
 def ListofListAppenders2():
-    pass
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 60, 113, Player2_Locations,
+                    boxrunner(BoxesP2A) ,stringrun(Astr), P2confirmlist, P2BoxLoc)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 113, 166, Player2_Locations,
+                    boxrunner(BoxesP2B), stringrun(Bstr), P2confirmlist, P2BoxLoc)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 166, 219, Player2_Locations,
+                     boxrunner(BoxesP2C), stringrun(Cstr), P2confirmlist, P2BoxLoc)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 219, 272, Player2_Locations,
+                     boxrunner(BoxesP2D), stringrun(Dstr), P2confirmlist, P2BoxLoc)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 272, 325, Player2_Locations,
+                     boxrunner(BoxesP2E),stringrun(Estr), P2confirmlist, P2BoxLoc)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 325, 378, Player2_Locations,
+                     boxrunner(BoxesP2F), stringrun(Fstr), P2confirmlist, P2BoxLoc)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 378, 431, Player2_Locations,
+                     boxrunner(BoxesP2G), stringrun(Gstr), P2confirmlist, P2BoxLoc)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 431, 484, Player2_Locations,
+                     boxrunner(BoxesP2H), stringrun(Hstr), P2confirmlist, P2BoxLoc)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 484, 537, Player2_Locations,
+                     boxrunner(BoxesP2I), stringrun(Istr), P2confirmlist, P2BoxLoc)
+    for i in range(10):
+        ListAppender(leftbound(), rightbound(), 537, 590, Player2_Locations,
+                     boxrunner(BoxesP2J), stringrun(Jstr), P2confirmlist, P2BoxLoc)
 
 #Leftbound
 def leftbound():
