@@ -121,6 +121,8 @@ J8_1=Rectangle(Point(381.5, 537), Point(431, 590))
 J9_1=Rectangle(Point(431, 537), Point(480.5, 590))
 J10_1=Rectangle(Point(480.5, 537), Point(530, 590))
 
+###############################################################################
+
 #Player1ATT
 #Player1Board
 #A
@@ -366,6 +368,131 @@ J8_2=Rectangle(Point(381.5, 537), Point(431, 590))
 J9_2=Rectangle(Point(431, 537), Point(480.5, 590))
 J10_2=Rectangle(Point(480.5, 537), Point(530, 590))
 
+##############################################################################
+
+#Player2ATTBoard
+#A
+A1_2ATT=Rectangle(Point(590, 60), Point(639.5, 113))
+A2_2ATT=Rectangle(Point(639.5, 60 ), Point(689, 113))
+A3_2ATT=Rectangle(Point(689, 60), Point(738.5, 113))
+A4_2ATT=Rectangle(Point(738.5, 60), Point(788, 113))
+A5_2ATT=Rectangle(Point(788, 60), Point(837.5, 113))
+A6_2ATT=Rectangle(Point(837.5, 60), Point(887, 113))
+A7_2ATT=Rectangle(Point(887, 60), Point(936.5, 113))
+A8_2ATT=Rectangle(Point(936.5, 60), Point(986, 113))
+A9_2ATT=Rectangle(Point(986, 60), Point(1035.5, 113))
+A10_2ATT=Rectangle(Point(1035.5, 60), Point(1085, 113))
+
+#B
+B1_2ATT= Rectangle(Point(590, 113), Point(639.5, 166))
+B2_2ATT= Rectangle(Point(639.5, 113), Point(689, 166))
+B3_2ATT= Rectangle(Point(689, 113), Point(738.5, 166))
+B4_2ATT= Rectangle(Point(738.5, 113), Point(788, 166))
+B5_2ATT= Rectangle(Point(788, 113), Point(837.5, 166))
+B6_2ATT= Rectangle(Point(837.5, 113), Point(887, 166))
+B7_2ATT= Rectangle(Point(887, 113), Point(936.5, 166))
+B8_2ATT= Rectangle(Point(936.5, 113), Point(986, 166))
+B9_2ATT= Rectangle(Point(986, 113), Point(1035.5, 166))
+B10_2ATT= Rectangle(Point(1035.5, 113), Point(1085, 166))
+
+#C
+C1_2ATT= Rectangle(Point(590, 166), Point(639.5, 219))
+C2_2ATT=Rectangle(Point(639.5, 166), Point(689, 219))
+C3_2ATT=Rectangle(Point(689, 166), Point(738.5, 219))
+C4_2ATT=Rectangle(Point(738.5, 166), Point(788, 219))
+C5_2ATT=Rectangle(Point(788, 166), Point(837.5, 219))
+C6_2ATT=Rectangle(Point(837.5, 166), Point(887, 219))
+C7_2ATT=Rectangle(Point(887, 166), Point(936.5, 219))
+C8_2ATT=Rectangle(Point(936.5, 166), Point(986, 219))
+C9_2ATT=Rectangle(Point(986, 166), Point(1035.5, 219))
+C10_2ATT=Rectangle(Point(1035.5, 166), Point(1085, 219))
+
+#D
+D1_2ATT=Rectangle(Point(590, 219), Point(639.5, 272))
+D2_2ATT=Rectangle(Point(639.5, 219), Point(689, 272))
+D3_2ATT=Rectangle(Point(689, 219), Point(738.5, 272))
+D4_2ATT=Rectangle(Point(738.5, 219), Point(788, 272))
+D5_2ATT=Rectangle(Point(788, 219), Point(837.5, 272))
+D6_2ATT=Rectangle(Point(837.5, 219), Point(887, 272))
+D7_2ATT=Rectangle(Point(887, 219), Point(936.5, 272))
+D8_2ATT=Rectangle(Point(936.5, 219), Point(986, 272))
+D9_2ATT=Rectangle(Point(986, 219), Point(1035.5, 272))
+D10_2ATT=Rectangle(Point(1035.5, 219), Point(1085, 272))
+
+#E
+E1_2ATT=Rectangle(Point(590, 272), Point(639.5, 325))
+E2_2ATT=Rectangle(Point(639.5, 272), Point(689, 325))
+E3_2ATT=Rectangle(Point(689, 272), Point(738.5, 325))
+E4_2ATT=Rectangle(Point(738.5, 272), Point(788, 325))
+E5_2ATT=Rectangle(Point(788, 272), Point(837.5, 325))
+E6_2ATT=Rectangle(Point(837.5, 272), Point(887, 325))
+E7_2ATT=Rectangle(Point(887, 272), Point(936.5, 325))
+E8_2ATT=Rectangle(Point(936.5, 272), Point(986, 325))
+E9_2ATT=Rectangle(Point(986, 272), Point(1035.5, 325))
+E10_2ATT=Rectangle(Point(1035.5, 272), Point(1085, 325))
+
+#F
+F1_2ATT=Rectangle(Point(590, 325), Point(639.5, 378))
+F2_2ATT=Rectangle(Point(639.5, 325), Point(689, 378))
+F3_2ATT=Rectangle(Point(689, 325), Point(738.5, 378))
+F4_2ATT=Rectangle(Point(738.5, 325), Point(788, 378))
+F5_2ATT=Rectangle(Point(788, 325), Point(837.5, 378))
+F6_2ATT=Rectangle(Point(837.5, 325), Point(887, 378))
+F7_2ATT=Rectangle(Point(887, 325), Point(936.5, 378))
+F8_2ATT=Rectangle(Point(936.5, 325), Point(986, 378))
+F9_2ATT=Rectangle(Point(986, 325), Point(1035.5, 378))
+F10_2ATT=Rectangle(Point(1035.5, 325), Point(1085, 378))
+
+#G
+G1_2ATT=Rectangle(Point(590, 378), Point(639.5, 431))
+G2_2ATT=Rectangle(Point(639.5, 378), Point(689, 431))
+G3_2ATT=Rectangle(Point(689, 378), Point(738.5, 431))
+G4_2ATT=Rectangle(Point(738.5, 378), Point(788, 431))
+G5_2ATT=Rectangle(Point(788, 378), Point(837.5, 431))
+G6_2ATT=Rectangle(Point(837.5, 378), Point(887, 431))
+G7_2ATT=Rectangle(Point(887, 378), Point(936.5, 431))
+G8_2ATT=Rectangle(Point(936.5, 378), Point(986, 431))
+G9_2ATT=Rectangle(Point(986, 378), Point(1035.5, 431))
+G10_2ATT=Rectangle(Point(1035.5, 378), Point(1085, 431))
+
+#H
+H1_2ATT=Rectangle(Point(590, 431), Point(639.5, 484))
+H2_2ATT=Rectangle(Point(639.5, 431), Point(689, 484))
+H3_2ATT=Rectangle(Point(689, 431), Point(738.5, 484))
+H4_2ATT=Rectangle(Point(738.5, 431), Point(788, 484))
+H5_2ATT=Rectangle(Point(788, 431), Point(837.5, 484))
+H6_2ATT=Rectangle(Point(837.5, 431), Point(887, 484))
+H7_2ATT=Rectangle(Point(887, 431), Point(936.5, 484))
+H8_2ATT=Rectangle(Point(936.5, 431), Point(986, 484))
+H9_2ATT=Rectangle(Point(986, 431), Point(1035.5, 484))
+H10_2ATT=Rectangle(Point(1035.5, 431), Point(1085, 484))
+
+#I
+I1_2ATT=Rectangle(Point(590, 484), Point(639.5, 537))
+I2_2ATT=Rectangle(Point(639.5, 484), Point(689, 537))
+I3_2ATT=Rectangle(Point(689, 484), Point(738.5, 537))
+I4_2ATT=Rectangle(Point(738.5, 484), Point(788, 537))
+I5_2ATT=Rectangle(Point(788, 484), Point(837.5, 537))
+I6_2ATT=Rectangle(Point(837.5, 484), Point(887, 537))
+I7_2ATT=Rectangle(Point(887, 484), Point(936.5, 537))
+I8_2ATT=Rectangle(Point(936.5, 484), Point(986, 537))
+I9_2ATT=Rectangle(Point(986, 484), Point(1035.5, 537))
+I10_2ATT=Rectangle(Point(1035.5, 484), Point(1085, 537))
+
+#J
+J1_2ATT=Rectangle(Point(590, 537), Point(639.5, 590))
+J2_2ATT=Rectangle(Point(639.5, 537), Point(689, 590))
+J3_2ATT=Rectangle(Point(689, 537), Point(738.5, 590))
+J4_2ATT=Rectangle(Point(738.5, 537), Point(788, 590))
+J5_2ATT=Rectangle(Point(788, 537), Point(837.5, 590))
+J6_2ATT=Rectangle(Point(837.5, 537), Point(887, 590))
+J7_2ATT=Rectangle(Point(887, 537), Point(936.5, 590))
+J8_2ATT=Rectangle(Point(936.5, 537), Point(986, 590))
+J9_2ATT=Rectangle(Point(986, 537), Point(1035.5, 590))
+J10_2ATT=Rectangle(Point(1035.5, 537), Point(1085, 590))
+
+################################################################################################
+
 #LooperVars
 Astr=("A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10")
 Bstr=("B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10")
@@ -402,7 +529,27 @@ BoxesP1ATT_I= (I1_1ATT, I2_1ATT, I3_1ATT, I4_1ATT, I5_1ATT, I6_1ATT, I7_1ATT, I8
 BoxesP1ATT_J= (J1_1ATT, J2_1ATT, J3_1ATT, J4_1ATT, J5_1ATT, J6_1ATT, J7_1ATT, J8_1ATT, J9_1ATT, J10_1ATT)
 
 #BoxesP2
-BoxesP2=[]
+BoxesP2A=(A1_2, A2_2, A3_2, A4_2, A5_2, A6_2, A7_2, A8_2, A9_2, A10_2)
+BoxesP2B=(B1_2, B2_2, B3_2, B4_2, B5_2, B6_2, B7_2, B8_2, B9_2, B10_2)
+BoxesP2C=(C1_2, C2_2, C3_2, C4_2, C5_2, C6_2, C7_2, C8_2, C9_2, C10_2)
+BoxesP2D=(D1_2, D2_2, D3_2, D4_2, D5_2, D6_2, D7_2, D8_2, D9_2, D10_2)
+BoxesP2E=(E1_2, E2_2, E3_2, E4_2, E5_2, E6_2, E7_2, E8_2, E9_2, E10_2)
+BoxesP2F=(F1_2, F2_2, F3_2, F4_2, F5_2, F6_2, F7_2, F8_2, F9_2, F10_2)
+BoxesP2G=(G1_2, G2_2, G3_2, G4_2, G5_2, G6_2, G7_2, G8_2, G9_2, G10_2)
+BoxesP2H=(H1_2, H2_2, H3_2, H4_2, H5_2, H6_2, H7_2, H8_2, H9_2, H10_2)
+BoxesP2I=(I1_2, I2_2, I3_2, I4_2, I5_2, I6_2, I7_2, I8_2, I9_2, I10_2)
+BoxesP2J=(J1_2, J2_2, J3_2, J4_2, J5_2, J6_2, J7_2, J8_2, J9_2, J10_2)
+
+BoxesP2ATT_A= (A1_2ATT, A2_2ATT, A3_2ATT, A4_2ATT, A5_2ATT, A6_2ATT, A7_2ATT, A8_2ATT, A9_2ATT, A10_2ATT)
+BoxesP2ATT_B= (B1_2ATT, B2_2ATT, B3_2ATT, B4_2ATT, B5_2ATT, B6_2ATT, B7_2ATT, B8_2ATT, B9_2ATT, B10_2ATT)
+BoxesP2ATT_C= (C1_2ATT, C2_2ATT, C3_2ATT, C4_2ATT, C5_2ATT, C6_2ATT, C7_2ATT, C8_2ATT, C9_2ATT, C10_2ATT)
+BoxesP2ATT_D= (D1_2ATT, D2_2ATT, D3_2ATT, D4_2ATT, D5_2ATT, D6_2ATT, D7_2ATT, D8_2ATT, D9_2ATT, D10_2ATT)
+BoxesP2ATT_E= (E1_2ATT, E2_2ATT, E3_2ATT, E4_2ATT, E5_2ATT, E6_2ATT, E7_2ATT, E8_2ATT, E9_2ATT, E10_2ATT)
+BoxesP2ATT_F= (F1_2ATT, F2_2ATT, F3_2ATT, F4_2ATT, F5_2ATT, F6_2ATT, F7_2ATT, F8_2ATT, F9_2ATT, F10_2ATT)
+BoxesP2ATT_G= (G1_2ATT, G2_2ATT, G3_2ATT, G4_2ATT, G5_2ATT, G6_2ATT, G7_2ATT, G8_2ATT, G9_2ATT, G10_2ATT)
+BoxesP2ATT_H= (H1_2ATT, H2_2ATT, H3_2ATT, H4_2ATT, H5_2ATT, H6_2ATT, H7_2ATT, H8_2ATT, H9_2ATT, H10_2ATT)
+BoxesP2ATT_I= (I1_2ATT, I2_2ATT, I3_2ATT, I4_2ATT, I5_2ATT, I6_2ATT, I7_2ATT, I8_2ATT, I9_2ATT, I10_2ATT)
+BoxesP2ATT_J= (J1_2ATT, J2_2ATT, J3_2ATT, J4_2ATT, J5_2ATT, J6_2ATT, J7_2ATT, J8_2ATT, J9_2ATT, J10_2ATT)
 
 #Player1Loc
 Player1_Locations=[]
@@ -424,3 +571,9 @@ Aircraft1=[]
 Pat1=[]
 Sub1=[]
 Frig1=[]
+
+Bship2=[]
+Aircraft2=[]
+Pat2=[]
+Sub2=[]
+Frig2=[]

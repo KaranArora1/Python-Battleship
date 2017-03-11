@@ -127,8 +127,8 @@ def Player1(stage):
 
 #####################
 def Player2():
-    global winP2
-    global click
+    global winP2, click, confirmP2, Player2_Locations, Aircraft2, Pat2, Sub2
+    global Frig2, Bship2
 
     winP2=GraphWin("Battleship Board", 1275, 650)
     
@@ -138,6 +138,7 @@ def Player2():
     text_box= Rectangle(Point(1100, 80), Point(1260, 380))
     button1= Rectangle(Point(1100, 400), Point(1260, 450))
     button2= Rectangle(Point(1100, 470), Point(1260, 520))
+    confirmP2= Rectangle(Point(1100, 450), Point(1260, 520))
 
     winP2.setBackground("cyan3")
     fleet.setFill("cyan4")
@@ -146,17 +147,17 @@ def Player2():
     text_box.setFill("AntiqueWhite")
     button1.setFill("AntiqueWhite")
     button2.setFill("AntiqueWhite")
-    
+    confirmP2.setFill("AntiqueWhite")
 
     attack.draw(winP2)
     fleet.draw(winP2)
+    confirmP2.draw(winP2)
 
     text_box.draw(winP2)
-    button1.draw(winP2)
-    button2.draw(winP2)
 
     fleet_title= Text(Point(277.5, 25), "FLEET")
     radar_title= Text(Point(882.5, 25), "RADAR")
+    confirm_title= Text(Point(1180, 485), "Confirm")
 
     fleet_title.setSize(20)
 
@@ -168,14 +169,15 @@ def Player2():
     radar_title.draw(winP2)
 
     text_box_title.draw(winP2)
-    button1_text.draw(winP2)
-    button2_text.draw(winP2)
+    confirm_title.draw(winP2)
+
+    drawer2(winP2)
 
 '''audio_file="/Users/karanarora/Desktop/Music/New/Sandmang.wav"
 subprocess.call(["afplay", audio_file])
 Player2()'''
 
-Player1("1")
+Player2()
 
 writer= open("Pickler.py", "wb")
 pickle.dump("", writer, protocol=2)

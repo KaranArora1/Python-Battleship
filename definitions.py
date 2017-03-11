@@ -203,5 +203,49 @@ def drawer1(win):
         i.draw(win)
     for i in BoxesP1ATT_J:
         i.draw(win)
+
+def drawer2(win):
+    for i in BoxesP2A:
+        i.draw(win)
+    for i in BoxesP2B:
+        i.draw(win)
+    for i in BoxesP2C:
+        i.draw(win)
+    for i in BoxesP2D:
+        i.draw(win)
+    for i in BoxesP2E:
+        i.draw(win)
+    for i in BoxesP2F:
+        i.draw(win)
+    for i in BoxesP2G:
+        i.draw(win)
+    for i in BoxesP2H:
+        i.draw(win)
+    for i in BoxesP2I:
+        i.draw(win)
+    for i in BoxesP2J:
+        i.draw(win)
+
+    for i in BoxesP2ATT_A:
+        i.draw(win)
+    for i in BoxesP2ATT_B:
+        i.draw(win)
+    for i in BoxesP2ATT_C:
+        i.draw(win)
+    for i in BoxesP2ATT_D:
+        i.draw(win)
+    for i in BoxesP2ATT_E:
+        i.draw(win)
+    for i in BoxesP2ATT_F:
+        i.draw(win)
+    for i in BoxesP2ATT_G:
+        i.draw(win)
+    for i in BoxesP2ATT_H:
+        i.draw(win)
+    for i in BoxesP2ATT_I:
+        i.draw(win)
+    for i in BoxesP2ATT_J:
+        i.draw(win)
+    
     
     
