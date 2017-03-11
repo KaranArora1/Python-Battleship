@@ -553,17 +553,15 @@ BoxesP2ATT_J= (J1_2ATT, J2_2ATT, J3_2ATT, J4_2ATT, J5_2ATT, J6_2ATT, J7_2ATT, J8
 
 #Player1Loc
 Player1_Locations=[]
+P1confirmlist=[]
 P1BoxLoc=[]
+P1BoxConf=[]
 
 #Player2Loc
 Player2_Locations=[]
-P1BoxConf=[]
-
-#P1conf
-P1confirmlist=[]
-
-#P2conf
 P2confirmlist=[]
+P2BoxLoc=[]
+P2BoxConf=[]
 
 #Ships
 Bship1=[]
