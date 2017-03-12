@@ -575,3 +575,12 @@ Aircraft2=[]
 Pat2=[]
 Sub2=[]
 Frig2=[]
+
+#Listvars
+xvar=-1
+yvar=-1
+liststart=-1
+boxvar=-1
+brun=-1
+rightvar=-1
+leftvar=-1
