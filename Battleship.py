@@ -46,10 +46,10 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox):
 ####################### PLAYER1 BOARD ######################################
 #Player 1's Board
 def Player1(stage):
-    global winP1, click, confirmP1, Player1_Locations, Aircraft1, Pat1, Sub1
-    global Frig1, Bship1
+    global winP1, click, confirmP1, Player1_Locations 
+    global Aircraft1, Pat1, Sub1, Frig1, Bship1
 
-    winP1=GraphWin("Battleship Board", 1275, 650)
+    winP1=GraphWin("Battleship Board", 1275, 650, autoflush= False)
     
     fleet= Rectangle(Point(35, 60), Point(530, 590))
     attack= Rectangle(Point(590, 60), Point(1085, 590))
@@ -88,6 +88,8 @@ def Player1(stage):
     text_box_title.draw(winP1)
 
     drawer1(winP1)
+
+    winP1.update()
 
     if "1"== stage:
         confirmP1.draw(winP1)
@@ -140,7 +142,7 @@ def Player2(stage):
     global winP2, click, confirmP2, Player2_Locations, Aircraft2, Pat2, Sub2
     global Frig2, Bship2
 
-    winP2=GraphWin("Battleship Board", 1275, 650)
+    winP2=GraphWin("Battleship Board", 1275, 650, autoflush=False)
     
     fleet= Rectangle(Point(35, 60), Point(530, 590))
     attack= Rectangle(Point(590, 60), Point(1085, 590))

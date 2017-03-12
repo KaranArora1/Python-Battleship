@@ -13,7 +13,7 @@ def Instructions():
     global choice_start
 
     #Rectangles
-    win=GraphWin("Start",600, 325)
+    win=GraphWin("Start",600, 325, autoflush=False)
     case= Rectangle(Point(25, 25), Point(575, 300))
     choice_yes= Rectangle(Point(130, 225), Point(215, 260))
     choice_no= Rectangle(Point(385, 225), Point(470, 260))
@@ -235,6 +235,8 @@ def Instructions():
     win.close()
     return player1_name, player2_name
     
+
+
 
 
 

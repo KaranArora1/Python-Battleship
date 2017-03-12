@@ -11,8 +11,10 @@ def next_detector(ok_left, ok_right, ok_top, ok_bottom, box, win):
         y_click=click.getY()
         if ok_left< x_click < ok_right and ok_bottom < y_click < ok_top:
             (box).setFill("white")
+            win.update()
             time.sleep(0.10)
             (box).setFill("AntiqueWhite2")
+            win.update()
             break
 
 #Yes/No
@@ -24,15 +26,19 @@ def yes_no_detector(yes_left, yes_right, yes_top, yes_bottom, no_left, no_right
         y_click=click.getY()
         if yes_left < x_click < yes_right and yes_bottom < y_click < yes_top:
             yes.setFill("white")
+            win.update()
             time.sleep(0.10)
             yes.setFill("AntiqueWhite2")
+            win.update()
             return True
             time.sleep(0.25)
             break
         elif no_left < x_click < no_right and no_bottom < y_click < no_top:
             no.setFill("white")
+            win.update()
             time.sleep(0.12)
             no.setFill("AntiqueWhite2")
+            win.update()
             return False
             break
 
@@ -50,8 +56,10 @@ def single_detector(ok_left, ok_right, ok_top, ok_bottom, box, win):
 
         if ok_left< x_click < ok_right and ok_bottom < y_click < ok_top:
             (box).setFill("white")
+            win.update()
             time.sleep(0.10)
             (box).setFill("AntiqueWhite2")
+            win.update()
             return True
 
 #ListAppender
