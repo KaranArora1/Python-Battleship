@@ -21,7 +21,7 @@ def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win):
             if x not in boxconf:
                 boxconf.append(x)
         for i in boxconf:
-            i.setFill("slategray")
+            i.setFill("snow4")
         return True
 
 #Looper
@@ -128,19 +128,18 @@ def Player1(stage):
                 break
             
     elif "2"== stage:
-        click_getter(winP1)
-        attack1()
-        click_getter(winP1)
-        attack1()
-        click_getter(winP1)
-        attack1()
-            
-
-
+            while True:
+                length= len(P1att)
+                click_getter(winP1)
+                attack1()
+                length2= len(P1att)
+                if length2==length+1:
+                    break
+        
 #####################
 def Player2(stage):
-    global winP2, click, confirmP2, Player2_Locations, Aircraft2, Pat2, Sub2
-    global Frig2, Bship2
+    global winP2, click, confirmP2, Player2_Locations 
+    global Aircraft2, Pat2, Sub2, Frig2, Bship2
 
     winP2=GraphWin("Battleship Board", 1275, 650, autoflush=False)
     
@@ -217,15 +216,25 @@ def Player2(stage):
             click_getter(winP2)
             if single_detector(1100, 1260, 520, 450, confirmP2, winP2) is True:
                 winP2.close()
-                break        
+                break
+            
+    elif "2"== stage:
+        for i in range(4):
+            while True:
+                length= len(P2att)
+                click_getter(winP2)
+                attack2()
+                length2= len(P2att)
+                if length2==length+1:
+                    break
 
 '''audio_file="/Users/karanarora/Desktop/Music/New/Sandmang.wav"
 subprocess.call(["afplay", audio_file])
 Player2()'''
 
-Player1('1')
 Player2('1')
-Player1('2')
+Player1('1')
+Player2('2')
 
 writer= open("Pickler.py", "wb")
 pickle.dump("", writer, protocol=2)

@@ -149,7 +149,7 @@ def ListofListAppenders2():
                      boxrunner(BoxesP2J), stringrun(Jstr), P2confirmlist, P2BoxLoc)
 
 #Attacker
-def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf):
+def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf, ownlist):
     reader= open("Pickler.py", "rb")
     x_click, y_click=pickle.load(reader)
     reader.close()
@@ -157,28 +157,80 @@ def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf):
     if left<x_click<right and bottom>y_click>top:
 
         if OPbox in OPboxconf:
-            ownbox.setFill("red")
-
+            ownbox.setFill("brown2")
+            
         elif OPbox not in OPboxconf:
-            ownbox.setFill("white")
+            ownbox.setFill("ghost white")
 
-#AttackAppender1
+        if OPbox not in ownlist:
+            ownlist.append(OPbox)
+
+#Attack1
 def attack1():
     for i in range(10):
         Attacker(leftatt(), rightatt(), 60, 113, boxrunner(BoxesP1ATT_A),
-                 boxrunner2(BoxesP2A), P2BoxConf)
+                 boxrunner2(BoxesP2A), P2BoxConf, P1att)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 113, 166, boxrunner(BoxesP1ATT_B),
-                 boxrunner2(BoxesP2B), P2BoxConf)
+                 boxrunner2(BoxesP2B), P2BoxConf, P1att)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 166, 219, boxrunner(BoxesP1ATT_C),
-                 boxrunner2(BoxesP2C), P2BoxConf)
+                 boxrunner2(BoxesP2C), P2BoxConf, P1att)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 219, 272, boxrunner(BoxesP1ATT_D),
-                 boxrunner2(BoxesP2D), P2BoxConf)
+                 boxrunner2(BoxesP2D), P2BoxConf, P1att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 272, 325, boxrunner(BoxesP1ATT_E),
+                 boxrunner2(BoxesP2E), P2BoxConf, P1att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 325, 378, boxrunner(BoxesP1ATT_F),
+                 boxrunner2(BoxesP2F), P2BoxConf, P1att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 378, 431, boxrunner(BoxesP1ATT_G),
+                 boxrunner2(BoxesP2G), P2BoxConf, P1att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 431, 484, boxrunner(BoxesP1ATT_H),
+                 boxrunner2(BoxesP2H), P2BoxConf, P1att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 484, 537, boxrunner(BoxesP1ATT_I),
+                 boxrunner2(BoxesP2I), P2BoxConf, P1att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 537, 590, boxrunner(BoxesP1ATT_J),
+                 boxrunner2(BoxesP2J), P2BoxConf, P1att)
 
-        
-            
+#Attack2
+def attack2():
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 60, 113, boxrunner(BoxesP2ATT_A),
+                 boxrunner2(BoxesP1A), P1BoxConf, P2att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 113, 166, boxrunner(BoxesP2ATT_B),
+                 boxrunner2(BoxesP1B), P1BoxConf, P2att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 166, 219, boxrunner(BoxesP2ATT_C),
+                 boxrunner2(BoxesP1C), P1BoxConf, P2att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 219, 272, boxrunner(BoxesP2ATT_D),
+                 boxrunner2(BoxesP1D), P1BoxConf, P2att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 272, 325, boxrunner(BoxesP2ATT_E),
+                 boxrunner2(BoxesP1E), P1BoxConf, P2att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 325, 378, boxrunner(BoxesP2ATT_F),
+                 boxrunner2(BoxesP1F), P1BoxConf, P2att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 378, 431, boxrunner(BoxesP2ATT_G),
+                 boxrunner2(BoxesP1G), P1BoxConf, P2att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 431, 484, boxrunner(BoxesP2ATT_H),
+                 boxrunner2(BoxesP1H), P1BoxConf, P2att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 484, 537, boxrunner(BoxesP2ATT_I),
+                 boxrunner2(BoxesP1I), P1BoxConf, P2att)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 537, 590, boxrunner(BoxesP2ATT_J),
+                 boxrunner2(BoxesP1J), P1BoxConf, P2att)
+
 #Leftbound
 def leftbound():
     global xvar

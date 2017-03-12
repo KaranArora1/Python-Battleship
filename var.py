@@ -556,12 +556,14 @@ Player1_Locations=[]
 P1confirmlist=[]
 P1BoxLoc=[]
 P1BoxConf=[]
+P1att=[]
 
 #Player2Loc
 Player2_Locations=[]
 P2confirmlist=[]
 P2BoxLoc=[]
 P2BoxConf=[]
+P2att=[]
 
 #Ships
 Bship1=[]
