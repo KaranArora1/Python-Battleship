@@ -97,7 +97,7 @@ def Player1(stage):
         for i in P1confirmlist:
             Aircraft1.append(i)
         
-        Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
+        '''Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
         for i in range(5, 9):
             Bship1.append(P1confirmlist[i])
 
@@ -111,7 +111,7 @@ def Player1(stage):
 
         Looper(17, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
         for i in range(15, 17):
-            Pat1.append(P1confirmlist[i])
+            Pat1.append(P1confirmlist[i])'''
 
         time.sleep(0.25)
         
@@ -123,7 +123,17 @@ def Player1(stage):
             click_getter(winP1)
             if single_detector(1100, 1260, 520, 450, confirmP1, winP1) is True:
                 winP1.close()
-                break        
+                break
+            
+    elif "2"== stage:
+        click_getter(winP1)
+        attack1()
+        click_getter(winP1)
+        attack1()
+        click_getter(winP1)
+        attack1()
+            
+
 
 #####################
 def Player2(stage):
@@ -179,7 +189,7 @@ def Player2(stage):
         for i in P2confirmlist:
             Aircraft2.append(i)
         
-        Looper(9, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        '''Looper(9, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
         for i in range(5, 9):
             Bship2.append(P2confirmlist[i])
 
@@ -193,7 +203,7 @@ def Player2(stage):
 
         Looper(17, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
         for i in range(15, 17):
-            Pat2.append(P2confirmlist[i])
+            Pat2.append(P2confirmlist[i])'''
 
         time.sleep(0.25)
         
@@ -212,6 +222,8 @@ subprocess.call(["afplay", audio_file])
 Player2()'''
 
 Player1('1')
+Player2('1')
+Player1('2')
 
 writer= open("Pickler.py", "wb")
 pickle.dump("", writer, protocol=2)

@@ -3,11 +3,6 @@ import pickle
 import zellegraphics
 from var import *
 
-xvar=-1
-liststart=-1
-yvar=-1
-boxvar=-1
-
 #next_detector
 def next_detector(ok_left, ok_right, ok_top, ok_bottom, box, win):
     while True:
@@ -111,7 +106,7 @@ def ListofListAppenders1():
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 537, 590, Player1_Locations,
                      boxrunner(BoxesP1J), stringrun(Jstr), P1confirmlist, P1BoxLoc)
-
+        
 #Listoflistappenders2
 def ListofListAppenders2():
     for i in range(10):
@@ -145,6 +140,37 @@ def ListofListAppenders2():
         ListAppender(leftbound(), rightbound(), 537, 590, Player2_Locations,
                      boxrunner(BoxesP2J), stringrun(Jstr), P2confirmlist, P2BoxLoc)
 
+#Attacker
+def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf):
+    reader= open("Pickler.py", "rb")
+    x_click, y_click=pickle.load(reader)
+    reader.close()
+
+    if left<x_click<right and bottom>y_click>top:
+
+        if OPbox in OPboxconf:
+            ownbox.setFill("red")
+
+        elif OPbox not in OPboxconf:
+            ownbox.setFill("white")
+
+#AttackAppender1
+def attack1():
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 60, 113, boxrunner(BoxesP1ATT_A),
+                 boxrunner2(BoxesP2A), P2BoxConf)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 113, 166, boxrunner(BoxesP1ATT_B),
+                 boxrunner2(BoxesP2B), P2BoxConf)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 166, 219, boxrunner(BoxesP1ATT_C),
+                 boxrunner2(BoxesP2C), P2BoxConf)
+    for i in range(10):
+        Attacker(leftatt(), rightatt(), 219, 272, boxrunner(BoxesP1ATT_D),
+                 boxrunner2(BoxesP2D), P2BoxConf)
+
+        
+            
 #Leftbound
 def leftbound():
     global xvar
@@ -161,6 +187,22 @@ def rightbound():
         yvar=0
     return (84.5+(49.5*yvar))
 
+#LeftboundForATT
+def leftatt():
+    global leftvar
+    leftvar=leftvar+1
+    if leftvar is 10:
+        leftvar=0
+    return (590+(49.5*leftvar))
+
+#RightboundForATT
+def rightatt():
+    global rightvar
+    rightvar=rightvar+1
+    if rightvar is 10:
+        rightvar=0
+    return (639.5+(49.5*rightvar))
+
 #StringLooper
 def stringrun(li):
     global liststart
@@ -175,7 +217,15 @@ def boxrunner(li):
     boxvar=boxvar+1
     if boxvar is 9:
         boxvar=-1
-    return li[boxvar] 
+    return li[boxvar]
+
+#Boxrunner2
+def boxrunner2(li):
+    global brun
+    brun=brun+1
+    if brun is 9:
+        brun=-1
+    return li[brun]
 
 #clickgetter
 def click_getter(win):
@@ -233,6 +283,7 @@ def drawer1(win):
     for i in BoxesP1ATT_J:
         i.draw(win)
 
+#Drawer2
 def drawer2(win):
     for i in BoxesP2A:
         i.draw(win)
