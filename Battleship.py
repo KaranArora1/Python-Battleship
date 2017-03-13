@@ -128,14 +128,16 @@ def Player1(stage):
                 break
             
     elif "2"== stage:
-            while True:
-                length= len(P1att)
-                click_getter(winP1)
-                attack1()
-                length2= len(P1att)
-                if length2==length+1:
-                    break
-        
+        for i in range(4):
+                while True:
+                    length= len(P1att)
+                    click_getter(winP1)
+                    attack1()
+                    length2= len(P1att)
+                    if length2==length+1:
+                        break
+        winP1.close()
+                        
 #####################
 def Player2(stage):
     global winP2, click, confirmP2, Player2_Locations 
@@ -227,14 +229,18 @@ def Player2(stage):
                 length2= len(P2att)
                 if length2==length+1:
                     break
+        winP2.close()
+                    
 
 '''audio_file="/Users/karanarora/Desktop/Music/New/Sandmang.wav"
 subprocess.call(["afplay", audio_file])
 Player2()'''
 
-Player2('1')
 Player1('1')
-Player2('2')
+Player2('1')
+while True:
+    Player1('2')
+    Player2('2')
 
 writer= open("Pickler.py", "wb")
 pickle.dump("", writer, protocol=2)

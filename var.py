@@ -1,6 +1,9 @@
 from zellegraphics import *
 
 #Player1Board
+#Text
+P1A_text=Text(Point(59.75, 86.5), "A")
+P1B_text=Text(Point(109.25, 139.5), "B")
 #A
 A1_1=Rectangle(Point(35, 60), Point(84.5, 113))
 A2_1=Rectangle(Point(84.5, 60 ), Point(134, 113))
@@ -557,6 +560,9 @@ P1confirmlist=[]
 P1BoxLoc=[]
 P1BoxConf=[]
 P1att=[]
+P1text=(P1A_text, P1B_text)
+P1x=[]
+P1y=[]
 
 #Player2Loc
 Player2_Locations=[]
@@ -564,6 +570,9 @@ P2confirmlist=[]
 P2BoxLoc=[]
 P2BoxConf=[]
 P2att=[]
+P2text=()
+P2x=[]
+P2y=[]
 
 #Ships
 Bship1=[]
@@ -586,3 +595,4 @@ boxvar=-1
 brun=-1
 rightvar=-1
 leftvar=-1
+xval=0

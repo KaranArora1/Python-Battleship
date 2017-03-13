@@ -231,6 +231,14 @@ def attack2():
         Attacker(leftatt(), rightatt(), 537, 590, boxrunner(BoxesP2ATT_J),
                  boxrunner2(BoxesP1J), P1BoxConf, P2att)
 
+def in_a_row(ship):
+    if ship is "Aircraft":
+        if P1y[1]-P1y[0] is 0 or P1x[1]-P1x[0] is 0:
+            if P1y[2]-P1y[1] is 0 or P1x[2]-P1x[1] is 0:
+                if P1y[3]-P1y[2] is 0 or P1x[3]-P1x[2] is 0:
+                    if P1y[4]-P1y[3] is 0 or P1x[4]-P1x[3] is 0:
+                        return True
+
 #Leftbound
 def leftbound():
     global xvar
@@ -286,6 +294,22 @@ def boxrunner2(li):
     if brun is 9:
         brun=-1
     return li[brun]
+
+#Numberx
+def xreturn():
+    global xval
+    xval=xval+1
+    if xval is 11:
+        xval=1
+    return xval
+
+#Numbery
+def yreturn():
+    global yval
+    yval=yval+1
+    if yval is 11:
+        yval=1
+    return yval
 
 #clickgetter
 def click_getter(win):
@@ -343,6 +367,13 @@ def drawer1(win):
     for i in BoxesP1ATT_J:
         i.draw(win)
 
+    for i in P1text:
+        i.draw(win)
+
+    for box in P1BoxConf:
+        if box in P2att:
+            box.setFill("brown2")
+
 #Drawer2
 def drawer2(win):
     for i in BoxesP2A:
@@ -386,6 +417,10 @@ def drawer2(win):
         i.draw(win)
     for i in BoxesP2ATT_J:
         i.draw(win)
+
+    for box in P2BoxConf:
+        if box in P1att:
+            box.setFill("brown2")
     
     
     
