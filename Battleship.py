@@ -13,7 +13,7 @@ from starter import *
 #########################################################################
 #Confirmer
 def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship):
-    if in_a_row(ship, win) is True:
+    if in_a_row(ship) is True:
         if single_detector(1100, 1260, 520, 450, confirmbox, win) is True:
             for x in stringli:
                 if x not in conflist:
@@ -49,6 +49,7 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox, ship
 def Player1(stage):
     global winP1, click, confirmP1, Player1_Locations 
     global Aircraft1, Pat1, Sub1, Frig1, Bship1
+    global P1x, P1y
 
     winP1=GraphWin("Battleship Board", 1275, 650, autoflush= False)
     
@@ -100,6 +101,9 @@ def Player1(stage):
                confirmP1, "Aircraft")
         for i in P1confirmlist:
             Aircraft1.append(i)
+
+        print(P1x)
+        print(P1y)
         
         Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Battleship")

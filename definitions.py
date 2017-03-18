@@ -86,6 +86,11 @@ def ListAppender(left, right, top, bottom, location, boxapp, appender,
             xloc.remove(x)
             yloc.remove(y)
 
+        print("x")
+        print(xloc)
+        print("y")
+        print(yloc)
+
 #Listoflistappenders1
 def ListofListAppenders1():
     for i in range(10):
@@ -256,62 +261,81 @@ def attack2():
                  boxrunner2(BoxesP1J), P1BoxConf, P2att)
 
 #InARow
-def in_a_row(ship, win):
+def in_a_row(ship):
+    global P1x, P1y
+
     if ship is "Aircraft":
         
         if P1y[1]-P1y[0] is 0:
             if P1y[2]-P1y[1] is 0: 
                 if P1y[3]-P1y[2] is 0: 
-                    if P1y[4]-P1y[3] is 0: 
+                    if P1y[4]-P1y[3] is 0:
+                        P1x=[]
+                        P1y=[]
                         return True
                     
         elif P1x[1]-P1x[0] is 0:
             if P1x[2]-P1x[1] is 0:
                 if P1x[3]-P1x[2] is 0:
                     if P1x[4]-P1x[3] is 0:
+                        P1x=[]
+                        P1y=[]
                         return True
 
     elif ship is "Battleship":
-
-        print(P1x)
-        print(P1x[4])
         
         if P1y[6]-P1y[5] is 0:
             if P1y[7]-P1y[6] is 0:
                 if P1y[8]-P1y[7] is 0:
+                    P1x=[]
+                    P1y=[]
                     return True
 
         elif P1x[6]-P1x[5] is 0:
             if P1x[7]-P1x[6] is 0:
                 if P1x[8]-P1x[7] is 0:
+                    P1x=[]
+                    P1y=[]
                     return True
 
     elif ship is "Frigate":
 
         if P1y[10]-P1y[9] is 0:
             if P1y[11]-P1y[10] is 0:
+                P1x=[]
+                P1y=[]
                 return True
 
         elif P1x[10]-P1x[9] is 0:
             if P1x[11]-P1x[10] is 0:
+                P1x=[]
+                P1y=[]
                 return True
 
     elif ship is "Submarine":
 
         if P1y[13]-P1y[12] is 0:
             if P1y[14]-P1y[13] is 0:
+                P1x=[]
+                P1y=[]
                 return True
 
         elif P1x[13]-P1x[12] is 0:
             if P1x[14]-P1x[13] is 0:
+                P1x=[]
+                P1y=[]
                 return True
 
     elif ship is "Patrol":
 
         if P1y[16]-P1y[15] is 0:
+            P1x=[]
+            P1y=[]
             return True
 
         elif P1x[16]-P1x[15] is 0:
+            P1x=[]
+            P1y=[]
             return True
     
 #Leftbound
