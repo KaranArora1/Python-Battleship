@@ -64,7 +64,7 @@ def single_detector(ok_left, ok_right, ok_top, ok_bottom, box, win):
 
 #ListAppender
 def ListAppender(left, right, top, bottom, location, boxapp, appender,
-                 confirmlist, boxloc):
+                 confirmlist, boxloc, x, y, xloc, yloc):
     
     reader= open("Pickler.py", "rb")
     x_click, y_click=pickle.load(reader)
@@ -76,77 +76,101 @@ def ListAppender(left, right, top, bottom, location, boxapp, appender,
             (location).append(appender)
             (boxloc).append(boxapp)
             boxapp.setFill("gray")
+            xloc.append(x)
+            yloc.append(y)
 
         elif (appender) in location and (appender) not in confirmlist:
             (location).remove(appender)
             (boxloc).remove(boxapp)
             boxapp.setFill("cyan4")
+            xloc.remove(x)
+            yloc.remove(y)
 
 #Listoflistappenders1
 def ListofListAppenders1():
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 60, 113, Player1_Locations,
-                    boxrunner(BoxesP1A) ,stringrun(Astr), P1confirmlist, P1BoxLoc)
+                    boxrunner(BoxesP1A) ,stringrun(Astr), P1confirmlist,
+                     P1BoxLoc, xreturn(), 1, P1x, P1y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 113, 166, Player1_Locations,
-                    boxrunner(BoxesP1B), stringrun(Bstr), P1confirmlist, P1BoxLoc)
+                    boxrunner(BoxesP1B), stringrun(Bstr), P1confirmlist,
+                     P1BoxLoc, xreturn(), 2, P1x, P1y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 166, 219, Player1_Locations,
-                     boxrunner(BoxesP1C), stringrun(Cstr), P1confirmlist, P1BoxLoc)
+                     boxrunner(BoxesP1C), stringrun(Cstr), P1confirmlist,
+                     P1BoxLoc, xreturn(), 3, P1x, P1y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 219, 272, Player1_Locations,
-                     boxrunner(BoxesP1D), stringrun(Dstr), P1confirmlist, P1BoxLoc)
+                     boxrunner(BoxesP1D), stringrun(Dstr), P1confirmlist,
+                     P1BoxLoc, xreturn(), 4, P1x, P1y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 272, 325, Player1_Locations,
-                     boxrunner(BoxesP1E),stringrun(Estr), P1confirmlist, P1BoxLoc)
+                     boxrunner(BoxesP1E),stringrun(Estr), P1confirmlist,
+                     P1BoxLoc, xreturn(), 5, P1x, P1y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 325, 378, Player1_Locations,
-                     boxrunner(BoxesP1F), stringrun(Fstr), P1confirmlist, P1BoxLoc)
+                     boxrunner(BoxesP1F), stringrun(Fstr), P1confirmlist,
+                     P1BoxLoc, xreturn(), 6, P1x, P1y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 378, 431, Player1_Locations,
-                     boxrunner(BoxesP1G), stringrun(Gstr), P1confirmlist, P1BoxLoc)
+                     boxrunner(BoxesP1G), stringrun(Gstr), P1confirmlist,
+                     P1BoxLoc, xreturn(), 7, P1x, P1y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 431, 484, Player1_Locations,
-                     boxrunner(BoxesP1H), stringrun(Hstr), P1confirmlist, P1BoxLoc)
+                     boxrunner(BoxesP1H), stringrun(Hstr), P1confirmlist,
+                     P1BoxLoc, xreturn(), 8, P1x, P1y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 484, 537, Player1_Locations,
-                     boxrunner(BoxesP1I), stringrun(Istr), P1confirmlist, P1BoxLoc)
+                     boxrunner(BoxesP1I), stringrun(Istr), P1confirmlist,
+                     P1BoxLoc, xreturn(), 9, P1x, P1y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 537, 590, Player1_Locations,
-                     boxrunner(BoxesP1J), stringrun(Jstr), P1confirmlist, P1BoxLoc)
+                     boxrunner(BoxesP1J), stringrun(Jstr), P1confirmlist,
+                     P1BoxLoc, xreturn(), 10, P1x, P1y)
         
 #Listoflistappenders2
 def ListofListAppenders2():
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 60, 113, Player2_Locations,
-                    boxrunner(BoxesP2A) ,stringrun(Astr), P2confirmlist, P2BoxLoc)
+                    boxrunner(BoxesP2A) ,stringrun(Astr), P2confirmlist,
+                     P2BoxLoc, xreturn(), 1, P2x, P2y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 113, 166, Player2_Locations,
-                    boxrunner(BoxesP2B), stringrun(Bstr), P2confirmlist, P2BoxLoc)
+                    boxrunner(BoxesP2B), stringrun(Bstr), P2confirmlist,
+                     P2BoxLoc, xreturn(), 2, P2x, P2y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 166, 219, Player2_Locations,
-                     boxrunner(BoxesP2C), stringrun(Cstr), P2confirmlist, P2BoxLoc)
+                     boxrunner(BoxesP2C), stringrun(Cstr), P2confirmlist,
+                     P2BoxLoc, xreturn(), 3, P2x, P2y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 219, 272, Player2_Locations,
-                     boxrunner(BoxesP2D), stringrun(Dstr), P2confirmlist, P2BoxLoc)
+                     boxrunner(BoxesP2D), stringrun(Dstr), P2confirmlist,
+                     P2BoxLoc, xreturn(), 4, P2x, P2y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 272, 325, Player2_Locations,
-                     boxrunner(BoxesP2E),stringrun(Estr), P2confirmlist, P2BoxLoc)
+                     boxrunner(BoxesP2E),stringrun(Estr), P2confirmlist,
+                     P2BoxLoc, xreturn(), 5, P2x, P2y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 325, 378, Player2_Locations,
-                     boxrunner(BoxesP2F), stringrun(Fstr), P2confirmlist, P2BoxLoc)
+                     boxrunner(BoxesP2F), stringrun(Fstr), P2confirmlist,
+                     P2BoxLoc, xreturn(), 6, P2x, P2y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 378, 431, Player2_Locations,
-                     boxrunner(BoxesP2G), stringrun(Gstr), P2confirmlist, P2BoxLoc)
+                     boxrunner(BoxesP2G), stringrun(Gstr), P2confirmlist,
+                     P2BoxLoc, xreturn(), 7, P2x, P2y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 431, 484, Player2_Locations,
-                     boxrunner(BoxesP2H), stringrun(Hstr), P2confirmlist, P2BoxLoc)
+                     boxrunner(BoxesP2H), stringrun(Hstr), P2confirmlist,
+                     P2BoxLoc, xreturn(), 8, P2x, P2y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 484, 537, Player2_Locations,
-                     boxrunner(BoxesP2I), stringrun(Istr), P2confirmlist, P2BoxLoc)
+                     boxrunner(BoxesP2I), stringrun(Istr), P2confirmlist,
+                     P2BoxLoc, xreturn(), 9, P2x, P2y)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 537, 590, Player2_Locations,
-                     boxrunner(BoxesP2J), stringrun(Jstr), P2confirmlist, P2BoxLoc)
+                     boxrunner(BoxesP2J), stringrun(Jstr), P2confirmlist,
+                     P2BoxLoc, xreturn(), 10, P2x, P2y)
 
 #Attacker
 def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf, ownlist):
@@ -231,14 +255,65 @@ def attack2():
         Attacker(leftatt(), rightatt(), 537, 590, boxrunner(BoxesP2ATT_J),
                  boxrunner2(BoxesP1J), P1BoxConf, P2att)
 
-def in_a_row(ship):
+#InARow
+def in_a_row(ship, win):
     if ship is "Aircraft":
-        if P1y[1]-P1y[0] is 0 or P1x[1]-P1x[0] is 0:
-            if P1y[2]-P1y[1] is 0 or P1x[2]-P1x[1] is 0:
-                if P1y[3]-P1y[2] is 0 or P1x[3]-P1x[2] is 0:
-                    if P1y[4]-P1y[3] is 0 or P1x[4]-P1x[3] is 0:
+        
+        if P1y[1]-P1y[0] is 0:
+            if P1y[2]-P1y[1] is 0: 
+                if P1y[3]-P1y[2] is 0: 
+                    if P1y[4]-P1y[3] is 0: 
+                        return True
+                    
+        elif P1x[1]-P1x[0] is 0:
+            if P1x[2]-P1x[1] is 0:
+                if P1x[3]-P1x[2] is 0:
+                    if P1x[4]-P1x[3] is 0:
                         return True
 
+    elif ship is "Battleship":
+
+        print(P1x)
+        print(P1x[4])
+        
+        if P1y[6]-P1y[5] is 0:
+            if P1y[7]-P1y[6] is 0:
+                if P1y[8]-P1y[7] is 0:
+                    return True
+
+        elif P1x[6]-P1x[5] is 0:
+            if P1x[7]-P1x[6] is 0:
+                if P1x[8]-P1x[7] is 0:
+                    return True
+
+    elif ship is "Frigate":
+
+        if P1y[10]-P1y[9] is 0:
+            if P1y[11]-P1y[10] is 0:
+                return True
+
+        elif P1x[10]-P1x[9] is 0:
+            if P1x[11]-P1x[10] is 0:
+                return True
+
+    elif ship is "Submarine":
+
+        if P1y[13]-P1y[12] is 0:
+            if P1y[14]-P1y[13] is 0:
+                return True
+
+        elif P1x[13]-P1x[12] is 0:
+            if P1x[14]-P1x[13] is 0:
+                return True
+
+    elif ship is "Patrol":
+
+        if P1y[16]-P1y[15] is 0:
+            return True
+
+        elif P1x[16]-P1x[15] is 0:
+            return True
+    
 #Leftbound
 def leftbound():
     global xvar
@@ -302,14 +377,6 @@ def xreturn():
     if xval is 11:
         xval=1
     return xval
-
-#Numbery
-def yreturn():
-    global yval
-    yval=yval+1
-    if yval is 11:
-        yval=1
-    return yval
 
 #clickgetter
 def click_getter(win):

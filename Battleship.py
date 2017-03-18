@@ -12,25 +12,26 @@ from starter import *
 
 #########################################################################
 #Confirmer
-def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win):
-    if single_detector(1100, 1260, 520, 450, confirmbox, win) is True:
-        for x in stringli:
-            if x not in conflist:
-                conflist.append(x)
-        for x in boxloc:
-            if x not in boxconf:
-                boxconf.append(x)
-        for i in boxconf:
-            i.setFill("snow4")
-        return True
+def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship):
+    if in_a_row(ship, win) is True:
+        if single_detector(1100, 1260, 520, 450, confirmbox, win) is True:
+            for x in stringli:
+                if x not in conflist:
+                    conflist.append(x)
+            for x in boxloc:
+                if x not in boxconf:
+                    boxconf.append(x)
+            for i in boxconf:
+                i.setFill("snow4")
+            return True
 
 #Looper
-def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox):
+def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox, ship):
     global x_click, y_click
     while True:
         x_click, y_click=click_getter(win)
         if len(location) is length:
-            if Confirmer(confirmlist, location, boxloc, boxconf, confirmbox, win) is True:
+            if Confirmer(confirmlist, location, boxloc, boxconf, confirmbox, win, ship) is True:
                 break
         try:
             if win is winP1:
@@ -95,25 +96,30 @@ def Player1(stage):
         confirmP1.draw(winP1)
         confirm_title.draw(winP1)
     
-        Looper(5, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
+        Looper(5, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
+               confirmP1, "Aircraft")
         for i in P1confirmlist:
             Aircraft1.append(i)
         
-        '''Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
+        Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
+               confirmP1, "Battleship")
         for i in range(5, 9):
             Bship1.append(P1confirmlist[i])
 
-        Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
+        Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
+               confirmP1, "Frigate")
         for i in range(9, 12):
             Frig1.append(P1confirmlist[i])
 
-        Looper(15, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
+        Looper(15, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
+               confirmP1, "Submarine")
         for i in range(12, 15):
             Sub1.append(P1confirmlist[i])
 
-        Looper(17, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf, confirmP1)
+        Looper(17, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
+               confirmP1, "Patrol")
         for i in range(15, 17):
-            Pat1.append(P1confirmlist[i])'''
+            Pat1.append(P1confirmlist[i])
 
         time.sleep(0.25)
         
