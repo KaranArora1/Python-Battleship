@@ -13,17 +13,16 @@ from starter import *
 #########################################################################
 #Confirmer
 def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship):
-    if in_a_row(ship) is True:
-        if single_detector(1100, 1260, 520, 450, confirmbox, win) is True:
-            for x in stringli:
-                if x not in conflist:
-                    conflist.append(x)
-            for x in boxloc:
-                if x not in boxconf:
-                    boxconf.append(x)
-            for i in boxconf:
-                i.setFill("snow4")
-            return True
+    if single_detector_conf(1100, 1260, 520, 450, confirmbox, win, ship, conflist) is True:
+        for x in stringli:
+            if x not in conflist:
+                conflist.append(x)
+        for x in boxloc:
+            if x not in boxconf:
+                boxconf.append(x)
+        for i in boxconf:
+            i.setFill("snow4")
+        return True
 
 #Looper
 def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox, ship):
@@ -44,6 +43,13 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox, ship
         except:
             NameError
 
+        if 1100<x_click< 1260 and 450<y_click<520 and len(location) != length:
+            confirmbox.setFill("brown2")
+            win.update()
+            time.sleep(0.15)
+            confirmbox.setFill("AntiqueWhite2")
+            win.update()
+            
 ####################### PLAYER1 BOARD ######################################
 #Player 1's Board
 def Player1(stage):
@@ -102,9 +108,6 @@ def Player1(stage):
         for i in P1confirmlist:
             Aircraft1.append(i)
 
-        print(P1x)
-        print(P1y)
-        
         Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Battleship")
         for i in range(5, 9):
