@@ -59,21 +59,21 @@ def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship, c
             NameError
 
     if ok_left< x_click < ok_right and ok_bottom < y_click < ok_top:
-        if in_a_row(ship, conflist) is True:
-            if near(ship, conflist) is True:
-                (box).setFill("white")
-                win.update()
-                time.sleep(0.15)
-                (box).setFill("AntiqueWhite2")
-                win.update()
+        if in_a_row(ship, conflist) is True and near(ship, conflist) is True:
+            (box).setFill("white")
+            win.update()
+            time.sleep(0.15)
+            (box).setFill("AntiqueWhite2")
+            win.update()
 
-                if conflist is P1confirmlist:
-                    P1x=[]
-                    P1y=[]
-                elif conflist is P2confirmlist:
-                    P2x=[]
-                    P2y=[]                   
-                return True
+            if conflist is P1confirmlist:
+                P1x=[]
+                P1y=[]
+            elif conflist is P2confirmlist:
+                P2x=[]
+                P2y=[]                   
+            return True
+        
         else:
             box.setFill("brown2")
             win.update()
@@ -298,60 +298,66 @@ def in_a_row(ship, conflist):
     global P1confirmlist, P2confirmlist
     
     if conflist is P1confirmlist:
+        y=P1y
+        x=P1x
+
+    elif conflist is P2confirmlist:
+        y=P2y
+        x=P2x
         
-        if ship is "Aircraft":
-            
-            if P1y[1]-P1y[0] is 0:
-                if P1y[2]-P1y[1] is 0: 
-                    if P1y[3]-P1y[2] is 0: 
-                        if P1y[4]-P1y[3] is 0:
-                            return True
-                        
-            elif P1x[1]-P1x[0] is 0:
-                if P1x[2]-P1x[1] is 0:
-                    if P1x[3]-P1x[2] is 0:
-                        if P1x[4]-P1x[3] is 0:
-                            return True
-
-        elif ship is "Battleship":
-            
-            if P1y[1]-P1y[0] is 0:
-                if P1y[2]-P1y[1] is 0:
-                    if P1y[3]-P1y[2] is 0:
+    if ship is "Aircraft":
+        
+        if y[1]-y[0] is 0:
+            if y[2]-y[1] is 0: 
+                if y[3]-y[2] is 0: 
+                    if y[4]-y[3] is 0:
+                        return True
+                    
+        elif x[1]-x[0] is 0:
+            if x[2]-x[1] is 0:
+                if x[3]-x[2] is 0:
+                    if x[4]-x[3] is 0:
                         return True
 
-            elif P1x[1]-P1x[0] is 0:
-                if P1x[2]-P1x[1] is 0:
-                    if P1x[3]-P1x[2] is 0:
-                        return True
-
-        elif ship is "Frigate":
-
-            if P1y[1]-P1y[0] is 0:
-                if P1y[2]-P1y[1] is 0:
+    elif ship is "Battleship":
+        
+        if y[1]-y[0] is 0:
+            if y[2]-y[1] is 0:
+                if y[3]-y[2] is 0:
                     return True
 
-            elif P1x[1]-P1x[0] is 0:
-                if P1x[2]-P1x[1] is 0:
+        elif x[1]-x[0] is 0:
+            if x[2]-x[1] is 0:
+                if x[3]-x[2] is 0:
                     return True
 
-        elif ship is "Submarine":
+    elif ship is "Frigate":
 
-            if P1y[1]-P1y[0] is 0:
-                if P1y[2]-P1y[1] is 0:
-                    return True
-
-            elif P1x[1]-P1x[0] is 0:
-                if P1x[2]-P1x[1] is 0:
-                    return True
-
-        elif ship is "Patrol":
-
-            if P1y[1]-P1y[0] is 0:
+        if y[1]-y[0] is 0:
+            if y[2]-y[1] is 0:
                 return True
 
-            elif P1x[1]-P1x[0] is 0:
+        elif x[1]-x[0] is 0:
+            if x[2]-x[1] is 0:
                 return True
+
+    elif ship is "Submarine":
+
+        if y[1]-y[0] is 0:
+            if y[2]-y[1] is 0:
+                return True
+
+        elif x[1]-x[0] is 0:
+            if x[2]-x[1] is 0:
+                return True
+
+    elif ship is "Patrol":
+
+        if y[1]-y[0] is 0:
+            return True
+
+        elif x[1]-x[0] is 0:
+            return True
 
 #Near
 def near(ship, conflist):
@@ -359,24 +365,43 @@ def near(ship, conflist):
     global P1confirmlist, P2confirmlist
 
     if conflist is P1confirmlist:
+        y=P1y
+        x=P1x
 
-        if ship is "Aircraft":
+    elif conflist is P2confirmlist:
+        y=P2y
+        x=P2x
 
-            if dist(P1y, P1x, 1, 0) is True or dist(P1y, P1x, 1, 2) is True or dist(P1y, P1x, 1, 3) is True or dist(P1y, P1x, 1, 4) is True:
-                if dist(P1y, P1x, 2, 0) is True or dist(P1y, P1x, 2, 1) is True or dist(P1y, P1x, 2, 3) is True or dist(P1y, P1x, 2, 4) is True:
-                    if dist(P1y, P1x, 3, 0) is True or dist(P1y, P1x, 3, 1) is True or dist(P1y, P1x, 3, 2) is True or dist(P1y, P1x, 3, 4) is True:
-                        if dist(P1y, P1x, 4, 0) is True or dist(P1y, P1x, 4, 1) is True or dist(P1y, P1x, 4, 2) is True or dist(P1y, P1x, 4, 3) is True:
-                            return True
+    if ship is "Aircraft":
 
-        elif ship is "Battleship":
-
-            if dist(P1y, P1x, 1, 0) is True or dist(P1y, P1x, 1, 2) is True or dist(P1y, P1x, 1, 3) is True:
-                if dist(P1y, P1x, 2, 0) is True or dist(P1y, P1x, 2, 1) is True or dist(P1y, P1x, 2, 3) is True:
-                    if dist(P1y, P1x, 3, 0) is True or dist(P1y, P1x, 3, 1) is True or dist(P1y, P1x, 3, 2) is True:
+        if dist(y, x, 1, 0) is True or dist(y, x, 1, 2) is True or dist(y, x, 1, 3) is True or dist(y, x, 1, 4) is True:
+            if dist(y, x, 2, 0) is True or dist(y, x, 2, 1) is True or dist(y, x, 2, 3) is True or dist(y, x, 2, 4) is True:
+                if dist(y, x, 3, 0) is True or dist(y, x, 3, 1) is True or dist(y, x, 3, 2) is True or dist(y, x, 3, 4) is True:
+                    if dist(y, x, 4, 0) is True or dist(y, x, 4, 1) is True or dist(y, x, 4, 2) is True or dist(y, x, 4, 3) is True:
                         return True
 
-        elif ship is "Frigate":
-            pass
+    elif ship is "Battleship":
+
+        if dist(y, x, 1, 0) is True or dist(y, x, 1, 2) is True or dist(y, x, 1, 3) is True:
+            if dist(y, x, 2, 0) is True or dist(y, x, 2, 1) is True or dist(y, x, 2, 3) is True:
+                if dist(y, x, 3, 0) is True or dist(y, x, 3, 1) is True or dist(y, x, 3, 2) is True:
+                    return True
+
+    elif ship is "Frigate":
+
+        if dist(y, x, 1, 0) is True or dist(y, x, 1, 2) is True:
+            if dist(y, x, 2, 0) is True or dist(y, x, 2, 1) is True:
+                return True
+
+    elif ship is "Submarine":
+
+        if dist(y, x, 1, 0) is True or dist(y, x, 1, 2) is True:
+            if dist(y, x, 2, 0) is True or dist(y, x, 2, 1) is True:
+                return True
+
+    elif ship is "Patrol":
+        if dist(y, x, 1, 0) is True:
+            return True
         
 #Distance
 def dist(y, x , i, i2):

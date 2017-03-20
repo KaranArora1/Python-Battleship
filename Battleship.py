@@ -26,7 +26,7 @@ def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship):
 
 #Looper
 def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox, ship):
-    global x_click, y_click
+    global x_click, y_click, confirmP1
     while True:
         x_click, y_click=click_getter(win)
         if len(location) is length:
@@ -141,15 +141,21 @@ def Player1(stage):
                 break
             
     elif "2"== stage:
-        for i in range(4):
-                while True:
-                    length= len(P1att)
-                    click_getter(winP1)
-                    attack1()
-                    length2= len(P1att)
-                    if length2==length+1:
-                        break
-        winP1.close()
+        while True:
+            length= len(P1att)
+            click_getter(winP1)
+            attack1()
+            length2= len(P1att)
+            if length2==length+1:
+                break
+
+        while True:
+            click_getter(winP1)
+            if single_detector(1100, 1260, 520, 450, confirmP1, winP1) is True:
+                winP1.close()
+                break
+
+    winP1.close()
                         
 #####################
 def Player2(stage):
@@ -201,25 +207,30 @@ def Player2(stage):
         confirmP2.draw(winP2)
         confirm_title.draw(winP2)
     
-        Looper(5, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        Looper(5, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
+               confirmP2, "Aircraft")
         for i in P2confirmlist:
             Aircraft2.append(i)
         
-        '''Looper(9, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        Looper(9, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
+               confirmP2, "Battleship")
         for i in range(5, 9):
             Bship2.append(P2confirmlist[i])
 
-        Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
+               confirmP2, "Frigate")
         for i in range(9, 12):
             Frig2.append(P2confirmlist[i])
 
-        Looper(15, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        Looper(15, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
+               confirmP2, "Submarine")
         for i in range(12, 15):
             Sub2.append(P2confirmlist[i])
 
-        Looper(17, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf, confirmP2)
+        Looper(17, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
+               confirmP2, "Patrol")
         for i in range(15, 17):
-            Pat2.append(P2confirmlist[i])'''
+            Pat2.append(P2confirmlist[i])
 
         time.sleep(0.25)
         
@@ -234,15 +245,22 @@ def Player2(stage):
                 break
             
     elif "2"== stage:
-        for i in range(4):
-            while True:
-                length= len(P2att)
-                click_getter(winP2)
-                attack2()
-                length2= len(P2att)
-                if length2==length+1:
-                    break
-        winP2.close()
+        
+        while True:
+            length= len(P2att)
+            click_getter(winP2)
+            attack2()
+            length2= len(P2att)
+            if length2==length+1:
+                break
+
+        while True:
+            click_getter(winP2)
+            if single_detector(1100, 1260, 520, 450, confirmP2, winP2) is True:
+                winP2.close()
+                break
+            
+    winP2.close()
                     
 
 '''audio_file="/Users/karanarora/Desktop/Music/New/Sandmang.wav"
