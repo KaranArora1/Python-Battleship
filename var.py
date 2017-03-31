@@ -8,10 +8,9 @@ text_box= Rectangle(Point(1100, 80), Point(1260, 385))
 button1_text=Text(Point(1170, 425), "BUTTON1")
 button2_text=Text(Point(1170, 495), "BUTTON2")
 
-fleet_title= Text(Point(277.5, 25), "FLEET")
-radar_title= Text(Point(882.5, 25), "RADAR")
+fleet_title= Text(Point(282.5, 20), "FLEET")
+radar_title= Text(Point(837.5, 20), "RADAR")
 confirm_title= Text(Point(1180, 485), "Confirm")
-
 
 dialogue_line=Line(Point(1140, 100), Point(1200, 100))
 OPship_line= Line(Point(1130, 210), Point(1210, 210))
@@ -30,7 +29,9 @@ pattext=Text(Point(1146, 360), "Patrol Boat  =")
 fleet.setFill("cyan4")
 attack.setFill("cyan4")
 
-fleet_title.setSize(20)
+fleet_title.setSize(17)
+radar_title.setSize(17)
+
 #Text
 A_text=Text(Point(20, 86.5), "A")
 B_text=Text(Point(20, 139.5), "B")
@@ -54,16 +55,27 @@ eight=Text(Point(406.25, 45),"8")
 nine=Text(Point(455.75, 45),"9")
 ten=Text(Point(505.25, 45),"10")
 
-'''oth_A_text=Text
-oth_B_text=Text
-oth_C_text=Text
-oth_D_text=Text
-oth_E_text=Text
-oth_F_text=Text
-oth_G_text=Text
-oth_H_text=Text
-oth_I_text=Text
-oth_J_text=Text'''
+oth_A=Text(Point(575, 86.5), "A")
+oth_B=Text(Point(575, 139.5),"B")
+oth_C=Text(Point(575,192.5),"C")
+oth_D=Text(Point(575,245.5),"D")
+oth_E=Text(Point(575,298.5),"E")
+oth_F=Text(Point(575,351.5),"F")
+oth_G=Text(Point(575,404.5),"G")
+oth_H=Text(Point(575,457.5),"H")
+oth_I=Text(Point(575,510.5),"I")
+oth_J=Text(Point(575,563.5),"J")
+
+oth_one=Text(Point(614.75, 45),"1")
+oth_two=Text(Point(664.25, 45),"2")
+oth_three=Text(Point(713.75, 45),"3")
+oth_four=Text(Point(763.25, 45),"4")
+oth_five=Text(Point(812.75, 45),"5")
+oth_six=Text(Point(862.25, 45),"6")
+oth_seven=Text(Point(911.75, 45),"7")
+oth_eight=Text(Point(961.75, 45),"8")
+oth_nine=Text(Point(1010.75, 45),"9")
+oth_ten=Text(Point(1060.25, 45),"10")
 
 #Player1Board
 #A
@@ -617,8 +629,10 @@ BoxesP2ATT_I= (I1_2ATT, I2_2ATT, I3_2ATT, I4_2ATT, I5_2ATT, I6_2ATT, I7_2ATT, I8
 BoxesP2ATT_J= (J1_2ATT, J2_2ATT, J3_2ATT, J4_2ATT, J5_2ATT, J6_2ATT, J7_2ATT, J8_2ATT, J9_2ATT, J10_2ATT)
 
 #Numbers and Letters
-nums=(one, two, three, four, five, six, seven, eight, nine, ten)
-text=(A_text, B_text, C_text, D_text, E_text, F_text, G_text, H_text, I_text, J_text)
+nums=(one, two, three, four, five, six, seven, eight, nine, ten, oth_one, oth_two,
+      oth_three, oth_four, oth_five, oth_six, oth_seven, oth_eight, oth_nine, oth_ten)
+text=(A_text, B_text, C_text, D_text, E_text, F_text, G_text, H_text, I_text, J_text,
+      oth_A, oth_B, oth_C, oth_D, oth_E, oth_F, oth_G, oth_H, oth_I, oth_J)
 
 #Player1Loc
 Player1_Locations=[]
