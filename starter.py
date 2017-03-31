@@ -234,7 +234,7 @@ def Instructions():
     time.sleep(1)
     win.close()
     return player1_name, player2_name
-    
+
 
 
 

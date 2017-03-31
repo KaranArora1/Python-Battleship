@@ -1,4 +1,4 @@
-import subprocess
+import os
 import pickle
 import time
 import sys
@@ -53,16 +53,16 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox, ship
 ####################### PLAYER1 BOARD ######################################
 #Player 1's Board
 def Player1(stage):
-    global winP1, click, confirmP1, Player1_Locations 
+    global winP1, click, confirmP1, Player1_Locations, confirm_title
     global Aircraft1, Pat1, Sub1, Frig1, Bship1
     global P1x, P1y
 
-    winP1=GraphWin("Battleship Board", 1275, 650, autoflush= False)
+    winP1=GraphWin("Player One's Battleship Board", 1275, 650, autoflush= False)
     
-    fleet= Rectangle(Point(35, 60), Point(530, 590))
+    '''fleet= Rectangle(Point(35, 60), Point(530, 590))
     attack= Rectangle(Point(590, 60), Point(1085, 590))
 
-    text_box= Rectangle(Point(1100, 80), Point(1260, 380))
+    text_box= Rectangle(Point(1100, 80), Point(1260, 385))'''
     button1= Rectangle(Point(1100, 400), Point(1260, 450))
     button2= Rectangle(Point(1100, 470), Point(1260, 520))
     confirmP1= Rectangle(Point(1100, 450), Point(1260, 520))
@@ -81,31 +81,57 @@ def Player1(stage):
 
     text_box.draw(winP1)
 
-    fleet_title= Text(Point(277.5, 25), "FLEET")
+    '''fleet_title= Text(Point(277.5, 25), "FLEET")
     radar_title= Text(Point(882.5, 25), "RADAR")
-    confirm_title= Text(Point(1180, 485), "Confirm")
+    confirm_title= Text(Point(1180, 485), "Confirm")'''
 
     fleet_title.setSize(20)
 
-    text_box_title=Text(Point(1170, 95), "Dialogue")
+    '''text_box_title=Text(Point(1170, 95), "Dialogue")
     button1_text=Text(Point(1170, 425), "BUTTON1")
     button2_text=Text(Point(1170, 495), "BUTTON2")
+    turns_text=Text(Point(1170, 175), "Turns")
+    
+    airtext=Text(Point(1154, 230), "Aircraft Carrier  =")
+    bshiptext=Text(Point(1142, 262.5), "Battleship  =")
+    frigtext=Text(Point(1136, 295), "Frigate  =")
+    subtext=Text(Point(1146, 327.5), "Submarine  =")
+    pattext=Text(Point(1146, 360), "Patrol Boat  =")'''
 
+    airbox=Rectangle(Point(1225, 220), Point(1245, 240))
+    bshipbox=Rectangle(Point(1225, 252.5), Point(1245, 272.5))
+    frigbox=Rectangle(Point(1225, 285), Point(1245, 305))
+    subbox=Rectangle(Point(1225, 317.5), Point(1245, 337.5))
+    patbox=Rectangle(Point(1225, 350), Point(1245, 370))
+    
+    bshiptext.draw(winP1)
+    airtext.draw(winP1)
+    subtext.draw(winP1)
+    pattext.draw(winP1)
+    frigtext.draw(winP1)
+
+    airbox.draw(winP1)
+    bshipbox.draw(winP1)
+    frigbox.draw(winP1)
+    subbox.draw(winP1)
+    patbox.draw(winP1)
+    
+    turns_text.draw(winP1)
     fleet_title.draw(winP1)
     radar_title.draw(winP1)
     text_box_title.draw(winP1)
 
     drawer1(winP1)
+    confirmP1.draw(winP1)
 
     winP1.update()
 
     if "1"== stage:
-        confirmP1.draw(winP1)
         confirm_title.draw(winP1)
     
         Looper(5, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Aircraft")
-        for i in P1confirmlist:
+        for i in P1BoxConf:
             Aircraft1.append(i)
 
         Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
@@ -113,7 +139,7 @@ def Player1(stage):
         for i in range(5, 9):
             Bship1.append(P1confirmlist[i])
 
-        Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
+        '''Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Frigate")
         for i in range(9, 12):
             Frig1.append(P1confirmlist[i])
@@ -126,7 +152,7 @@ def Player1(stage):
         Looper(17, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Patrol")
         for i in range(15, 17):
-            Pat1.append(P1confirmlist[i])
+            Pat1.append(P1confirmlist[i])'''
 
         time.sleep(0.25)
         
@@ -141,6 +167,8 @@ def Player1(stage):
                 break
             
     elif "2"== stage:
+        confirm_title= Text(Point(1180, 485), "Done")
+        confirm_title.draw(winP1)
         while True:
             length= len(P1att)
             click_getter(winP1)
@@ -148,6 +176,58 @@ def Player1(stage):
             length2= len(P1att)
             if length2==length+1:
                 break
+
+        num=0
+
+        for i in Aircraft2:
+            if i in P1att:
+                num=num+1
+        if num is 5:
+            airbox.setFill("#f44141")
+        else:
+            airbox.setFill("SpringGreen2")
+        winP1.update()
+        num=0
+
+        for i in Bship2:
+            if i in P1att:
+                num=num+1
+        if num is 4:
+            bshipbox.setFill("#f44141")
+        else:
+            bshipbox.setFill("SpringGreen2")
+        winP1.update()
+        num=0
+
+        for i in Pat2:
+            if i in P1att:
+                num=num+1
+        if num is 2:
+            patbox.setFill("#f44141")
+        else:
+            patbox.setFill("SpringGreen2")
+        winP1.update()
+        num=0
+
+        for i in Sub2:
+            if i in P1att:
+                num=num+1
+        if num is 3:
+            subbox.setFill("#f44141")
+        else:
+            subbox.setFill("SpringGreen2")
+        winP1.update()
+        num=0
+
+        for i in Frig2:
+            if i in P1att:
+                num=num+1
+        if num is 3:
+            frigbox.setFill("#f44141")
+        else:
+            frigbox.setFill("SpringGreen2")
+        winP1.update()
+        num=0
 
         while True:
             click_getter(winP1)
@@ -162,7 +242,7 @@ def Player2(stage):
     global winP2, click, confirmP2, Player2_Locations 
     global Aircraft2, Pat2, Sub2, Frig2, Bship2
 
-    winP2=GraphWin("Battleship Board", 1275, 650, autoflush=False)
+    winP2=GraphWin("Player Two's Battleship Board", 1275, 650, autoflush=False)
     
     fleet= Rectangle(Point(35, 60), Point(530, 590))
     attack= Rectangle(Point(590, 60), Point(1085, 590))
@@ -202,14 +282,14 @@ def Player2(stage):
     text_box_title.draw(winP2)
 
     drawer2(winP2)
+    confirmP2.draw(winP2)
 
     if "1"== stage:
-        confirmP2.draw(winP2)
         confirm_title.draw(winP2)
     
         Looper(5, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Aircraft")
-        for i in P2confirmlist:
+        for i in P2BoxConf:
             Aircraft2.append(i)
         
         Looper(9, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
@@ -217,7 +297,7 @@ def Player2(stage):
         for i in range(5, 9):
             Bship2.append(P2confirmlist[i])
 
-        Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
+        '''Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Frigate")
         for i in range(9, 12):
             Frig2.append(P2confirmlist[i])
@@ -230,7 +310,7 @@ def Player2(stage):
         Looper(17, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Patrol")
         for i in range(15, 17):
-            Pat2.append(P2confirmlist[i])
+            Pat2.append(P2confirmlist[i])'''
 
         time.sleep(0.25)
         
@@ -245,6 +325,8 @@ def Player2(stage):
                 break
             
     elif "2"== stage:
+        confirm_title= Text(Point(1180, 485), "Done")
+        confirm_title.draw(winP2)
         
         while True:
             length= len(P2att)
@@ -254,18 +336,24 @@ def Player2(stage):
             if length2==length+1:
                 break
 
+        '''for i in P1confirmlist:
+            if i in P2att:
+                val=val+1
+
+        if val== 17:
+            winner.draw(winP2)'''
+
+        val= 0
+
         while True:
             click_getter(winP2)
             if single_detector(1100, 1260, 520, 450, confirmP2, winP2) is True:
-                winP2.close()
                 break
-            
+
     winP2.close()
                     
 
-'''audio_file="/Users/karanarora/Desktop/Music/New/Sandmang.wav"
-subprocess.call(["afplay", audio_file])
-Player2()'''
+'''os.startfile('/Users/karanarora/Desktop')'''
 
 Player1('1')
 Player2('1')

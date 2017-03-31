@@ -528,7 +528,14 @@ def drawer1(win):
     for i in BoxesP1ATT_J:
         i.draw(win)
 
-    for i in P1text:
+    for i in text:
+        i.setSize(15)
+    for i in nums:
+        i.setSize(15)
+
+    for i in text:
+        i.draw(win)
+    for i in nums:
         i.draw(win)
 
     for box in P1BoxConf:
@@ -577,6 +584,16 @@ def drawer2(win):
     for i in BoxesP2ATT_I:
         i.draw(win)
     for i in BoxesP2ATT_J:
+        i.draw(win)
+
+    for i in text:
+        i.setSize(15)
+    for i in nums:
+        i.setSize(15)
+
+    for i in text:
+        i.draw(win)
+    for i in nums:
         i.draw(win)
 
     for box in P2BoxConf:

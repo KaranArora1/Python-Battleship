@@ -1,9 +1,60 @@
 from zellegraphics import *
 
-#Player1Board
+#DialogueBox
+fleet= Rectangle(Point(35, 60), Point(530, 590))
+attack= Rectangle(Point(590, 60), Point(1085, 590))
+text_box= Rectangle(Point(1100, 80), Point(1260, 385))
+
+fleet_title= Text(Point(277.5, 25), "FLEET")
+radar_title= Text(Point(882.5, 25), "RADAR")
+confirm_title= Text(Point(1180, 485), "Confirm")
+
+text_box_title=Text(Point(1170, 95), "Dialogue")
+button1_text=Text(Point(1170, 425), "BUTTON1")
+button2_text=Text(Point(1170, 495), "BUTTON2")
+turns_text=Text(Point(1170, 175), "Turns")
+
+airtext=Text(Point(1154, 230), "Aircraft Carrier  =")
+bshiptext=Text(Point(1142, 262.5), "Battleship  =")
+frigtext=Text(Point(1136, 295), "Frigate  =")
+subtext=Text(Point(1146, 327.5), "Submarine  =")
+pattext=Text(Point(1146, 360), "Patrol Boat  =")
+
 #Text
-P1A_text=Text(Point(59.75, 86.5), "A")
-P1B_text=Text(Point(109.25, 139.5), "B")
+A_text=Text(Point(20, 86.5), "A")
+B_text=Text(Point(20, 139.5), "B")
+C_text=Text(Point(20, 192.5), "C")
+D_text=Text(Point(20, 245.5), "D")
+E_text=Text(Point(20, 298.5), "E")
+F_text=Text(Point(20, 351.5), "F")
+G_text=Text(Point(20, 404.5), "G")
+H_text=Text(Point(20, 457.5), "H")
+I_text=Text(Point(20, 510.5), "I")
+J_text=Text(Point(20, 563.5), "J")
+
+one=Text(Point(59.75, 45), "1")
+two=Text(Point(109.25, 45), "2")
+three=Text(Point(158.75, 45),"3")
+four=Text(Point(208.25, 45),"4")
+five=Text(Point(257.25, 45),"5")
+six=Text(Point(307.25, 45),"6")
+seven=Text(Point(356.75, 45),"7")
+eight=Text(Point(406.25, 45),"8")
+nine=Text(Point(455.75, 45),"9")
+ten=Text(Point(505.25, 45),"10")
+
+'''oth_A_text=Text
+oth_B_text=Text
+oth_C_text=Text
+oth_D_text=Text
+oth_E_text=Text
+oth_F_text=Text
+oth_G_text=Text
+oth_H_text=Text
+oth_I_text=Text
+oth_J_text=Text'''
+
+#Player1Board
 #A
 A1_1=Rectangle(Point(35, 60), Point(84.5, 113))
 A2_1=Rectangle(Point(84.5, 60 ), Point(134, 113))
@@ -554,13 +605,16 @@ BoxesP2ATT_H= (H1_2ATT, H2_2ATT, H3_2ATT, H4_2ATT, H5_2ATT, H6_2ATT, H7_2ATT, H8
 BoxesP2ATT_I= (I1_2ATT, I2_2ATT, I3_2ATT, I4_2ATT, I5_2ATT, I6_2ATT, I7_2ATT, I8_2ATT, I9_2ATT, I10_2ATT)
 BoxesP2ATT_J= (J1_2ATT, J2_2ATT, J3_2ATT, J4_2ATT, J5_2ATT, J6_2ATT, J7_2ATT, J8_2ATT, J9_2ATT, J10_2ATT)
 
+#Numbers and Letters
+nums=(one, two, three, four, five, six, seven, eight, nine, ten)
+text=(A_text, B_text, C_text, D_text, E_text, F_text, G_text, H_text, I_text, J_text)
+
 #Player1Loc
 Player1_Locations=[]
 P1confirmlist=[]
 P1BoxLoc=[]
 P1BoxConf=[]
 P1att=[]
-P1text=(P1A_text, P1B_text)
 P1x=[]
 P1y=[]
 
