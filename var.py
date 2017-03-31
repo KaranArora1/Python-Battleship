@@ -1,18 +1,25 @@
 from zellegraphics import *
 
-#DialogueBox
+#Global text and Setfills
 fleet= Rectangle(Point(35, 60), Point(530, 590))
 attack= Rectangle(Point(590, 60), Point(1085, 590))
 text_box= Rectangle(Point(1100, 80), Point(1260, 385))
+
+button1_text=Text(Point(1170, 425), "BUTTON1")
+button2_text=Text(Point(1170, 495), "BUTTON2")
 
 fleet_title= Text(Point(277.5, 25), "FLEET")
 radar_title= Text(Point(882.5, 25), "RADAR")
 confirm_title= Text(Point(1180, 485), "Confirm")
 
+
+dialogue_line=Line(Point(1140, 100), Point(1200, 100))
+OPship_line= Line(Point(1130, 210), Point(1210, 210))
+turns_line=Line(Point(1150, 155), Point(1190, 155))
+
 text_box_title=Text(Point(1170, 95), "Dialogue")
-button1_text=Text(Point(1170, 425), "BUTTON1")
-button2_text=Text(Point(1170, 495), "BUTTON2")
-turns_text=Text(Point(1170, 175), "Turns")
+other_player_ships_title= Text(Point(1170, 205), "Enemy Ships")
+turns_text=Text(Point(1170, 150), "Turns")
 
 airtext=Text(Point(1154, 230), "Aircraft Carrier  =")
 bshiptext=Text(Point(1142, 262.5), "Battleship  =")
@@ -20,6 +27,10 @@ frigtext=Text(Point(1136, 295), "Frigate  =")
 subtext=Text(Point(1146, 327.5), "Submarine  =")
 pattext=Text(Point(1146, 360), "Patrol Boat  =")
 
+fleet.setFill("cyan4")
+attack.setFill("cyan4")
+
+fleet_title.setSize(20)
 #Text
 A_text=Text(Point(20, 86.5), "A")
 B_text=Text(Point(20, 139.5), "B")
