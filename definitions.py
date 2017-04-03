@@ -292,6 +292,18 @@ def attack2():
         Attacker(leftatt(), rightatt(), 537, 590, boxrunner(BoxesP2ATT_J),
                  boxrunner2(BoxesP1J), P1BoxConf, P2att)
 
+#Checker
+def checker(ship, attacklist, ognum, comparenum, box, win):
+    for i in ship:
+        if i in attacklist:
+            ognum=ognum+1
+    if ognum is comparenum:
+        box.setFill("#f44141")
+    else:
+        box.setFill("SpringGreen2")
+    win.update()
+    ognum=0
+
 #InARow
 def in_a_row(ship, conflist):
     global P1x, P1y, P2x, P2y
