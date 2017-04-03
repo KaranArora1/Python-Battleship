@@ -82,6 +82,8 @@ def Player1(stage):
     OPship_line.draw(winP1)
     dialogue_line.draw(winP1)
     turns_line.draw(winP1)
+    fleet_line.draw(winP1)
+    radar_line.draw(winP1)
     
     other_player_ships_title.draw(winP1)
     bshiptext.draw(winP1)
@@ -157,55 +159,11 @@ def Player1(stage):
         confirm_title.draw(winP1)
 
         num=0
-        for i in Aircraft2:
-            if i in P1att:
-                num=num+1
-        if num is 5:
-            airbox.setFill("#f44141")
-        else:
-            airbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Bship2:
-            if i in P1att:
-                num=num+1
-        if num is 4:
-            bshipbox.setFill("#f44141")
-        else:
-            bshipbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Pat2:
-            if i in P1att:
-                num=num+1
-        if num is 2:
-            patbox.setFill("#f44141")
-        else:
-            patbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Sub2:
-            if i in P1att:
-                num=num+1
-        if num is 3:
-            subbox.setFill("#f44141")
-        else:
-            subbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Frig2:
-            if i in P1att:
-                num=num+1
-        if num is 3:
-            frigbox.setFill("#f44141")
-        else:
-            frigbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
+        checker(Aircraft2, P1att, num, 5, airbox, winP1)
+        checker(Bship2, P1att, num, 4, bshipbox, winP1)
+        checker(Pat2, P1att, num, 2, patbox, winP1)
+        checker(Sub2, P1att, num, 3, subbox, winP1)
+        checker(Frig2, P1att, num, 3, frigbox, winP1)
         
         while True:
             length= len(P1att)
@@ -214,58 +172,13 @@ def Player1(stage):
             length2= len(P1att)
             if length2==length+1:
                 break
-
+            
         num=0
-
-        for i in Aircraft2:
-            if i in P1att:
-                num=num+1
-        if num is 5:
-            airbox.setFill("#f44141")
-        else:
-            airbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Bship2:
-            if i in P1att:
-                num=num+1
-        if num is 4:
-            bshipbox.setFill("#f44141")
-        else:
-            bshipbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Pat2:
-            if i in P1att:
-                num=num+1
-        if num is 2:
-            patbox.setFill("#f44141")
-        else:
-            patbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Sub2:
-            if i in P1att:
-                num=num+1
-        if num is 3:
-            subbox.setFill("#f44141")
-        else:
-            subbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Frig2:
-            if i in P1att:
-                num=num+1
-        if num is 3:
-            frigbox.setFill("#f44141")
-        else:
-            frigbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
+        checker(Aircraft2, P1att, num, 5, airbox, winP1)
+        checker(Bship2, P1att, num, 4, bshipbox, winP1)
+        checker(Pat2, P1att, num, 2, patbox, winP1)
+        checker(Sub2, P1att, num, 3, subbox, winP1)
+        checker(Frig2, P1att, num, 3, frigbox, winP1)
 
         while True:
             click_getter(winP1)
@@ -319,6 +232,8 @@ def Player2(stage):
     dialogue_line.draw(winP2)
     OPship_line.draw(winP2)
     turns_line.draw(winP2)
+    fleet_line.draw(winP2)
+    radar_line.draw(winP2)
 
     other_player_ships_title.draw(winP2)
     turns_text.draw(winP2)
@@ -377,57 +292,13 @@ def Player2(stage):
     elif "2"== stage:
         confirm_title= Text(Point(1180, 485), "Done")
         confirm_title.draw(winP2)
-
+        
         num=0
-        for i in Aircraft2:
-            if i in P1att:
-                num=num+1
-        if num is 5:
-            airbox.setFill("#f44141")
-        else:
-            airbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Bship2:
-            if i in P1att:
-                num=num+1
-        if num is 4:
-            bshipbox.setFill("#f44141")
-        else:
-            bshipbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Pat2:
-            if i in P1att:
-                num=num+1
-        if num is 2:
-            patbox.setFill("#f44141")
-        else:
-            patbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Sub2:
-            if i in P1att:
-                num=num+1
-        if num is 3:
-            subbox.setFill("#f44141")
-        else:
-            subbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Frig2:
-            if i in P1att:
-                num=num+1
-        if num is 3:
-            frigbox.setFill("#f44141")
-        else:
-            frigbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
+        checker(Aircraft1, P2att, num, 5, airbox, winP2)
+        checker(Bship1, P2att, num, 4, bshipbox, winP2)
+        checker(Pat1, P2att, num, 2, patbox, winP2)
+        checker(Sub1, P2att, num, 3, subbox, winP2)
+        checker(Frig1, P2att, num, 3, frigbox, winP2)
         
         while True:
             length= len(P2att)
@@ -437,56 +308,11 @@ def Player2(stage):
             if length2==length+1:
                 break
 
-        num=0
-        for i in Aircraft2:
-            if i in P1att:
-                num=num+1
-        if num is 5:
-            airbox.setFill("#f44141")
-        else:
-            airbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Bship2:
-            if i in P1att:
-                num=num+1
-        if num is 4:
-            bshipbox.setFill("#f44141")
-        else:
-            bshipbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Pat2:
-            if i in P1att:
-                num=num+1
-        if num is 2:
-            patbox.setFill("#f44141")
-        else:
-            patbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Sub2:
-            if i in P1att:
-                num=num+1
-        if num is 3:
-            subbox.setFill("#f44141")
-        else:
-            subbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
-
-        for i in Frig2:
-            if i in P1att:
-                num=num+1
-        if num is 3:
-            frigbox.setFill("#f44141")
-        else:
-            frigbox.setFill("SpringGreen2")
-        winP1.update()
-        num=0
+        checker(Aircraft1, P2att, num, 5, airbox, winP2)
+        checker(Bship1, P2att, num, 4, bshipbox, winP2)
+        checker(Pat1, P2att, num, 2, patbox, winP2)
+        checker(Sub1, P2att, num, 3, subbox, winP2)
+        checker(Frig1, P2att, num, 3, frigbox, winP2)
 
         while True:
             click_getter(winP2)
