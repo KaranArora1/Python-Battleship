@@ -385,12 +385,12 @@ def near(ship, conflist):
         x=P2x
 
     if ship is "Aircraft":
-
-        if dist(y, x, 1, 0) is True or dist(y, x, 1, 2) is True or dist(y, x, 1, 3) is True or dist(y, x, 1, 4) is True:
-            if dist(y, x, 2, 0) is True or dist(y, x, 2, 1) is True or dist(y, x, 2, 3) is True or dist(y, x, 2, 4) is True:
-                if dist(y, x, 3, 0) is True or dist(y, x, 3, 1) is True or dist(y, x, 3, 2) is True or dist(y, x, 3, 4) is True:
-                    if dist(y, x, 4, 0) is True or dist(y, x, 4, 1) is True or dist(y, x, 4, 2) is True or dist(y, x, 4, 3) is True:
-                        return True
+        if dist(y, x, 0, 1) or dist(y, x, 0, 2) or dist(y, x, 0, 3) or dist (y, x, 0, 4):
+            if dist(y, x, 1, 0) is True or dist(y, x, 1, 2) is True or dist(y, x, 1, 3) is True or dist(y, x, 1, 4) is True:
+                if dist(y, x, 2, 0) is True or dist(y, x, 2, 1) is True or dist(y, x, 2, 3) is True or dist(y, x, 2, 4) is True:
+                    if dist(y, x, 3, 0) is True or dist(y, x, 3, 1) is True or dist(y, x, 3, 2) is True or dist(y, x, 3, 4) is True:
+                        if dist(y, x, 4, 0) is True or dist(y, x, 4, 1) is True or dist(y, x, 4, 2) is True or dist(y, x, 4, 3) is True:
+                            return True
 
     elif ship is "Battleship":
 
@@ -501,7 +501,6 @@ def drawer1(win):
 
     OPship_line.draw(win)
     dialogue_line.draw(win)
-    turns_line.draw(win)
     fleet_line.draw(win)
     radar_line.draw(win)
     
@@ -512,7 +511,6 @@ def drawer1(win):
     pattext.draw(win)
     frigtext.draw(win)
     
-    turns_text.draw(win)
     fleet_title.draw(win)
     radar_title.draw(win)
     text_box_title.draw(win)
@@ -578,7 +576,6 @@ def drawer2(win):
 
     dialogue_line.draw(win)
     OPship_line.draw(win)
-    turns_line.draw(win)
     fleet_line.draw(win)
     radar_line.draw(win)
 
@@ -589,7 +586,6 @@ def drawer2(win):
     frigtext.draw(win)
 
     other_player_ships_title.draw(win)
-    turns_text.draw(win)
     fleet_title.draw(win)
     radar_title.draw(win)
     text_box_title.draw(win)

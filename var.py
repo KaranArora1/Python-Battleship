@@ -14,19 +14,23 @@ confirm_title= Text(Point(1180, 485), "Confirm")
 
 dialogue_line=Line(Point(1145, 100), Point(1195, 100))
 OPship_line= Line(Point(1135, 210), Point(1205, 210))
-turns_line=Line(Point(1155, 155), Point(1185, 155))
 fleet_line=Line(Point(257.5, 28), Point(307.5, 28))
 radar_line=Line(Point(807.5, 28), Point(867.5, 28))
 
 text_box_title=Text(Point(1170, 95), "Dialogue")
 other_player_ships_title= Text(Point(1170, 205), "Enemy Ships")
-turns_text=Text(Point(1170, 150), "Turns")
 
 airtext=Text(Point(1154, 230), "Aircraft Carrier  =")
 bshiptext=Text(Point(1142, 262.5), "Battleship  =")
 frigtext=Text(Point(1136, 295), "Frigate  =")
 subtext=Text(Point(1146, 327.5), "Submarine  =")
 pattext=Text(Point(1146, 360), "Patrol Boat  =")
+
+place_text= Text(Point(1175, 115), "Place your ships down!")
+error_text=Text(Point(1170, 120), "Your ship cannot be")
+error_text2=Text(Point(1170, 135), "arranged like that!")
+error_text3=Text(Point(1170, 155), "Make sure your points")
+error_text4=Text(Point(1170, 170), "are placed properly!")
 
 fleet.setFill("cyan4")
 attack.setFill("cyan4")

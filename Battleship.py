@@ -98,6 +98,7 @@ def Player1(stage):
         patbox.setFill("SpringGreen2")
         
         confirm_title.draw(winP1)
+        place_text.draw(winP1)
     
         Looper(5, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Aircraft")
@@ -109,12 +110,12 @@ def Player1(stage):
         for i in range(5, 9):
             Bship1.append(P1BoxConf[i])
 
-        '''Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
+        Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Frigate")
         for i in range(9, 12):
             Frig1.append(P1BoxConf[i])
 
-        Looper(15, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
+        '''Looper(15, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Submarine")
         for i in range(12, 15):
             Sub1.append(P1BoxConf[i])
