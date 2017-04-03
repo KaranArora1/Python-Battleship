@@ -79,29 +79,11 @@ def Player1(stage):
     subbox=Rectangle(Point(1225, 317.5), Point(1245, 337.5))
     patbox=Rectangle(Point(1225, 350), Point(1245, 370))
 
-    OPship_line.draw(winP1)
-    dialogue_line.draw(winP1)
-    turns_line.draw(winP1)
-    fleet_line.draw(winP1)
-    radar_line.draw(winP1)
-    
-    other_player_ships_title.draw(winP1)
-    bshiptext.draw(winP1)
-    airtext.draw(winP1)
-    subtext.draw(winP1)
-    pattext.draw(winP1)
-    frigtext.draw(winP1)
-
     airbox.draw(winP1)
     bshipbox.draw(winP1)
     frigbox.draw(winP1)
     subbox.draw(winP1)
     patbox.draw(winP1)
-    
-    turns_text.draw(winP1)
-    fleet_title.draw(winP1)
-    radar_title.draw(winP1)
-    text_box_title.draw(winP1)
     
     drawer1(winP1)
     confirmP1.draw(winP1)
@@ -180,6 +162,10 @@ def Player1(stage):
         checker(Sub2, P1att, num, 3, subbox, winP1)
         checker(Frig2, P1att, num, 3, frigbox, winP1)
 
+        for i in P1att:
+            if i in P2BoxConf:
+                num=num+1
+                
         while True:
             click_getter(winP1)
             if single_detector(1100, 1260, 520, 450, confirmP1, winP1) is True:
@@ -216,30 +202,12 @@ def Player2(stage):
     frigbox=Rectangle(Point(1225, 285), Point(1245, 305))
     subbox=Rectangle(Point(1225, 317.5), Point(1245, 337.5))
     patbox=Rectangle(Point(1225, 350), Point(1245, 370))
-    
-    bshiptext.draw(winP2)
-    airtext.draw(winP2)
-    subtext.draw(winP2)
-    pattext.draw(winP2)
-    frigtext.draw(winP2)
 
     airbox.draw(winP2)
     bshipbox.draw(winP2)
     frigbox.draw(winP2)
     subbox.draw(winP2)
     patbox.draw(winP2)
-
-    dialogue_line.draw(winP2)
-    OPship_line.draw(winP2)
-    turns_line.draw(winP2)
-    fleet_line.draw(winP2)
-    radar_line.draw(winP2)
-
-    other_player_ships_title.draw(winP2)
-    turns_text.draw(winP2)
-    fleet_title.draw(winP2)
-    radar_title.draw(winP2)
-    text_box_title.draw(winP2)
 
     drawer2(winP2)
     confirmP2.draw(winP2)

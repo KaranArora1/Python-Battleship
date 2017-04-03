@@ -498,6 +498,25 @@ def click_getter(win):
 
 #Drawer
 def drawer1(win):
+
+    OPship_line.draw(win)
+    dialogue_line.draw(win)
+    turns_line.draw(win)
+    fleet_line.draw(win)
+    radar_line.draw(win)
+    
+    other_player_ships_title.draw(win)
+    bshiptext.draw(win)
+    airtext.draw(win)
+    subtext.draw(win)
+    pattext.draw(win)
+    frigtext.draw(win)
+    
+    turns_text.draw(win)
+    fleet_title.draw(win)
+    radar_title.draw(win)
+    text_box_title.draw(win)
+    
     for i in BoxesP1A:
         i.draw(win)
     for i in BoxesP1B:
@@ -556,6 +575,25 @@ def drawer1(win):
 
 #Drawer2
 def drawer2(win):
+
+    dialogue_line.draw(win)
+    OPship_line.draw(win)
+    turns_line.draw(win)
+    fleet_line.draw(win)
+    radar_line.draw(win)
+
+    bshiptext.draw(win)
+    airtext.draw(win)
+    subtext.draw(win)
+    pattext.draw(win)
+    frigtext.draw(win)
+
+    other_player_ships_title.draw(win)
+    turns_text.draw(win)
+    fleet_title.draw(win)
+    radar_title.draw(win)
+    text_box_title.draw(win)
+
     for i in BoxesP2A:
         i.draw(win)
     for i in BoxesP2B:
@@ -611,6 +649,5 @@ def drawer2(win):
     for box in P2BoxConf:
         if box in P1att:
             box.setFill("brown2")
-    
     
     
