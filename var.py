@@ -12,9 +12,11 @@ fleet_title= Text(Point(282.5, 20), "FLEET")
 radar_title= Text(Point(837.5, 20), "RADAR")
 confirm_title= Text(Point(1180, 485), "Confirm")
 
-dialogue_line=Line(Point(1140, 100), Point(1200, 100))
-OPship_line= Line(Point(1130, 210), Point(1210, 210))
-turns_line=Line(Point(1150, 155), Point(1190, 155))
+dialogue_line=Line(Point(1145, 100), Point(1195, 100))
+OPship_line= Line(Point(1135, 210), Point(1205, 210))
+turns_line=Line(Point(1155, 155), Point(1185, 155))
+fleet_line=Line(Point(257.5, 28), Point(307.5, 28))
+radar_line=Line(Point(807.5, 28), Point(867.5, 28))
 
 text_box_title=Text(Point(1170, 95), "Dialogue")
 other_player_ships_title= Text(Point(1170, 205), "Enemy Ships")
@@ -29,8 +31,8 @@ pattext=Text(Point(1146, 360), "Patrol Boat  =")
 fleet.setFill("cyan4")
 attack.setFill("cyan4")
 
-fleet_title.setSize(17)
-radar_title.setSize(17)
+fleet_title.setSize(16)
+radar_title.setSize(16)
 
 #Text
 A_text=Text(Point(20, 86.5), "A")
