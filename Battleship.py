@@ -115,7 +115,7 @@ def Player1(stage):
         for i in range(9, 12):
             Frig1.append(P1BoxConf[i])
 
-        '''Looper(15, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
+        Looper(15, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Submarine")
         for i in range(12, 15):
             Sub1.append(P1BoxConf[i])
@@ -123,7 +123,7 @@ def Player1(stage):
         Looper(17, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Patrol")
         for i in range(15, 17):
-            Pat1.append(P1BoxConf[i])'''
+            Pat1.append(P1BoxConf[i])
 
         time.sleep(0.25)
         
@@ -231,7 +231,7 @@ def Player2(stage):
         for i in range(5, 9):
             Bship2.append(P2BoxConf[i])
 
-        '''Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
+        Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Frigate")
         for i in range(9, 12):
             Frig2.append(P2BoxConf[i])
@@ -244,7 +244,7 @@ def Player2(stage):
         Looper(17, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Patrol")
         for i in range(15, 17):
-            Pat2.append(P2BoxConf[i])'''
+            Pat2.append(P2BoxConf[i])
 
         time.sleep(0.25)
         

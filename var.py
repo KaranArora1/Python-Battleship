@@ -681,3 +681,6 @@ brun=-1
 rightvar=-1
 leftvar=-1
 xval=0
+
+#badlist
+badlist=[]

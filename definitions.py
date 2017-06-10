@@ -47,7 +47,7 @@ def yes_no_detector(yes_left, yes_right, yes_top, yes_bottom, no_left, no_right
 #singledetectorconf
 def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship, conflist):
     
-    global P1confirmlist, P2confirmlist
+    global P1confirmlist, P2confirmlist, badlist
     global P1x, P1y, P2x, P2y
     
     try:
@@ -75,6 +75,7 @@ def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship, c
             return True
         
         else:
+            badlist=[]
             box.setFill("brown2")
             win.update()
             time.sleep(0.15)
@@ -370,11 +371,11 @@ def in_a_row(ship, conflist):
 
         elif x[1]-x[0] is 0:
             return True
-
+    
 #Near
 def near(ship, conflist):
     global P1x, P1y, P2x, P2y
-    global P1confirmlist, P2confirmlist
+    global P1confirmlist, P2confirmlist, badlist
 
     if conflist is P1confirmlist:
         y=P1y
@@ -384,41 +385,52 @@ def near(ship, conflist):
         y=P2y
         x=P2x
 
+    badlist=[]
+
     if ship is "Aircraft":
-        if dist(y, x, 0, 1) or dist(y, x, 0, 2) or dist(y, x, 0, 3) or dist (y, x, 0, 4):
-            if dist(y, x, 1, 0) is True or dist(y, x, 1, 2) is True or dist(y, x, 1, 3) is True or dist(y, x, 1, 4) is True:
-                if dist(y, x, 2, 0) is True or dist(y, x, 2, 1) is True or dist(y, x, 2, 3) is True or dist(y, x, 2, 4) is True:
-                    if dist(y, x, 3, 0) is True or dist(y, x, 3, 1) is True or dist(y, x, 3, 2) is True or dist(y, x, 3, 4) is True:
-                        if dist(y, x, 4, 0) is True or dist(y, x, 4, 1) is True or dist(y, x, 4, 2) is True or dist(y, x, 4, 3) is True:
-                            return True
+    
+        if repeat(y, x, 1, 0) or repeat(y, x, 1, 2) or repeat(y, x, 1, 3)  or repeat(y, x, 1, 4):
+            if repeat(y, x, 2, 0) or repeat(y, x, 2, 1) or repeat(y, x, 2, 3) or repeat(y, x, 2, 4):
+                if repeat(y, x, 3, 0) or repeat(y, x, 3, 1) or repeat(y, x, 3, 2) or repeat(y, x, 3, 4):
+                    if repeat(y, x, 4, 0) or repeat(y, x, 4, 1) or repeat(y, x, 4, 2) or repeat(y, x, 4, 3):
+                        return True           
 
     elif ship is "Battleship":
 
-        if dist(y, x, 1, 0) is True or dist(y, x, 1, 2) is True or dist(y, x, 1, 3) is True:
-            if dist(y, x, 2, 0) is True or dist(y, x, 2, 1) is True or dist(y, x, 2, 3) is True:
-                if dist(y, x, 3, 0) is True or dist(y, x, 3, 1) is True or dist(y, x, 3, 2) is True:
+        if repeat(y, x, 1, 0) or repeat(y, x, 1, 2) or repeat(y, x, 1, 3):
+            if repeat(y, x, 2, 0) or repeat(y, x, 2, 1) or repeat(y, x, 2, 3):
+                if repeat(y, x, 3, 0) or repeat(y, x, 3, 1) or repeat(y, x, 3, 2):
                     return True
 
     elif ship is "Frigate":
 
-        if dist(y, x, 1, 0) is True or dist(y, x, 1, 2) is True:
-            if dist(y, x, 2, 0) is True or dist(y, x, 2, 1) is True:
+        if repeat(y, x, 1, 0) or repeat(y, x, 1, 2):
+            if repeat(y, x, 2, 0) or repeat(y, x, 2, 1):
                 return True
 
     elif ship is "Submarine":
 
-        if dist(y, x, 1, 0) is True or dist(y, x, 1, 2) is True:
-            if dist(y, x, 2, 0) is True or dist(y, x, 2, 1) is True:
+        if repeat(y, x, 1, 0) or repeat(y, x, 1, 2):
+            if repeat(y, x, 2, 0) or repeat(y, x, 2, 1):
                 return True
-
+            
     elif ship is "Patrol":
-        if dist(y, x, 1, 0) is True:
+        if repeat(y, x, 1, 0):
             return True
         
 #Distance
 def dist(y, x , i, i2):
     if (((y[i]-y[i2])**2)+((x[i]-x[i2])**2))**0.5 == 1:
         return True
+
+#repeatchecker
+def repeat(xlist, ylist, x,y):
+    global badlist
+    if (x, y) not in badlist:
+        if dist(xlist, ylist, x,y) is True: 
+            li=(y,x)
+            badlist.append(li)
+            return True
     
 #Leftbound
 def leftbound():
@@ -645,5 +657,5 @@ def drawer2(win):
     for box in P2BoxConf:
         if box in P1att:
             box.setFill("brown2")
-    
-    
+
+
