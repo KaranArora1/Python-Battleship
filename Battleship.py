@@ -98,32 +98,61 @@ def Player1(stage):
         patbox.setFill("SpringGreen2")
         
         confirm_title.draw(winP1)
-        place_text.draw(winP1)
-    
+
+        instruct_text1.draw(winP1)
+        instruct_text2.draw(winP1)
+        
         Looper(5, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Aircraft")
         for i in P1BoxConf:
             Aircraft1.append(i)
+
+        instruct_text1.undraw()
+        instruct_text2.undraw()
+
+        instruct_text3.draw(winP1)
+        instruct_text4.draw(winP1)
 
         Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Battleship")
         for i in range(5, 9):
             Bship1.append(P1BoxConf[i])
 
+        instruct_text3.undraw()
+        instruct_text4.undraw()
+
+        instruct_text5.draw(winP1)
+        instruct_text7.draw(winP1)
+
         Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Frigate")
         for i in range(9, 12):
             Frig1.append(P1BoxConf[i])
+
+        instruct_text5.undraw()
+
+        instruct_text6.draw(winP1)
 
         Looper(15, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Submarine")
         for i in range(12, 15):
             Sub1.append(P1BoxConf[i])
 
+        instruct_text6.undraw()
+        instruct_text7.undraw()
+
+        instruct_text8.draw(winP1)
+        instruct_text9.draw(winP1)
+        instruct_text10.draw(winP1)
+
         Looper(17, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Patrol")
         for i in range(15, 17):
             Pat1.append(P1BoxConf[i])
+
+        instruct_text8.undraw()
+        instruct_text9.undraw()
+        instruct_text10.undraw()
 
         time.sleep(0.25)
         
@@ -139,8 +168,8 @@ def Player1(stage):
             
     elif "2"== stage:
         confirm_title= Text(Point(1180, 485), "Done")
-        confirm_title.draw(winP1)
-
+        confirmP1.undraw()
+        
         num=0
         checker(Aircraft2, P1att, num, 5, airbox, winP1)
         checker(Bship2, P1att, num, 4, bshipbox, winP1)
@@ -155,7 +184,10 @@ def Player1(stage):
             length2= len(P1att)
             if length2==length+1:
                 break
-            
+
+        confirmP1.draw(winP1)
+        confirm_title.draw(winP1)
+        
         num=0
         checker(Aircraft2, P1att, num, 5, airbox, winP1)
         checker(Bship2, P1att, num, 4, bshipbox, winP1)
@@ -219,32 +251,63 @@ def Player2(stage):
         subbox.setFill("SpringGreen2")
         frigbox.setFill("SpringGreen2")
         patbox.setFill("SpringGreen2")
+        
         confirm_title.draw(winP2)
-    
+
+        instruct_text1.draw(winP2)
+        instruct_text2.draw(winP2)
+
         Looper(5, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Aircraft")
         for i in P2BoxConf:
             Aircraft2.append(i)
+
+        instruct_text1.undraw()
+        instruct_text2.undraw()
+
+        instruct_text3.draw(winP2)
+        instruct_text4.draw(winP2)
         
         Looper(9, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Battleship")
         for i in range(5, 9):
             Bship2.append(P2BoxConf[i])
 
+        instruct_text3.undraw()
+        instruct_text4.undraw()
+
+        instruct_text5.draw(winP2)
+        instruct_text7.draw(winP2)
+
         Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Frigate")
         for i in range(9, 12):
             Frig2.append(P2BoxConf[i])
+
+        instruct_text5.undraw()
+
+        instruct_text6.draw(winP2)
 
         Looper(15, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Submarine")
         for i in range(12, 15):
             Sub2.append(P2BoxConf[i])
 
+        instruct_text6.undraw()
+        instruct_text7.undraw()
+
+        instruct_text8.draw(winP2)
+        instruct_text9.draw(winP2)
+        instruct_text10.draw(winP2)
+
         Looper(17, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Patrol")
         for i in range(15, 17):
             Pat2.append(P2BoxConf[i])
+
+        instruct_text8.undraw()
+        instruct_text9.undraw()
+        instruct_text10.undraw()
 
         time.sleep(0.25)
         
@@ -260,7 +323,7 @@ def Player2(stage):
             
     elif "2"== stage:
         confirm_title= Text(Point(1180, 485), "Done")
-        confirm_title.draw(winP2)
+        confirmP2.undraw()
         
         num=0
         checker(Aircraft1, P2att, num, 5, airbox, winP2)
@@ -276,6 +339,9 @@ def Player2(stage):
             length2= len(P2att)
             if length2==length+1:
                 break
+
+        confirmP2.draw(winP2)
+        confirm_title.draw(winP2)
 
         checker(Aircraft1, P2att, num, 5, airbox, winP2)
         checker(Bship1, P2att, num, 4, bshipbox, winP2)

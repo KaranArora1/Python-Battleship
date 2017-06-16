@@ -26,11 +26,24 @@ frigtext=Text(Point(1136, 295), "Frigate  =")
 subtext=Text(Point(1146, 327.5), "Submarine  =")
 pattext=Text(Point(1146, 360), "Patrol Boat  =")
 
-place_text= Text(Point(1175, 115), "Place your ships down!")
 error_text=Text(Point(1170, 120), "Your ship cannot be")
 error_text2=Text(Point(1170, 135), "arranged like that!")
 error_text3=Text(Point(1170, 155), "Make sure your points")
 error_text4=Text(Point(1170, 170), "are placed properly!")
+
+instruct_text1= Text(Point(1175, 115), "Place your Aircraft Carrier!")
+instruct_text2= Text(Point(1175, 135), "(5 points)")
+
+instruct_text3= Text(Point(1175, 115), "Place your Battleship!")
+instruct_text4= Text(Point(1175, 135), "(4 points)")
+
+instruct_text5= Text(Point(1175, 115), "Place your Frigate!")
+instruct_text6= Text(Point(1175, 115), "Place your Submarine!")
+instruct_text7= Text(Point(1175, 135), "(3 points)")
+
+instruct_text8= Text(Point(1175, 115), "Finally, place your")
+instruct_text9= Text(Point(1175, 132.5), "Patrol Boat!")
+instruct_text10= Text(Point(1175, 160), "(2 points)")
 
 fleet.setFill("cyan4")
 attack.setFill("cyan4")
