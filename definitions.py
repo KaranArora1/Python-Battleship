@@ -294,14 +294,30 @@ def attack2():
                  boxrunner2(BoxesP1J), P1BoxConf, P2att)
 
 #Checker
-def checker(ship, attacklist, ognum, comparenum, box, win):
+def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win):
     for i in ship:
         if i in attacklist:
             ognum=ognum+1
     if ognum is comparenum:
         box.setFill("#f44141")
+        if ship== Aircraft2 or ship==Bship2 or ship==Pat2 or ship==Sub2 or ship==Frig2:
+            if shipstring in shipsP1:
+                message= Text(Point(1175, 160), "Player 2's %s" %shipstring)
+                message2= Text(Point(1175, 180), "has sunken!")
+                message.draw(win)
+                message2.draw(win)
+                shipsP1.remove(shipstring)
+
+        if ship==Aircraft1 or ship==Bship1 or ship==Pat1 or ship==Sub1 or ship==Frig1:
+            if shipstring in shipsP2:
+                message= Text(Point(1175, 160), "Player 1's %s" %shipstring)
+                message2= Text(Point(1175, 180), "has sunken!")
+                message.draw(win)
+                message2.draw(win)
+                shipsP2.remove(shipstring)
     else:
         box.setFill("SpringGreen2")
+            
     win.update()
     ognum=0
 

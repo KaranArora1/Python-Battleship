@@ -688,6 +688,10 @@ Pat2=[]
 Sub2=[]
 Frig2=[]
 
+#ShipLists
+shipsP1=["Aircraft Carrier", "Battleship","Submarine", "Frigate", "Patrol Boat"]
+shipsP2=["Aircraft Carrier", "Battleship","Submarine", "Frigate", "Patrol Boat"]
+
 #Listvars
 xvar=-1
 yvar=-1

@@ -127,7 +127,7 @@ def Player1(stage):
         instruct_text1.draw(winP1)
         instruct_text2.draw(winP1)
         
-        '''Looper(5, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
+        Looper(5, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Aircraft", instruct_text1, instruct_text2)
         for i in P1BoxConf:
             Aircraft1.append(i)
@@ -141,12 +141,12 @@ def Player1(stage):
         Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Battleship", instruct_text3, instruct_text4)
         for i in range(5, 9):
-            Bship1.append(P1BoxConf[i])'''
+            Bship1.append(P1BoxConf[i])
 
         instruct_text3.undraw()
         instruct_text4.undraw()
 
-        instruct_text5.draw(winP1)
+        '''instruct_text5.draw(winP1)
         instruct_text7.draw(winP1)
 
         Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
@@ -177,7 +177,7 @@ def Player1(stage):
 
         instruct_text8.undraw()
         instruct_text9.undraw()
-        instruct_text10.undraw()
+        instruct_text10.undraw()'''
 
         time.sleep(0.25)
         
@@ -199,11 +199,11 @@ def Player1(stage):
         confirm_title= Text(Point(1180, 485), "Next Turn")
         confirmP1.undraw()
         
-        checker(Aircraft2, P1att, 0, 5, airbox, winP1)
-        checker(Bship2, P1att, 0, 4, bshipbox, winP1)
-        checker(Pat2, P1att, 0, 2, patbox, winP1)
-        checker(Sub2, P1att, 0, 3, subbox, winP1)
-        checker(Frig2, P1att, 0, 3, frigbox, winP1)
+        checker(Aircraft2, "Aircraft Carrier", P1att, 0, 5, airbox, winP1)
+        checker(Bship2, "Battleship", P1att, 0, 4, bshipbox, winP1)
+        checker(Pat2,"Patrol Boat", P1att, 0, 2, patbox, winP1)
+        checker(Sub2, "Submarine", P1att, 0, 3, subbox, winP1)
+        checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1)
         
         while True:
             length= len(P1att)
@@ -216,11 +216,11 @@ def Player1(stage):
         confirmP1.draw(winP1)
         confirm_title.draw(winP1)
         
-        checker(Aircraft2, P1att, 0, 5, airbox, winP1)
-        checker(Bship2, P1att, 0, 4, bshipbox, winP1)
-        checker(Pat2, P1att, 0, 2, patbox, winP1)
-        checker(Sub2, P1att, 0, 3, subbox, winP1)
-        checker(Frig2, P1att, 0, 3, frigbox, winP1)
+        checker(Aircraft2, "Aircraft Carrier", P1att, 0, 5, airbox, winP1)
+        checker(Bship2, "Battleship", P1att, 0, 4, bshipbox, winP1)
+        checker(Pat2, "Patrol Boat", P1att, 0, 2, patbox, winP1)
+        checker(Sub2, "Submarine", P1att, 0, 3, subbox, winP1)
+        checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1)
                 
         while True:
             click_getter(winP1)
@@ -280,7 +280,7 @@ def Player2(stage):
         instruct_text1.draw(winP2)
         instruct_text2.draw(winP2)
 
-        '''Looper(5, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
+        Looper(5, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Aircraft", instruct_text1, instruct_text2)
         for i in P2BoxConf:
             Aircraft2.append(i)
@@ -294,9 +294,9 @@ def Player2(stage):
         Looper(9, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Battleship", instruct_text3, instruct_text4)
         for i in range(5, 9):
-            Bship2.append(P2BoxConf[i])'''
+            Bship2.append(P2BoxConf[i])
 
-        instruct_text3.undraw()
+        '''instruct_text3.undraw()
         instruct_text4.undraw()
 
         instruct_text5.draw(winP2)
@@ -330,7 +330,7 @@ def Player2(stage):
 
         instruct_text8.undraw()
         instruct_text9.undraw()
-        instruct_text10.undraw()
+        instruct_text10.undraw()'''
 
         time.sleep(0.25)
         
@@ -352,11 +352,11 @@ def Player2(stage):
         confirm_title= Text(Point(1180, 485), "Next Turn")
         confirmP2.undraw()
         
-        checker(Aircraft1, P2att, 0, 5, airbox, winP2)
-        checker(Bship1, P2att, 0, 4, bshipbox, winP2)
-        checker(Pat1, P2att, 0, 2, patbox, winP2)
-        checker(Sub1, P2att, 0, 3, subbox, winP2)
-        checker(Frig1, P2att, 0, 3, frigbox, winP2)
+        checker(Aircraft1,"Aircraft Carrier", P2att, 0, 5, airbox, winP2)
+        checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2)
+        checker(Pat1, "Patrol Boat", P2att, 0, 2, patbox, winP2)
+        checker(Sub1, "Submarine" ,P2att, 0, 3, subbox, winP2)
+        checker(Frig1,"Frigate", P2att, 0, 3, frigbox, winP2)
         
         while True:
             length= len(P2att)
@@ -369,11 +369,11 @@ def Player2(stage):
         confirmP2.draw(winP2)
         confirm_title.draw(winP2)
 
-        checker(Aircraft1, P2att, 0, 5, airbox, winP2)
-        checker(Bship1, P2att, 0, 4, bshipbox, winP2)
-        checker(Pat1, P2att, 0, 2, patbox, winP2)
-        checker(Sub1, P2att, 0, 3, subbox, winP2)
-        checker(Frig1, P2att, 0, 3, frigbox, winP2)
+        checker(Aircraft1, "Aircraft", P2att, 0, 5, airbox, winP2)       
+        checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2)
+        checker(Pat1, "Patrol", P2att, 0, 2, patbox, winP2)
+        checker(Sub1, "Sub", P2att, 0, 3, subbox, winP2)
+        checker(Frig1, "Frigate", P2att, 0, 3, frigbox, winP2)
 
         while True:
             click_getter(winP2)
@@ -381,7 +381,8 @@ def Player2(stage):
                 break
 
     winP2.close()
-                    
+
+#################################################################################
 
 '''os.startfile('/Users/karanarora/Desktop')'''
 
