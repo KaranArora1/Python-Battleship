@@ -206,7 +206,8 @@ def ListofListAppenders2():
                      P2BoxLoc, xreturn(), 10, P2x, P2y)
 
 #Attacker
-def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf, ownlist):
+def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf, ownlist,
+             ownmiss, ownhit):
     
     reader= open("Pickler.py", "rb")
     x_click, y_click=pickle.load(reader)
@@ -216,9 +217,13 @@ def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf, ownlist):
 
         if OPbox in OPboxconf:
             ownbox.setFill("brown2")
+            if OPbox not in ownhit:
+                ownhit.append(OPbox)
             
         elif OPbox not in OPboxconf:
             ownbox.setFill("ghost white")
+            if OPbox not in ownmiss:
+                ownmiss.append(OPbox)
 
         if OPbox not in ownlist:
             ownlist.append(OPbox)
@@ -227,67 +232,67 @@ def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf, ownlist):
 def attack1():
     for i in range(10):
         Attacker(leftatt(), rightatt(), 60, 113, boxrunner(BoxesP1ATT_A),
-                 boxrunner2(BoxesP2A), P2BoxConf, P1att)
+                 boxrunner2(BoxesP2A), P2BoxConf, P1att, P1miss, P1hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 113, 166, boxrunner(BoxesP1ATT_B),
-                 boxrunner2(BoxesP2B), P2BoxConf, P1att)
+                 boxrunner2(BoxesP2B), P2BoxConf, P1att, P1miss, P1hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 166, 219, boxrunner(BoxesP1ATT_C),
-                 boxrunner2(BoxesP2C), P2BoxConf, P1att)
+                 boxrunner2(BoxesP2C), P2BoxConf, P1att, P1miss, P1hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 219, 272, boxrunner(BoxesP1ATT_D),
-                 boxrunner2(BoxesP2D), P2BoxConf, P1att)
+                 boxrunner2(BoxesP2D), P2BoxConf, P1att, P1miss, P1hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 272, 325, boxrunner(BoxesP1ATT_E),
-                 boxrunner2(BoxesP2E), P2BoxConf, P1att)
+                 boxrunner2(BoxesP2E), P2BoxConf, P1att, P1miss, P1hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 325, 378, boxrunner(BoxesP1ATT_F),
-                 boxrunner2(BoxesP2F), P2BoxConf, P1att)
+                 boxrunner2(BoxesP2F), P2BoxConf, P1att, P1miss, P1hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 378, 431, boxrunner(BoxesP1ATT_G),
-                 boxrunner2(BoxesP2G), P2BoxConf, P1att)
+                 boxrunner2(BoxesP2G), P2BoxConf, P1att, P1miss, P1hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 431, 484, boxrunner(BoxesP1ATT_H),
-                 boxrunner2(BoxesP2H), P2BoxConf, P1att)
+                 boxrunner2(BoxesP2H), P2BoxConf, P1att, P1miss, P1hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 484, 537, boxrunner(BoxesP1ATT_I),
-                 boxrunner2(BoxesP2I), P2BoxConf, P1att)
+                 boxrunner2(BoxesP2I), P2BoxConf, P1att, P1miss, P1hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 537, 590, boxrunner(BoxesP1ATT_J),
-                 boxrunner2(BoxesP2J), P2BoxConf, P1att)
+                 boxrunner2(BoxesP2J), P2BoxConf, P1att, P1miss, P1hit)
 
 #Attack2
 def attack2():
     for i in range(10):
         Attacker(leftatt(), rightatt(), 60, 113, boxrunner(BoxesP2ATT_A),
-                 boxrunner2(BoxesP1A), P1BoxConf, P2att)
+                 boxrunner2(BoxesP1A), P1BoxConf, P2att, P2miss, P2hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 113, 166, boxrunner(BoxesP2ATT_B),
-                 boxrunner2(BoxesP1B), P1BoxConf, P2att)
+                 boxrunner2(BoxesP1B), P1BoxConf, P2att, P2miss, P2hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 166, 219, boxrunner(BoxesP2ATT_C),
-                 boxrunner2(BoxesP1C), P1BoxConf, P2att)
+                 boxrunner2(BoxesP1C), P1BoxConf, P2att, P2miss, P2hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 219, 272, boxrunner(BoxesP2ATT_D),
-                 boxrunner2(BoxesP1D), P1BoxConf, P2att)
+                 boxrunner2(BoxesP1D), P1BoxConf, P2att, P2miss, P2hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 272, 325, boxrunner(BoxesP2ATT_E),
-                 boxrunner2(BoxesP1E), P1BoxConf, P2att)
+                 boxrunner2(BoxesP1E), P1BoxConf, P2att, P2miss, P2hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 325, 378, boxrunner(BoxesP2ATT_F),
-                 boxrunner2(BoxesP1F), P1BoxConf, P2att)
+                 boxrunner2(BoxesP1F), P1BoxConf, P2att, P2miss, P2hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 378, 431, boxrunner(BoxesP2ATT_G),
-                 boxrunner2(BoxesP1G), P1BoxConf, P2att)
+                 boxrunner2(BoxesP1G), P1BoxConf, P2att, P2miss, P2hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 431, 484, boxrunner(BoxesP2ATT_H),
-                 boxrunner2(BoxesP1H), P1BoxConf, P2att)
+                 boxrunner2(BoxesP1H), P1BoxConf, P2att, P2miss, P2hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 484, 537, boxrunner(BoxesP2ATT_I),
-                 boxrunner2(BoxesP1I), P1BoxConf, P2att)
+                 boxrunner2(BoxesP1I), P1BoxConf, P2att, P2miss, P2hit)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 537, 590, boxrunner(BoxesP2ATT_J),
-                 boxrunner2(BoxesP1J), P1BoxConf, P2att)
+                 boxrunner2(BoxesP1J), P1BoxConf, P2att, P2miss, P2hit)
 
 #Checker
 def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win):
@@ -301,8 +306,8 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win):
         if (ship== Aircraft2 or ship==Bship2 or ship==Pat2 or ship==Sub2 or
             ship==Frig2):
             if shipstring in shipsP1:
-                message= Text(Point(1175, 160), "Player 2's %s" %shipstring)
-                message2= Text(Point(1175, 180), "has sunken!")
+                message= Text(Point(1175, 150), "Player 2's %s" %shipstring)
+                message2= Text(Point(1175, 170), "has sunken!")
                 message.draw(win)
                 message2.draw(win)
                 shipsP1.remove(shipstring)
@@ -310,8 +315,8 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win):
         if (ship==Aircraft1 or ship==Bship1 or ship==Pat1 or ship==Sub1 or
             ship==Frig1):
             if shipstring in shipsP2:
-                message= Text(Point(1175, 160), "Player 1's %s" %shipstring)
-                message2= Text(Point(1175, 180), "has sunken!")
+                message= Text(Point(1175, 150), "Player 1's %s" %shipstring)
+                message2= Text(Point(1175, 170), "has sunken!")
                 message.draw(win)
                 message2.draw(win)
                 shipsP2.remove(shipstring)
@@ -564,7 +569,7 @@ def drawer1(win):
         box.draw(win)
     for box in BoxesP1F:
         box.draw(win)
-    for boxin BoxesP1G:
+    for box in BoxesP1G:
         box.draw(win)
     for box in BoxesP1H:
         box.draw(win)
@@ -596,7 +601,7 @@ def drawer1(win):
 
     for string in text:
         string.setSize(15)
-    for sring in nums:
+    for string in nums:
         string.setSize(15)
 
     for string in text:

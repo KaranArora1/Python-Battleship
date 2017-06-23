@@ -12,12 +12,12 @@ fleet_title= Text(Point(282.5, 20), "FLEET")
 radar_title= Text(Point(837.5, 20), "RADAR")
 confirm_title= Text(Point(1180, 485), "Confirm")
 
-dialogue_line=Line(Point(1145, 100), Point(1195, 100))
+dialogue_line=Line(Point(1150, 100), Point(1200, 100))
 OPship_line= Line(Point(1135, 210), Point(1205, 210))
 fleet_line=Line(Point(257.5, 28), Point(307.5, 28))
 radar_line=Line(Point(807.5, 28), Point(867.5, 28))
 
-text_box_title=Text(Point(1170, 95), "Dialogue")
+text_box_title=Text(Point(1175, 95), "Dialogue")
 other_player_ships_title= Text(Point(1170, 205), "Enemy Ships")
 
 airtext=Text(Point(1154, 230), "Aircraft Carrier  =")
@@ -47,6 +47,9 @@ done_text= Text(Point(1175, 115), "You're finished!")
 done_text2= Text(Point(1175, 145), "Click 'Done' and pass")
 done_text3= Text(Point(1175, 165), "the device to Player 2")
 done_text4= Text(Point(1175, 165), "the device to Player 1")
+
+hit_message= Text(Point(1175, 115), "It's a hit!")
+miss_message= Text(Point(1175, 115), "It's a miss.")
 
 fleet.setFill("cyan4")
 attack.setFill("cyan4")
@@ -684,6 +687,8 @@ P1confirmlist=[]
 P1BoxLoc=[]
 P1BoxConf=[]
 P1att=[]
+P1hit=[]
+P1miss=[]
 P1x=[]
 P1y=[]
 
@@ -693,7 +698,8 @@ P2confirmlist=[]
 P2BoxLoc=[]
 P2BoxConf=[]
 P2att=[]
-P2text=()
+P2hit=[]
+P2miss=[]
 P2x=[]
 P2y=[]
 

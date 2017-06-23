@@ -9,6 +9,9 @@ from zellegraphics import *
 #Instructions
 '''player1_name, player2_name=Instructions()'''
 
+player1_name= "Karan"
+player2_name= "Rajan"
+
 #########################################################################
 #Confirmer
 def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship):
@@ -152,7 +155,7 @@ def Player1(stage):
         instruct_text3.undraw()
         instruct_text4.undraw()
 
-        instruct_text5.draw(winP1)
+        '''instruct_text5.draw(winP1)
         instruct_text7.draw(winP1)
 
         Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
@@ -184,7 +187,7 @@ def Player1(stage):
 
         instruct_text8.undraw()
         instruct_text9.undraw()
-        instruct_text10.undraw()
+        instruct_text10.undraw()'''
 
         time.sleep(0.25)
         
@@ -205,6 +208,9 @@ def Player1(stage):
     elif "2"== stage:
         confirm_title= Text(Point(1180, 485), "Next Turn")
         confirmP1.undraw()
+
+        hitlen=len(P1hit)
+        misslen=len(P1miss)
         
         checker(Aircraft2, "Aircraft Carrier", P1att, 0, 5, airbox, winP1)
         checker(Bship2, "Battleship", P1att, 0, 4, bshipbox, winP1)
@@ -219,6 +225,12 @@ def Player1(stage):
             length2= len(P1att)
             if length2==length+1:
                 break
+
+        if len(P1hit)==hitlen+1:
+            hit_message.draw(winP1)
+            
+        elif len(P1miss)==misslen+1:
+            miss_message.draw(winP1)
 
         confirmP1.draw(winP1)
         confirm_title.draw(winP1)
@@ -306,7 +318,7 @@ def Player2(stage):
         instruct_text3.undraw()
         instruct_text4.undraw()
 
-        instruct_text5.draw(winP2)
+        '''instruct_text5.draw(winP2)
         instruct_text7.draw(winP2)
 
         Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
@@ -338,7 +350,7 @@ def Player2(stage):
 
         instruct_text8.undraw()
         instruct_text9.undraw()
-        instruct_text10.undraw()
+        instruct_text10.undraw()'''
 
         time.sleep(0.25)
         
@@ -359,6 +371,9 @@ def Player2(stage):
     elif "2"== stage:
         confirm_title= Text(Point(1180, 485), "Next Turn")
         confirmP2.undraw()
+
+        hitlen=len(P2hit)
+        misslen=len(P2miss)
         
         checker(Aircraft1,"Aircraft Carrier", P2att, 0, 5, airbox, winP2)
         checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2)
@@ -374,13 +389,19 @@ def Player2(stage):
             if length2==length+1:
                 break
 
+        if len(P2hit)==hitlen+1:
+            hit_message.draw(winP2)
+
+        elif len(P2miss)==misslen+1:
+            miss_message.draw(winP2)
+
         confirmP2.draw(winP2)
         confirm_title.draw(winP2)
 
-        checker(Aircraft1, "Aircraft", P2att, 0, 5, airbox, winP2)       
+        checker(Aircraft1, "Aircraft Carrier", P2att, 0, 5, airbox, winP2)       
         checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2)
-        checker(Pat1, "Patrol", P2att, 0, 2, patbox, winP2)
-        checker(Sub1, "Sub", P2att, 0, 3, subbox, winP2)
+        checker(Pat1, "Patrol Boat", P2att, 0, 2, patbox, winP2)
+        checker(Sub1, "Submarine", P2att, 0, 3, subbox, winP2)
         checker(Frig1, "Frigate", P2att, 0, 3, frigbox, winP2)
 
         while True:
