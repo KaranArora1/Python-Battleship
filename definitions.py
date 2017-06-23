@@ -31,8 +31,7 @@ def yes_no_detector(yes_left, yes_right, yes_top, yes_bottom, no_left, no_right
             yes.setFill("AntiqueWhite2")
             win.update()
             return True
-            time.sleep(0.25)
-            break
+        
         elif no_left < x_click < no_right and no_bottom < y_click < no_top:
             no.setFill("white")
             win.update()
@@ -40,23 +39,20 @@ def yes_no_detector(yes_left, yes_right, yes_top, yes_bottom, no_left, no_right
             no.setFill("AntiqueWhite2")
             win.update()
             return False
-            break
 
 ###########################################################################
 
 #singledetectorconf
-def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship, conflist):
+def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship,
+                         conflist):
     
-    global P1confirmlist, P2confirmlist, badlist
+    global P1confirmlist, P2confirmlist
     global P1x, P1y, P2x, P2y
     
-    try:
-            reciever= open("Pickler.py", "rb")
-            clicks=pickle.load(reciever)
-            reciever.close()
-            x_click, y_click= clicks
-    except:
-            NameError
+    reciever= open("Pickler.py", "rb")
+    clicks=pickle.load(reciever)
+    reciever.close()
+    x_click, y_click= clicks
 
     if ok_left< x_click < ok_right and ok_bottom < y_click < ok_top:
         if in_a_row(ship, conflist) is True and near(ship, conflist) is True:
@@ -69,13 +65,14 @@ def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship, c
             if conflist is P1confirmlist:
                 P1x=[]
                 P1y=[]
+                
             elif conflist is P2confirmlist:
                 P2x=[]
-                P2y=[]                   
+                P2y=[]
+                
             return True
         
         else:
-            badlist=[]
             box.setFill("brown2")
             win.update()
             time.sleep(0.15)
@@ -84,13 +81,11 @@ def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship, c
 
 #Normal singledetector
 def single_detector(ok_left, ok_right, ok_top, ok_bottom, box, win):
-    try:
-            reciever= open("Pickler.py", "rb")
-            clicks=pickle.load(reciever)
-            reciever.close()
-            x_click, y_click= clicks
-    except:
-            NameError
+    
+    reciever= open("Pickler.py", "rb")
+    clicks=pickle.load(reciever)
+    reciever.close()
+    x_click, y_click= clicks
 
     if ok_left< x_click < ok_right and ok_bottom < y_click < ok_top:
         (box).setFill("white")
@@ -111,16 +106,16 @@ def ListAppender(left, right, top, bottom, location, boxapp, appender,
     if left<x_click<right and bottom>y_click>top:
 
         if (appender) not in location:
+            boxapp.setFill("gray")
             (location).append(appender)
             (boxloc).append(boxapp)
-            boxapp.setFill("gray")
             xloc.append(x)
             yloc.append(y)
 
         elif (appender) in location and (appender) not in confirmlist:
+            boxapp.setFill("cyan4")
             (location).remove(appender)
             (boxloc).remove(boxapp)
-            boxapp.setFill("cyan4")
             xloc.remove(x)
             yloc.remove(y)
 
@@ -212,6 +207,7 @@ def ListofListAppenders2():
 
 #Attacker
 def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf, ownlist):
+    
     reader= open("Pickler.py", "rb")
     x_click, y_click=pickle.load(reader)
     reader.close()
@@ -295,12 +291,15 @@ def attack2():
 
 #Checker
 def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win):
+    
     for i in ship:
         if i in attacklist:
             ognum=ognum+1
+            
     if ognum is comparenum:
         box.setFill("#f44141")
-        if ship== Aircraft2 or ship==Bship2 or ship==Pat2 or ship==Sub2 or ship==Frig2:
+        if (ship== Aircraft2 or ship==Bship2 or ship==Pat2 or ship==Sub2 or
+            ship==Frig2):
             if shipstring in shipsP1:
                 message= Text(Point(1175, 160), "Player 2's %s" %shipstring)
                 message2= Text(Point(1175, 180), "has sunken!")
@@ -308,7 +307,8 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win):
                 message2.draw(win)
                 shipsP1.remove(shipstring)
 
-        if ship==Aircraft1 or ship==Bship1 or ship==Pat1 or ship==Sub1 or ship==Frig1:
+        if (ship==Aircraft1 or ship==Bship1 or ship==Pat1 or ship==Sub1 or
+            ship==Frig1):
             if shipstring in shipsP2:
                 message= Text(Point(1175, 160), "Player 1's %s" %shipstring)
                 message2= Text(Point(1175, 180), "has sunken!")
@@ -402,36 +402,30 @@ def near(ship, conflist):
         x=P2x
 
     badlist=[]
+            
+    if ship=="Aircraft":
+        if repeat(y, x, [(0,1), (0,2), (0,3), (0,4)]):
+            if repeat(y, x, [(1,0), (1,2), (1,3), (1,4)]):
+                if repeat(y, x, [(2,0), (2,1), (2,3), (2,4)]):
+                    if repeat(y, x, [(3,0), (3,1), (3,2), (3,4)]):
+                        if repeat(y, x, [(4,0), (4,1), (4,2), (4,3)]):
+                            return True          
 
-    if ship is "Aircraft":
-    
-        if repeat(y, x, 1, 0) or repeat(y, x, 1, 2) or repeat(y, x, 1, 3)  or repeat(y, x, 1, 4):
-            if repeat(y, x, 2, 0) or repeat(y, x, 2, 1) or repeat(y, x, 2, 3) or repeat(y, x, 2, 4):
-                if repeat(y, x, 3, 0) or repeat(y, x, 3, 1) or repeat(y, x, 3, 2) or repeat(y, x, 3, 4):
-                    if repeat(y, x, 4, 0) or repeat(y, x, 4, 1) or repeat(y, x, 4, 2) or repeat(y, x, 4, 3):
-                        return True           
+    elif ship=="Battleship":
+        if repeat(y, x, [(0,1), (0,2), (0,3)]):
+            if repeat(y, x, [(1,0), (1,2), (1,3)]):
+                if repeat(y, x, [(2,0), (2,1), (2,3)]):
+                    if repeat(y, x, [(3,0), (3,1), (3,2)]):
+                        return True
 
-    elif ship is "Battleship":
+    elif ship=="Frigate" or ship=="Submarine":
 
-        if repeat(y, x, 1, 0) or repeat(y, x, 1, 2) or repeat(y, x, 1, 3):
-            if repeat(y, x, 2, 0) or repeat(y, x, 2, 1) or repeat(y, x, 2, 3):
-                if repeat(y, x, 3, 0) or repeat(y, x, 3, 1) or repeat(y, x, 3, 2):
-                    return True
-
-    elif ship is "Frigate":
-
-        if repeat(y, x, 1, 0) or repeat(y, x, 1, 2):
-            if repeat(y, x, 2, 0) or repeat(y, x, 2, 1):
-                return True
-
-    elif ship is "Submarine":
-
-        if repeat(y, x, 1, 0) or repeat(y, x, 1, 2):
-            if repeat(y, x, 2, 0) or repeat(y, x, 2, 1):
+        if repeat(y, x, [(1,0), (1,2)]):
+            if repeat(y, x, [(2,0), (2,1)]): 
                 return True
             
-    elif ship is "Patrol":
-        if repeat(y, x, 1, 0):
+    elif ship=="Patrol":
+        if repeat(y, x, [(1,0)]):
             return True
         
 #Distance
@@ -440,13 +434,36 @@ def dist(y, x , i, i2):
         return True
 
 #repeatchecker
-def repeat(xlist, ylist, x,y):
+#if this doesnt work find old copy in github desktop
+def repeat(xlist, ylist, op_list): 
     global badlist
-    if (x, y) not in badlist:
-        if dist(xlist, ylist, x,y) is True: 
-            li=(y,x)
+    num=0
+    li=[]
+    
+    for ele in op_list:
+        x,y= ele
+        if dist(xlist, ylist, x, y) is True:
+            num=num+1
+            li.append(ele)
+
+    if num>1:
+        return True
+
+    if num==1:
+        if li[0] not in badlist:
+            x,y=li[0]
+            li= (y,x)
             badlist.append(li)
             return True
+            
+    
+    #WHEN YOU PLACE SQAURES 2 AND 2 AND YOU PUT ONE IN THE MIDDLE ERROR OCCURS
+    # BECAUSE POINT 3 HAS NO WHERE TO GO (1 TO 0, 2 TO 3, AND THEN 3 TO 2<<<
+    #2 COULD GO TO $ BUT IT GOES TO 3 FIRST)
+
+
+    #CONSIDER DOING IF POINT HAS TWO CONNECTIONS, YOU DONT HAVE TO PUT THE POINTS
+    #IN BADLIST BECAUSE IT FOR SURE IS GOOD
     
 #Leftbound
 def leftbound():
