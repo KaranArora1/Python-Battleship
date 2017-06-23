@@ -292,8 +292,8 @@ def attack2():
 #Checker
 def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win):
     
-    for i in ship:
-        if i in attacklist:
+    for point in ship:
+        if point in attacklist:
             ognum=ognum+1
             
     if ognum is comparenum:
@@ -530,6 +530,7 @@ def click_getter(win):
         writer= open("Pickler.py", "wb")
         pickle.dump(clicknames, writer, protocol=2)
         writer.close()
+        
         return x_click, y_click
 
 #Drawer
@@ -551,57 +552,57 @@ def drawer1(win):
     radar_title.draw(win)
     text_box_title.draw(win)
     
-    for i in BoxesP1A:
-        i.draw(win)
-    for i in BoxesP1B:
-        i.draw(win)
-    for i in BoxesP1C:
-        i.draw(win)
-    for i in BoxesP1D:
-        i.draw(win)
-    for i in BoxesP1E:
-        i.draw(win)
-    for i in BoxesP1F:
-        i.draw(win)
-    for i in BoxesP1G:
-        i.draw(win)
-    for i in BoxesP1H:
-        i.draw(win)
-    for i in BoxesP1I:
-        i.draw(win)
-    for i in BoxesP1J:
-        i.draw(win)
+    for box in BoxesP1A:
+        box.draw(win)
+    for box in BoxesP1B:
+        box.draw(win)
+    for box in BoxesP1C:
+        box.draw(win)
+    for box in BoxesP1D:
+        box.draw(win)
+    for box in BoxesP1E:
+        box.draw(win)
+    for box in BoxesP1F:
+        box.draw(win)
+    for boxin BoxesP1G:
+        box.draw(win)
+    for box in BoxesP1H:
+        box.draw(win)
+    for box in BoxesP1I:
+        box.draw(win)
+    for box in BoxesP1J:
+        box.draw(win)
         
-    for i in BoxesP1ATT_A:
-        i.draw(win)
-    for i in BoxesP1ATT_B:
-        i.draw(win)
-    for i in BoxesP1ATT_C:
-        i.draw(win)
-    for i in BoxesP1ATT_D:
-        i.draw(win)
-    for i in BoxesP1ATT_E:
-        i.draw(win)
-    for i in BoxesP1ATT_F:
-        i.draw(win)
-    for i in BoxesP1ATT_G:
-        i.draw(win)
-    for i in BoxesP1ATT_H:
-        i.draw(win)
-    for i in BoxesP1ATT_I:
-        i.draw(win)
-    for i in BoxesP1ATT_J:
-        i.draw(win)
+    for box in BoxesP1ATT_A:
+        box.draw(win)
+    for box in BoxesP1ATT_B:
+        box.draw(win)
+    for box in BoxesP1ATT_C:
+        box.draw(win)
+    for box in BoxesP1ATT_D:
+        box.draw(win)
+    for box in BoxesP1ATT_E:
+        box.draw(win)
+    for box in BoxesP1ATT_F:
+        box.draw(win)
+    for box in BoxesP1ATT_G:
+        box.draw(win)
+    for box in BoxesP1ATT_H:
+        box.draw(win)
+    for box in BoxesP1ATT_I:
+        box.draw(win)
+    for box in BoxesP1ATT_J:
+        box.draw(win)
 
-    for i in text:
-        i.setSize(15)
-    for i in nums:
-        i.setSize(15)
+    for string in text:
+        string.setSize(15)
+    for sring in nums:
+        string.setSize(15)
 
-    for i in text:
-        i.draw(win)
-    for i in nums:
-        i.draw(win)
+    for string in text:
+        string.draw(win)
+    for string in nums:
+        string.draw(win)
 
     for box in P1BoxConf:
         if box in P2att:
@@ -626,57 +627,57 @@ def drawer2(win):
     radar_title.draw(win)
     text_box_title.draw(win)
 
-    for i in BoxesP2A:
-        i.draw(win)
-    for i in BoxesP2B:
-        i.draw(win)
-    for i in BoxesP2C:
-        i.draw(win)
-    for i in BoxesP2D:
-        i.draw(win)
-    for i in BoxesP2E:
-        i.draw(win)
-    for i in BoxesP2F:
-        i.draw(win)
-    for i in BoxesP2G:
-        i.draw(win)
-    for i in BoxesP2H:
-        i.draw(win)
-    for i in BoxesP2I:
-        i.draw(win)
-    for i in BoxesP2J:
-        i.draw(win)
+    for box in BoxesP2A:
+        box.draw(win)
+    for box in BoxesP2B:
+        box.draw(win)
+    for box in BoxesP2C:
+        box.draw(win)
+    for box in BoxesP2D:
+        box.draw(win)
+    for box in BoxesP2E:
+        box.draw(win)
+    for box in BoxesP2F:
+        box.draw(win)
+    for box in BoxesP2G:
+        box.draw(win)
+    for box in BoxesP2H:
+        box.draw(win)
+    for box in BoxesP2I:
+        box.draw(win)
+    for box in BoxesP2J:
+        box.draw(win)
 
-    for i in BoxesP2ATT_A:
-        i.draw(win)
-    for i in BoxesP2ATT_B:
-        i.draw(win)
-    for i in BoxesP2ATT_C:
-        i.draw(win)
-    for i in BoxesP2ATT_D:
-        i.draw(win)
-    for i in BoxesP2ATT_E:
-        i.draw(win)
-    for i in BoxesP2ATT_F:
-        i.draw(win)
-    for i in BoxesP2ATT_G:
-        i.draw(win)
-    for i in BoxesP2ATT_H:
-        i.draw(win)
-    for i in BoxesP2ATT_I:
-        i.draw(win)
-    for i in BoxesP2ATT_J:
-        i.draw(win)
+    for box in BoxesP2ATT_A:
+        box.draw(win)
+    for box in BoxesP2ATT_B:
+        box.draw(win)
+    for box in BoxesP2ATT_C:
+        box.draw(win)
+    for box in BoxesP2ATT_D:
+        box.draw(win)
+    for box in BoxesP2ATT_E:
+        box.draw(win)
+    for box in BoxesP2ATT_F:
+        box.draw(win)
+    for box in BoxesP2ATT_G:
+        box.draw(win)
+    for box in BoxesP2ATT_H:
+        box.draw(win)
+    for box in BoxesP2ATT_I:
+        box.draw(win)
+    for box in BoxesP2ATT_J:
+        box.draw(win)
 
-    for i in text:
-        i.setSize(15)
-    for i in nums:
-        i.setSize(15)
+    for box in text:
+        box.setSize(15)
+    for box in nums:
+        box.setSize(15)
 
-    for i in text:
-        i.draw(win)
-    for i in nums:
-        i.draw(win)
+    for string in text:
+        string.draw(win)
+    for string in nums:
+        string.draw(win)
 
     for box in P2BoxConf:
         if box in P1att:

@@ -14,15 +14,14 @@ from zellegraphics import *
 def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship):
     if single_detector_conf(1100, 1260, 520, 450, confirmbox, win, ship,
                             conflist) is True:
-        
-        for x in stringli:
-            if x not in conflist:
-                conflist.append(x)
-        for x in boxloc:
-            if x not in boxconf:
-                boxconf.append(x)
-        for i in boxconf:
-            i.setFill("snow4")
+        for string in stringli:
+            if string not in conflist:
+                conflist.append(string)
+        for box in boxloc:
+            if box not in boxconf:
+                boxconf.append(box)
+        for box in boxconf:
+            box.setFill("snow4")
         return True
 
 #Looper
@@ -35,8 +34,8 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox,
         try:
             error_text.undraw()
             error_text2.undraw()
-            for i in args:
-                i.draw(win)
+            for text in args:
+                text.draw(win)
         except:
             GraphicsError
             
@@ -49,8 +48,8 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox,
             else:
                 if 1100<x_click< 1260 and 450<y_click<520:
                     try:
-                       for i in args:
-                           i.undraw()
+                       for text in args:
+                           text.undraw()
                        error_text.draw(win)
                        error_text2.draw(win)
                     except:
@@ -77,8 +76,8 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox,
                 error_text.draw(win)
                 error_text2.draw(win)
                 
-                for i in args:
-                    i.undraw()
+                for text in args:
+                    text.undraw()
             except:
                 GraphicsError
             
@@ -136,8 +135,8 @@ def Player1(stage):
         
         Looper(5, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Aircraft", instruct_text1, instruct_text2)
-        for i in P1BoxConf:
-            Aircraft1.append(i)
+        for point in P1BoxConf:
+            Aircraft1.append(point)
 
         instruct_text1.undraw()
         instruct_text2.undraw()
@@ -147,8 +146,8 @@ def Player1(stage):
 
         Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Battleship", instruct_text3, instruct_text4)
-        for i in range(5, 9):
-            Bship1.append(P1BoxConf[i])
+        for point in range(5, 9):
+            Bship1.append(P1BoxConf[point])
 
         instruct_text3.undraw()
         instruct_text4.undraw()
@@ -158,8 +157,8 @@ def Player1(stage):
 
         Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Frigate", instruct_text5, instruct_text7)
-        for i in range(9, 12):
-            Frig1.append(P1BoxConf[i])
+        for point in range(9, 12):
+            Frig1.append(P1BoxConf[point])
 
         instruct_text5.undraw()
 
@@ -167,8 +166,8 @@ def Player1(stage):
 
         Looper(15, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Submarine", instruct_text6, instruct_text7)
-        for i in range(12, 15):
-            Sub1.append(P1BoxConf[i])
+        for point in range(12, 15):
+            Sub1.append(P1BoxConf[point])
 
         instruct_text6.undraw()
         instruct_text7.undraw()
@@ -180,8 +179,8 @@ def Player1(stage):
         Looper(17, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
                confirmP1, "Patrol", instruct_text8, instruct_text9,
                instruct_text10)
-        for i in range(15, 17):
-            Pat1.append(P1BoxConf[i])
+        for point in range(15, 17):
+            Pat1.append(P1BoxConf[point])
 
         instruct_text8.undraw()
         instruct_text9.undraw()
@@ -290,8 +289,8 @@ def Player2(stage):
 
         Looper(5, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Aircraft", instruct_text1, instruct_text2)
-        for i in P2BoxConf:
-            Aircraft2.append(i)
+        for point in P2BoxConf:
+            Aircraft2.append(point)
 
         instruct_text1.undraw()
         instruct_text2.undraw()
@@ -301,8 +300,8 @@ def Player2(stage):
         
         Looper(9, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Battleship", instruct_text3, instruct_text4)
-        for i in range(5, 9):
-            Bship2.append(P2BoxConf[i])
+        for point in range(5, 9):
+            Bship2.append(P2BoxConf[point])
 
         instruct_text3.undraw()
         instruct_text4.undraw()
@@ -312,8 +311,8 @@ def Player2(stage):
 
         Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Frigate", instruct_text5, instruct_text7)
-        for i in range(9, 12):
-            Frig2.append(P2BoxConf[i])
+        for point in range(9, 12):
+            Frig2.append(P2BoxConf[point])
 
         instruct_text5.undraw()
 
@@ -321,8 +320,8 @@ def Player2(stage):
 
         Looper(15, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Submarine", instruct_text6, instruct_text7)
-        for i in range(12, 15):
-            Sub2.append(P2BoxConf[i])
+        for point in range(12, 15):
+            Sub2.append(P2BoxConf[point])
 
         instruct_text6.undraw()
         instruct_text7.undraw()
@@ -334,8 +333,8 @@ def Player2(stage):
         Looper(17, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
                confirmP2, "Patrol", instruct_text8, instruct_text9,
                instruct_text10)
-        for i in range(15, 17):
-            Pat2.append(P2BoxConf[i])
+        for point in range(15, 17):
+            Pat2.append(P2BoxConf[point])
 
         instruct_text8.undraw()
         instruct_text9.undraw()
