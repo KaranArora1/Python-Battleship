@@ -455,15 +455,6 @@ def repeat(xlist, ylist, op_list):
             li= (y,x)
             badlist.append(li)
             return True
-            
-    
-    #WHEN YOU PLACE SQAURES 2 AND 2 AND YOU PUT ONE IN THE MIDDLE ERROR OCCURS
-    # BECAUSE POINT 3 HAS NO WHERE TO GO (1 TO 0, 2 TO 3, AND THEN 3 TO 2<<<
-    #2 COULD GO TO $ BUT IT GOES TO 3 FIRST)
-
-
-    #CONSIDER DOING IF POINT HAS TWO CONNECTIONS, YOU DONT HAVE TO PUT THE POINTS
-    #IN BADLIST BECAUSE IT FOR SURE IS GOOD
     
 #Leftbound
 def leftbound():

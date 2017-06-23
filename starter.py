@@ -235,7 +235,8 @@ def Instructions():
     win.close()
     return player1_name, player2_name
 
-
+if __name__== "__main__":
+    Instructions()
 
 
 

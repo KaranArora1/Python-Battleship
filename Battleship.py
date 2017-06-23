@@ -1,11 +1,10 @@
-import os
 import pickle
 import time
 import sys
-from zellegraphics import *
 from definitions import *
-from var import *
 from starter import *
+from var import *
+from zellegraphics import *
 
 #Instructions
 '''player1_name, player2_name=Instructions()'''
@@ -13,7 +12,9 @@ from starter import *
 #########################################################################
 #Confirmer
 def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship):
-    if single_detector_conf(1100, 1260, 520, 450, confirmbox, win, ship, conflist) is True:
+    if single_detector_conf(1100, 1260, 520, 450, confirmbox, win, ship,
+                            conflist) is True:
+        
         for x in stringli:
             if x not in conflist:
                 conflist.append(x)
@@ -25,7 +26,9 @@ def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship):
         return True
 
 #Looper
-def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox, ship, *args):
+def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox,
+           ship, *args):
+    
     global x_click, y_click, confirmP1
     while True:
         x_click, y_click=click_getter(win)
@@ -38,8 +41,11 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox, ship
             GraphicsError
             
         if len(location) is length:
-            if Confirmer(confirmlist, location, boxloc, boxconf, confirmbox, win, ship):
+            
+            if Confirmer(confirmlist, location, boxloc, boxconf, confirmbox,
+                         win, ship):
                 break
+            
             else:
                 if 1100<x_click< 1260 and 450<y_click<520:
                     try:
@@ -70,6 +76,7 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox, ship
             try:
                 error_text.draw(win)
                 error_text2.draw(win)
+                
                 for i in args:
                     i.undraw()
             except:
@@ -146,7 +153,7 @@ def Player1(stage):
         instruct_text3.undraw()
         instruct_text4.undraw()
 
-        '''instruct_text5.draw(winP1)
+        instruct_text5.draw(winP1)
         instruct_text7.draw(winP1)
 
         Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
@@ -171,13 +178,14 @@ def Player1(stage):
         instruct_text10.draw(winP1)
 
         Looper(17, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
-               confirmP1, "Patrol", instruct_text8, instruct_text9, instruct_text10)
+               confirmP1, "Patrol", instruct_text8, instruct_text9,
+               instruct_text10)
         for i in range(15, 17):
             Pat1.append(P1BoxConf[i])
 
         instruct_text8.undraw()
         instruct_text9.undraw()
-        instruct_text10.undraw()'''
+        instruct_text10.undraw()
 
         time.sleep(0.25)
         
@@ -296,7 +304,7 @@ def Player2(stage):
         for i in range(5, 9):
             Bship2.append(P2BoxConf[i])
 
-        '''instruct_text3.undraw()
+        instruct_text3.undraw()
         instruct_text4.undraw()
 
         instruct_text5.draw(winP2)
@@ -324,13 +332,14 @@ def Player2(stage):
         instruct_text10.draw(winP2)
 
         Looper(17, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
-               confirmP2, "Patrol", instruct_text8, instruct_text9, instruct_text10)
+               confirmP2, "Patrol", instruct_text8, instruct_text9,
+               instruct_text10)
         for i in range(15, 17):
             Pat2.append(P2BoxConf[i])
 
         instruct_text8.undraw()
         instruct_text9.undraw()
-        instruct_text10.undraw()'''
+        instruct_text10.undraw()
 
         time.sleep(0.25)
         
