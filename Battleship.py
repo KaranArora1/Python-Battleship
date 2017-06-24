@@ -90,7 +90,8 @@ def Player1(stage):
     global winP1, click, confirmP1, Player1_Locations, confirm_title
     global Aircraft1, Pat1, Sub1, Frig1, Bship1
     
-    winP1=GraphWin("Player One's Battleship Board", 1275, 650, autoflush= False)
+    winP1=GraphWin("%s's Battleship Board" %player1_name, 1275, 650,
+                   autoflush= False)
     
     button1= Rectangle(Point(1100, 400), Point(1260, 450))
     button2= Rectangle(Point(1100, 470), Point(1260, 520))
@@ -197,6 +198,8 @@ def Player1(stage):
 
         done_text.draw(winP1)
         done_text2.draw(winP1)
+
+        done_text3= Text(Point(1175, 165), "the device to %s" %player2_name)
         done_text3.draw(winP1)
 
         while True:
@@ -212,16 +215,20 @@ def Player1(stage):
         hitlen=len(P1hit)
         misslen=len(P1miss)
         
-        checker(Aircraft2, "Aircraft Carrier", P1att, 0, 5, airbox, winP1)
-        checker(Bship2, "Battleship", P1att, 0, 4, bshipbox, winP1)
-        checker(Pat2,"Patrol Boat", P1att, 0, 2, patbox, winP1)
-        checker(Sub2, "Submarine", P1att, 0, 3, subbox, winP1)
-        checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1)
+        checker(Aircraft2, "Aircraft Carrier", P1att, 0, 5, airbox, winP1,
+                player2_name)
+        checker(Bship2, "Battleship", P1att, 0, 4, bshipbox, winP1,
+                player2_name)
+        checker(Pat2,"Patrol Boat", P1att, 0, 2, patbox, winP1, player2_name)
+        checker(Sub2, "Submarine", P1att, 0, 3, subbox, winP1, player2_name)
+        checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1, player2_name)
         
         while True:
             length= len(P1att)
             click_getter(winP1)
+            
             attack1()
+            
             length2= len(P1att)
             if length2==length+1:
                 break
@@ -235,11 +242,13 @@ def Player1(stage):
         confirmP1.draw(winP1)
         confirm_title.draw(winP1)
         
-        checker(Aircraft2, "Aircraft Carrier", P1att, 0, 5, airbox, winP1)
-        checker(Bship2, "Battleship", P1att, 0, 4, bshipbox, winP1)
-        checker(Pat2, "Patrol Boat", P1att, 0, 2, patbox, winP1)
-        checker(Sub2, "Submarine", P1att, 0, 3, subbox, winP1)
-        checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1)
+        checker(Aircraft2, "Aircraft Carrier", P1att, 0, 5, airbox, winP1,
+                player2_name)
+        checker(Bship2, "Battleship", P1att, 0, 4, bshipbox, winP1,
+                player2_name)
+        checker(Pat2, "Patrol Boat", P1att, 0, 2, patbox, winP1, player2_name)
+        checker(Sub2, "Submarine", P1att, 0, 3, subbox, winP1, player2_name)
+        checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1, player2_name)
                 
         while True:
             click_getter(winP1)
@@ -254,7 +263,7 @@ def Player2(stage):
     global winP2, click, confirmP2, Player2_Locations, confirm_title
     global Aircraft2, Pat2, Sub2, Frig2, Bship2
 
-    winP2=GraphWin("Player Two's Battleship Board", 1275, 650, autoflush=False)
+    winP2=GraphWin("%s's Battleship Board" %player2_name, 1275, 650, autoflush=False)
     
     button1= Rectangle(Point(1100, 400), Point(1260, 450))
     button2= Rectangle(Point(1100, 470), Point(1260, 520))
@@ -360,6 +369,8 @@ def Player2(stage):
 
         done_text.draw(winP2)
         done_text2.draw(winP2)
+
+        done_text4=Text(Point(1175, 165), "the device to %s" %player1_name)
         done_text4.draw(winP2)
         
         while True:
@@ -375,11 +386,12 @@ def Player2(stage):
         hitlen=len(P2hit)
         misslen=len(P2miss)
         
-        checker(Aircraft1,"Aircraft Carrier", P2att, 0, 5, airbox, winP2)
-        checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2)
-        checker(Pat1, "Patrol Boat", P2att, 0, 2, patbox, winP2)
-        checker(Sub1, "Submarine" ,P2att, 0, 3, subbox, winP2)
-        checker(Frig1,"Frigate", P2att, 0, 3, frigbox, winP2)
+        checker(Aircraft1,"Aircraft Carrier", P2att, 0, 5, airbox, winP2,
+                player1_name)
+        checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2, player1_name)
+        checker(Pat1, "Patrol Boat", P2att, 0, 2, patbox, winP2, player1_name)
+        checker(Sub1, "Submarine" ,P2att, 0, 3, subbox, winP2, player1_name)
+        checker(Frig1,"Frigate", P2att, 0, 3, frigbox, winP2, player1_name)
         
         while True:
             length= len(P2att)
@@ -398,11 +410,12 @@ def Player2(stage):
         confirmP2.draw(winP2)
         confirm_title.draw(winP2)
 
-        checker(Aircraft1, "Aircraft Carrier", P2att, 0, 5, airbox, winP2)       
-        checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2)
-        checker(Pat1, "Patrol Boat", P2att, 0, 2, patbox, winP2)
-        checker(Sub1, "Submarine", P2att, 0, 3, subbox, winP2)
-        checker(Frig1, "Frigate", P2att, 0, 3, frigbox, winP2)
+        checker(Aircraft1, "Aircraft Carrier", P2att, 0, 5, airbox, winP2,
+                player1_name)       
+        checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2, player1_name)
+        checker(Pat1, "Patrol Boat", P2att, 0, 2, patbox, winP2, player1_name)
+        checker(Sub1, "Submarine", P2att, 0, 3, subbox, winP2, player1_name)
+        checker(Frig1, "Frigate", P2att, 0, 3, frigbox, winP2, player1_name)
 
         while True:
             click_getter(winP2)

@@ -45,8 +45,6 @@ instruct_text10= Text(Point(1175, 160), "(2 points)")
 
 done_text= Text(Point(1175, 115), "You're finished!")
 done_text2= Text(Point(1175, 145), "Click 'Done' and pass")
-done_text3= Text(Point(1175, 165), "the device to Player 2")
-done_text4= Text(Point(1175, 165), "the device to Player 1")
 
 hit_message= Text(Point(1175, 115), "It's a hit!")
 miss_message= Text(Point(1175, 115), "It's a miss.")

@@ -295,7 +295,7 @@ def attack2():
                  boxrunner2(BoxesP1J), P1BoxConf, P2att, P2miss, P2hit)
 
 #Checker
-def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win):
+def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win, name):
     
     for point in ship:
         if point in attacklist:
@@ -306,8 +306,9 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win):
         if (ship== Aircraft2 or ship==Bship2 or ship==Pat2 or ship==Sub2 or
             ship==Frig2):
             if shipstring in shipsP1:
-                message= Text(Point(1175, 150), "Player 2's %s" %shipstring)
-                message2= Text(Point(1175, 170), "has sunken!")
+                message= Text(Point(1175, 140), "%(1)s's %(2)s"
+                              %{"1": name, "2": shipstring})
+                message2= Text(Point(1175, 160), "has sunken!")
                 message.draw(win)
                 message2.draw(win)
                 shipsP1.remove(shipstring)
@@ -315,8 +316,9 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win):
         if (ship==Aircraft1 or ship==Bship1 or ship==Pat1 or ship==Sub1 or
             ship==Frig1):
             if shipstring in shipsP2:
-                message= Text(Point(1175, 150), "Player 1's %s" %shipstring)
-                message2= Text(Point(1175, 170), "has sunken!")
+                message= Text(Point(1175, 140), "%(1)s's %(2)s"
+                              %{"1": name, "2": shipstring})
+                message2= Text(Point(1175, 160), "has sunken!")
                 message.draw(win)
                 message2.draw(win)
                 shipsP2.remove(shipstring)
@@ -438,7 +440,7 @@ def dist(y, x , i, i2):
     if (((y[i]-y[i2])**2)+((x[i]-x[i2])**2))**0.5 == 1:
         return True
 
-#repeatchecker
+#repeat
 #if this doesnt work find old copy in github desktop
 def repeat(xlist, ylist, op_list): 
     global badlist
