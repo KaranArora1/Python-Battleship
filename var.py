@@ -5,8 +5,8 @@ fleet= Rectangle(Point(35, 60), Point(530, 590))
 attack= Rectangle(Point(590, 60), Point(1085, 590))
 text_box= Rectangle(Point(1100, 80), Point(1260, 385))
 
-button1_text=Text(Point(1170, 425), "BUTTON1")
-button2_text=Text(Point(1170, 495), "BUTTON2")
+see_oth_player_box=Rectangle(Point(1100, 420), Point(1260, 490))
+close_game= Rectangle(Point(1100, 510), Point(1260, 580))
 
 fleet_title= Text(Point(282.5, 20), "FLEET")
 radar_title= Text(Point(837.5, 20), "RADAR")
@@ -49,8 +49,14 @@ done_text2= Text(Point(1175, 145), "Click 'Done' and pass")
 hit_message= Text(Point(1175, 115), "It's a hit!")
 miss_message= Text(Point(1175, 115), "It's a miss.")
 
+winner_text= Text(Point(1175, 180), "You have won the game!")
+
+close_game_text= Text(Point(1180, 545), "Close Game")
+
 fleet.setFill("cyan4")
 attack.setFill("cyan4")
+see_oth_player_box.setFill("AntiqueWhite")
+close_game.setFill("AntiqueWhite")
 
 fleet_title.setSize(16)
 radar_title.setSize(16)
@@ -715,8 +721,11 @@ Sub2=[]
 Frig2=[]
 
 #ShipLists
-shipsP1=["Aircraft Carrier", "Battleship","Submarine", "Frigate", "Patrol Boat"]
-shipsP2=["Aircraft Carrier", "Battleship","Submarine", "Frigate", "Patrol Boat"]
+shipsP1=["Aircraft Carrier"]
+''',"Battleship ,"Submarine", "Frigate", "Patrol Boat"]'''
+shipsP2=["Aircraft Carrier"]
+''', "Battleship","Submarine", "Frigate", "Patrol Boat"]'''
+
 
 #Listvars
 xvar=-1

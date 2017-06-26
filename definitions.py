@@ -305,16 +305,6 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win, name):
         box.setFill("#f44141")
         if (ship== Aircraft2 or ship==Bship2 or ship==Pat2 or ship==Sub2 or
             ship==Frig2):
-            if shipstring in shipsP1:
-                message= Text(Point(1175, 140), "%(1)s's %(2)s"
-                              %{"1": name, "2": shipstring})
-                message2= Text(Point(1175, 160), "has sunken!")
-                message.draw(win)
-                message2.draw(win)
-                shipsP1.remove(shipstring)
-
-        if (ship==Aircraft1 or ship==Bship1 or ship==Pat1 or ship==Sub1 or
-            ship==Frig1):
             if shipstring in shipsP2:
                 message= Text(Point(1175, 140), "%(1)s's %(2)s"
                               %{"1": name, "2": shipstring})
@@ -322,12 +312,29 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win, name):
                 message.draw(win)
                 message2.draw(win)
                 shipsP2.remove(shipstring)
+
+        if (ship==Aircraft1 or ship==Bship1 or ship==Pat1 or ship==Sub1 or
+            ship==Frig1):
+            if shipstring in shipsP1:
+                message= Text(Point(1175, 140), "%(1)s's %(2)s"
+                              %{"1": name, "2": shipstring})
+                message2= Text(Point(1175, 160), "has sunken!")
+                message.draw(win)
+                message2.draw(win)
+                shipsP1.remove(shipstring)
     else:
         box.setFill("SpringGreen2")
             
     win.update()
     ognum=0
 
+#winner
+def winner():
+    if len(shipsP1)==0:
+        return("Player2")
+    elif len(shipsP2)==0:
+        return("Player1")
+                
 #InARow
 def in_a_row(ship, conflist):
     global P1x, P1y, P2x, P2y
