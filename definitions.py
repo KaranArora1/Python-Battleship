@@ -59,7 +59,7 @@ def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship,
             (box).setFill("white")
             win.update()
             time.sleep(0.15)
-            (box).setFill("AntiqueWhite2")
+            (box).setFill("AntiqueWhite")
             win.update()
 
             if conflist is P1confirmlist:
@@ -76,7 +76,7 @@ def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship,
             box.setFill("brown2")
             win.update()
             time.sleep(0.15)
-            box.setFill("AntiqueWhite2")
+            box.setFill("AntiqueWhite")
             win.update()
 
 #Normal singledetector
@@ -91,7 +91,7 @@ def single_detector(ok_left, ok_right, ok_top, ok_bottom, box, win):
         (box).setFill("white")
         win.update()
         time.sleep(0.10)
-        (box).setFill("AntiqueWhite2")
+        (box).setFill("AntiqueWhite")
         win.update()
         return True
 
@@ -308,7 +308,8 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win, name):
             if shipstring in shipsP2:
                 message= Text(Point(1175, 140), "%(1)s's %(2)s"
                               %{"1": name, "2": shipstring})
-                message2= Text(Point(1175, 160), "has sunken!")
+                message2= Text(Point(1175, 155), "has sunken!")
+    
                 message.draw(win)
                 message2.draw(win)
                 shipsP2.remove(shipstring)
@@ -318,7 +319,8 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win, name):
             if shipstring in shipsP1:
                 message= Text(Point(1175, 140), "%(1)s's %(2)s"
                               %{"1": name, "2": shipstring})
-                message2= Text(Point(1175, 160), "has sunken!")
+                message2= Text(Point(1175, 155), "has sunken!")
+            
                 message.draw(win)
                 message2.draw(win)
                 shipsP1.remove(shipstring)

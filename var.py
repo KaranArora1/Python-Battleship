@@ -13,12 +13,12 @@ radar_title= Text(Point(837.5, 20), "RADAR")
 confirm_title= Text(Point(1180, 485), "Confirm")
 
 dialogue_line=Line(Point(1150, 100), Point(1200, 100))
-OPship_line= Line(Point(1135, 210), Point(1205, 210))
+OPship_line= Line(Point(1140, 210), Point(1210, 210))
 fleet_line=Line(Point(257.5, 28), Point(307.5, 28))
 radar_line=Line(Point(807.5, 28), Point(867.5, 28))
 
 text_box_title=Text(Point(1175, 95), "Dialogue")
-other_player_ships_title= Text(Point(1170, 205), "Enemy Ships")
+other_player_ships_title= Text(Point(1175, 205), "Enemy Ships")
 
 airtext=Text(Point(1154, 230), "Aircraft Carrier  =")
 bshiptext=Text(Point(1142, 262.5), "Battleship  =")
@@ -60,6 +60,9 @@ close_game.setFill("AntiqueWhite")
 
 fleet_title.setSize(16)
 radar_title.setSize(16)
+winner_text.setSize(11)
+
+winner_text.setStyle("italic")
 
 #Text
 A_text=Text(Point(20, 86.5), "A")
