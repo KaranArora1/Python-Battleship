@@ -1,3 +1,4 @@
+import pygame
 import pickle
 import time
 import sys
@@ -7,10 +8,15 @@ from var import *
 from zellegraphics import *
 
 #Instructions
-'''player1_name, player2_name=Instructions()'''
+'''player1_name, player2_name=Instructions("1", "Start")'''
 
 player1_name= "Karan"
 player2_name= "Rajan"
+
+pygame.init()
+
+pygame.mixer.music.load("seamusic.mp3")
+pygame.mixer.music.play()
 
 #########################################################################
 #Confirmer
@@ -272,6 +278,7 @@ def Player1(stage):
         while True:
             click_getter(winP1)
             if single_detector(1100, 1260, 520, 450, confirmP1, winP1) is True:
+                time.sleep(0.1)
                 winP1.close()
                 break
             
@@ -497,6 +504,7 @@ def Player2(stage):
         while True:
             click_getter(winP2)
             if single_detector(1100, 1260, 520, 450, confirmP2, winP2) is True:
+                time.sleep(0.1)
                 break
 
     elif "3"== stage:
@@ -538,6 +546,8 @@ def Player2(stage):
 
     winP2.close()
 
+
+
 #################################################################################
 
 '''os.startfile('/Users/karanarora/Desktop')'''
@@ -548,9 +558,11 @@ Player2('1')
 while True:
     #Player1's run
     Player1('2')
+    Instructions('2', '', player2_name)
  
     #Player2's run
     Player2('2')
+    Instructions('2', '', player1_name)
 
 writer= open("Pickler.py", "wb")
 pickle.dump("", writer, protocol=2)
