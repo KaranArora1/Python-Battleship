@@ -1,3 +1,4 @@
+import pygame
 import time
 import pickle
 import zellegraphics
@@ -56,9 +57,12 @@ def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship,
 
     if ok_left< x_click < ok_right and ok_bottom < y_click < ok_top:
         if in_a_row(ship, conflist) is True and near(ship, conflist) is True:
+            sound= pygame.mixer.Sound("confirm.ogg")
+            sound.play()
+            
             (box).setFill("white")
             win.update()
-            time.sleep(0.15)
+            time.sleep(0.30)
             (box).setFill("AntiqueWhite")
             win.update()
 
@@ -73,6 +77,10 @@ def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship,
             return True
         
         else:
+
+            sound=pygame.mixer.Sound("error.ogg")
+            sound.play()
+            
             box.setFill("brown2")
             win.update()
             time.sleep(0.15)
@@ -118,6 +126,10 @@ def ListAppender(left, right, top, bottom, location, boxapp, appender,
             (boxloc).remove(boxapp)
             xloc.remove(x)
             yloc.remove(y)
+
+        elif appender in confirmlist:
+            sound=pygame.mixer.Sound("error.ogg")
+            sound.play()
 
 #Listoflistappenders1
 def ListofListAppenders1():
@@ -219,12 +231,24 @@ def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf, ownlist,
             ownbox.setFill("brown2")
             if OPbox not in ownhit:
                 ownhit.append(OPbox)
+                sound= pygame.mixer.Sound("hit.ogg")
+                sound.play()
+                
+            elif OPbox in ownhit:
+                sound= pygame.mixer.Sound("error.ogg")
+                sound.play()
             
         elif OPbox not in OPboxconf:
             ownbox.setFill("ghost white")
             if OPbox not in ownmiss:
                 ownmiss.append(OPbox)
+                sound= pygame.mixer.Sound("miss.ogg")
+                sound.play()
 
+            elif OPbox in ownmiss:
+                sound= pygame.mixer.Sound("error.ogg")
+                sound.play()
+                
         if OPbox not in ownlist:
             ownlist.append(OPbox)
 

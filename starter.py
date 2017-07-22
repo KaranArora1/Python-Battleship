@@ -1,5 +1,6 @@
 from zellegraphics import *
 from definitions import *
+import pygame
 import pickle
 
 #Starter
@@ -19,6 +20,10 @@ def Instructions(stage, *args):
     case.setFill("AntiqueWhite1")
     
     if stage=="1":
+        pygame.init()
+        pygame.mixer.music.load("waves.mp3")
+        pygame.mixer.music.play(-1)
+        
         choice_yes= Rectangle(Point(130, 225), Point(215, 260))
         choice_no= Rectangle(Point(385, 225), Point(470, 260))
         choice_ok= Rectangle(Point(355, 180), Point(430, 220))

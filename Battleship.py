@@ -1,7 +1,9 @@
-import pygame
+#!/usr/local/bin/python3
+
 import pickle
 import time
 import sys
+import pygame
 from definitions import *
 from starter import *
 from var import *
@@ -16,7 +18,7 @@ player2_name= "Rajan"
 pygame.init()
 
 pygame.mixer.music.load("seamusic.mp3")
-pygame.mixer.music.play()
+pygame.mixer.music.play(-1)
 
 #########################################################################
 #Confirmer
@@ -76,11 +78,16 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox,
             NameError
 
         if 1100<x_click< 1260 and 450<y_click<520 and len(location) != length:
+
+            sound=pygame.mixer.Sound("error.ogg")
+            sound.play()
+            
             confirmbox.setFill("brown2")
             win.update()
             time.sleep(0.15)
             confirmbox.setFill("AntiqueWhite2")
             win.update()
+            
             try:
                 error_text.draw(win)
                 error_text2.draw(win)
@@ -146,7 +153,7 @@ def Player1(stage):
 
         instruct_text1.undraw()
         instruct_text2.undraw()
-
+        
         '''instruct_text3.draw(winP1)
         instruct_text4.draw(winP1)
 
@@ -190,9 +197,9 @@ def Player1(stage):
 
         instruct_text8.undraw()
         instruct_text9.undraw()
-        instruct_text10.undraw()'''
+        instruct_text10.undraw()
 
-        time.sleep(0.25)
+        time.sleep(0.25)'''
         
         confirm_title.undraw()
         confirm_title= Text(Point(1180, 485), "Done!")
@@ -213,6 +220,8 @@ def Player1(stage):
     elif "2"== stage:
         confirm_title= Text(Point(1180, 485), "Next Turn")
         confirmP1.undraw()
+
+        captain_text.draw(winP1)
 
         hitlen=len(P1hit)
         misslen=len(P1miss)
@@ -235,6 +244,8 @@ def Player1(stage):
             if length2==length+1:
                 break
 
+        captain_text.undraw()
+
         if len(P1hit)==hitlen+1:
             hit_message.draw(winP1)
             
@@ -250,6 +261,8 @@ def Player1(stage):
         checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1, player2_name)
 
         if winner()=="Player1":
+            sound=pygame.mixer.Sound("victory.ogg")
+            sound.play()
             winner_text.draw(winP1)
             see_oth_player_box.draw(winP1)
             close_game.draw(winP1)
@@ -421,9 +434,9 @@ def Player2(stage):
 
         instruct_text8.undraw()
         instruct_text9.undraw()
-        instruct_text10.undraw()'''
+        instruct_text10.undraw()
 
-        time.sleep(0.25)
+        time.sleep(0.25)'''
         
         confirm_title.undraw()
         confirm_title= Text(Point(1180, 485), "Done!")
@@ -443,6 +456,7 @@ def Player2(stage):
             
     elif "2"== stage:
         confirm_title= Text(Point(1180, 485), "Next Turn")
+        captain_text.draw(winP2)
 
         hitlen=len(P2hit)
         misslen=len(P2miss)
@@ -462,6 +476,8 @@ def Player2(stage):
             if length2==length+1:
                 break
 
+        captain_text.undraw()
+
         if len(P2hit)==hitlen+1:
             hit_message.draw(winP2)
 
@@ -476,6 +492,8 @@ def Player2(stage):
         checker(Frig1, "Frigate", P2att, 0, 3, frigbox, winP2, player1_name)
 
         if winner()=="Player2":
+            sound=pygame.mixer.Sound("victory.ogg")
+            sound.play()
             winner_text.draw(winP2)
             see_oth_player_box.draw(winP2)
             close_game.draw(winP2)
