@@ -10,21 +10,25 @@ from var import *
 from zellegraphics import *
 
 #Instructions
-'''player1_name, player2_name=Instructions("1", "Start")'''
+'''player1_name, player2_name, music, soundvar=Instructions("1", "Start")'''
 
 player1_name= "Karan"
 player2_name= "Rajan"
+soundvar=False
+music=False
 
 pygame.init()
 
-pygame.mixer.music.load("seamusic.mp3")
-pygame.mixer.music.play(-1)
+if music:
+    pygame.mixer.music.load("seamusic.mp3")
+    pygame.mixer.music.play(-1)
 
 #########################################################################
 #Confirmer
-def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship):
+def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship,
+              soundvar):
     if single_detector_conf(1100, 1260, 520, 450, confirmbox, win, ship,
-                            conflist) is True:
+                            conflist, soundvar) is True:
         for string in stringli:
             if string not in conflist:
                 conflist.append(string)
@@ -37,11 +41,16 @@ def Confirmer(conflist, stringli, boxloc, boxconf,confirmbox, win, ship):
 
 #Looper
 def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox,
-           ship, *args):
+           ship, soundvar, music, *args):
     
     global x_click, y_click, confirmP1
     while True:
         x_click, y_click=click_getter(win)
+        if 590<x_click<1085 and 60<y_click<590:
+            if soundvar:
+                sound=pygame.mixer.Sound("error.ogg")
+                sound.play()
+                continue
         try:
             error_text.undraw()
             error_text2.undraw()
@@ -49,11 +58,26 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox,
                 text.draw(win)
         except:
             GraphicsError
+
+        original= music
+        music=musicplay(music, 1100, 1175, 65, 15, music_box, win)
+        if music==None:
+            music=original
+        if music != original:
+            continue
+
+        original=soundvar
+        soundvar=soundplay(soundvar, 1185, 1260, 65, 15, sound_box, win)
+        if soundvar==None:
+            soundvar=original
+        if soundvar != original:
+            continue
             
         if len(location) is length:
             
             if Confirmer(confirmlist, location, boxloc, boxconf, confirmbox,
-                         win, ship):
+                         win, ship, soundvar):
+                return music, soundvar
                 break
             
             else:
@@ -68,19 +92,20 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox,
                         
         try:
             if win is winP1:
-                ListofListAppenders1()
+                ListofListAppenders1(soundvar)
         except:
             NameError
         try:
             if win is winP2:
-                ListofListAppenders2()
+                ListofListAppenders2(soundvar)
         except:
             NameError
 
         if 1100<x_click< 1260 and 450<y_click<520 and len(location) != length:
 
-            sound=pygame.mixer.Sound("error.ogg")
-            sound.play()
+            if soundvar:
+                sound=pygame.mixer.Sound("error.ogg")
+                sound.play()
             
             confirmbox.setFill("brown2")
             win.update()
@@ -102,6 +127,7 @@ def Looper(length, win, location, confirmlist, boxloc, boxconf, confirmbox,
 def Player1(stage):
     global winP1, click, confirmP1, Player1_Locations, confirm_title
     global Aircraft1, Pat1, Sub1, Frig1, Bship1
+    global soundvar, music
 
     winP1=GraphWin("%s's Battleship Board" %player1_name, 1275, 650,
                    autoflush= False)
@@ -129,7 +155,7 @@ def Player1(stage):
     subbox.draw(winP1)
     patbox.draw(winP1)
     
-    drawer1(winP1)
+    drawer1(winP1, music, soundvar)
 
     winP1.update()
 
@@ -146,30 +172,35 @@ def Player1(stage):
         instruct_text1.draw(winP1)
         instruct_text2.draw(winP1)
         
-        Looper(5, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
-               confirmP1, "Aircraft", instruct_text1, instruct_text2)
+        music, soundvar=Looper(5, winP1, Player1_Locations, P1confirmlist,
+                               P1BoxLoc, P1BoxConf, confirmP1, "Aircraft",
+                               soundvar, music, instruct_text1, instruct_text2)
         for point in P1BoxConf:
             Aircraft1.append(point)
 
         instruct_text1.undraw()
         instruct_text2.undraw()
         
-        '''instruct_text3.draw(winP1)
+        instruct_text3.draw(winP1)
         instruct_text4.draw(winP1)
 
-        Looper(9, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
-               confirmP1, "Battleship", instruct_text3, instruct_text4)
+        music, soundvar= Looper(9, winP1, Player1_Locations, P1confirmlist,
+                                P1BoxLoc, P1BoxConf, confirmP1,
+                                "Battleship", soundvar, music, instruct_text3,
+                                instruct_text4)
         for point in range(5, 9):
             Bship1.append(P1BoxConf[point])
 
         instruct_text3.undraw()
         instruct_text4.undraw()
 
-        instruct_text5.draw(winP1)
+        '''instruct_text5.draw(winP1)
         instruct_text7.draw(winP1)
 
-        Looper(12, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
-               confirmP1, "Frigate", instruct_text5, instruct_text7)
+        music, soundvar= Looper(12, winP1, Player1_Locations, P1confirmlist,
+                                P1BoxLoc, P1BoxConf, confirmP1,
+                                "Frigate", soundvar, music,instruct_text5,
+                                 instruct_text7)
         for point in range(9, 12):
             Frig1.append(P1BoxConf[point])
 
@@ -177,8 +208,9 @@ def Player1(stage):
 
         instruct_text6.draw(winP1)
 
-        Looper(15, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
-               confirmP1, "Submarine", instruct_text6, instruct_text7)
+        music, soundvar= Looper(15, winP1, Player1_Locations, P1confirmlist,
+                                P1BoxLoc, P1BoxConf, confirmP1, "Submarine",
+                                soundvar, music, instruct_text6, instruct_text7)
         for point in range(12, 15):
             Sub1.append(P1BoxConf[point])
 
@@ -189,9 +221,10 @@ def Player1(stage):
         instruct_text9.draw(winP1)
         instruct_text10.draw(winP1)
 
-        Looper(17, winP1, Player1_Locations, P1confirmlist, P1BoxLoc, P1BoxConf,
-               confirmP1, "Patrol", instruct_text8, instruct_text9,
-               instruct_text10)
+        music, soundvar= Looper(17, winP1, Player1_Locations, P1confirmlist,
+                                P1BoxLoc, P1BoxConf, confirmP1, "Patrol",
+                                soundvar, music, instruct_text8, instruct_text9,
+                                instruct_text10)
         for point in range(15, 17):
             Pat1.append(P1BoxConf[point])
 
@@ -236,9 +269,25 @@ def Player1(stage):
         
         while True:
             length= len(P1att)
-            click_getter(winP1)
+            x_click, y_click=click_getter(winP1)
+
+            original= music
+            music=musicplay(music, 1100, 1175, 65, 15, music_box, winP1)
+            if music==None:
+                music=original
+
+            original=soundvar
+            soundvar=soundplay(soundvar, 1185, 1260, 65, 15, sound_box, winP1)
+            if soundvar==None:
+                soundvar=original
+
+            if 35<x_click<530 and 60<y_click<590:
+                if soundvar:
+                    sound=pygame.mixer.Sound("error.ogg")
+                    sound.play()
+                continue
             
-            attack1()
+            attack1(soundvar)
             
             length2= len(P1att)
             if length2==length+1:
@@ -261,8 +310,9 @@ def Player1(stage):
         checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1, player2_name)
 
         if winner()=="Player1":
-            sound=pygame.mixer.Sound("victory.ogg")
-            sound.play()
+            if soundvar:
+                sound=pygame.mixer.Sound("victory.ogg")
+                sound.play()
             winner_text.draw(winP1)
             see_oth_player_box.draw(winP1)
             close_game.draw(winP1)
@@ -274,6 +324,20 @@ def Player1(stage):
             while True:
                 click_getter(winP1)
 
+                original= music
+                music=musicplay(music, 1100, 1175, 65, 15, music_box, winP1)
+                if music==None:
+                    music=original
+                if music != original:
+                    continue
+
+                original=soundvar
+                soundvar=soundplay(soundvar, 1185, 1260, 65,15,sound_box, winP1)
+                if soundvar==None:
+                    soundvar=original
+                if soundvar != original:
+                    continue
+    
                 if single_detector(1100, 1260, 490, 420, see_oth_player_box,
                                    winP1) is True:
                     winP1.close()
@@ -290,6 +354,21 @@ def Player1(stage):
                 
         while True:
             click_getter(winP1)
+
+            original= music
+            music=musicplay(music, 1100, 1175, 65, 15, music_box, winP1)
+            if music==None:
+                music=original
+            if music != original:
+                continue
+
+            original=soundvar
+            soundvar=soundplay(soundvar, 1185, 1260, 65,15,sound_box, winP1)
+            if soundvar==None:
+                soundvar=original
+            if soundvar != original:
+                continue
+                
             if single_detector(1100, 1260, 520, 450, confirmP1, winP1) is True:
                 time.sleep(0.1)
                 winP1.close()
@@ -322,6 +401,20 @@ def Player1(stage):
         while True:
             click_getter(winP1)
 
+            original= music
+            music=musicplay(music, 1100, 1175, 65, 15, music_box, winP1)
+            if music==None:
+                music=original
+            if music != original:
+                continue
+
+            original=soundvar
+            soundvar=soundplay(soundvar, 1185, 1260, 65,15,sound_box, winP1)
+            if soundvar==None:
+                soundvar=original
+            if soundvar != original:
+                continue
+
             if single_detector(1100, 1260, 490, 420, see_oth_player_box,
                                winP1) is True:
                 winP1.close()
@@ -331,7 +424,7 @@ def Player1(stage):
                                  winP1) is True:
                 time.sleep(0.3)
                 winP1.close()
-                sys.exit()       
+                sys.exit()      
 
     winP1.close()
                         
@@ -339,8 +432,10 @@ def Player1(stage):
 def Player2(stage):
     global winP2, click, confirmP2, Player2_Locations, confirm_title
     global Aircraft2, Pat2, Sub2, Frig2, Bship2
+    global soundvar, music
 
-    winP2=GraphWin("%s's Battleship Board" %player2_name, 1275, 650, autoflush=False)
+    winP2=GraphWin("%s's Battleship Board" %player2_name, 1275, 650,
+                   autoflush=False)
     
     confirmP2= Rectangle(Point(1100, 450), Point(1260, 520))
     confirm_title= Text(Point(1180, 485), "Confirm")
@@ -366,7 +461,7 @@ def Player2(stage):
     subbox.draw(winP2)
     patbox.draw(winP2)
 
-    drawer2(winP2)
+    drawer2(winP2, music, soundvar)
 
     winP2.update()
 
@@ -383,8 +478,9 @@ def Player2(stage):
         instruct_text1.draw(winP2)
         instruct_text2.draw(winP2)
 
-        Looper(5, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
-               confirmP2, "Aircraft", instruct_text1, instruct_text2)
+        music, soundvar= Looper(5, winP2, Player2_Locations, P2confirmlist,
+                                P2BoxLoc, P2BoxConf, confirmP2, "Aircraft",
+                                soundvar, music, instruct_text1, instruct_text2)
         for point in P2BoxConf:
             Aircraft2.append(point)
 
@@ -394,8 +490,9 @@ def Player2(stage):
         '''instruct_text3.draw(winP2)
         instruct_text4.draw(winP2)
         
-        Looper(9, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
-               confirmP2, "Battleship", instruct_text3, instruct_text4)
+        music, soundvar= Looper(9, winP2, Player2_Locations, P2confirmlist,
+                                P2BoxLoc, P2BoxConf, confirmP2, "Battleship",
+                                soundvar, music, instruct_text3, instruct_text4)
         for point in range(5, 9):
             Bship2.append(P2BoxConf[point])
 
@@ -405,8 +502,9 @@ def Player2(stage):
         instruct_text5.draw(winP2)
         instruct_text7.draw(winP2)
 
-        Looper(12, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
-               confirmP2, "Frigate", instruct_text5, instruct_text7)
+        music, soundvar= Looper(12, winP2, Player2_Locations, P2confirmlist,
+                                P2BoxLoc, P2BoxConf, confirmP2, "Frigate",
+                                soundvar, music, instruct_text5, instruct_text7)
         for point in range(9, 12):
             Frig2.append(P2BoxConf[point])
 
@@ -414,8 +512,9 @@ def Player2(stage):
 
         instruct_text6.draw(winP2)
 
-        Looper(15, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
-               confirmP2, "Submarine", instruct_text6, instruct_text7)
+        music, soundvar=Looper(15, winP2, Player2_Locations, P2confirmlist,
+                               P2BoxLoc, P2BoxConf, confirmP2, "Submarine",
+                               soundvar, music, instruct_text6, instruct_text7)
         for point in range(12, 15):
             Sub2.append(P2BoxConf[point])
 
@@ -426,9 +525,10 @@ def Player2(stage):
         instruct_text9.draw(winP2)
         instruct_text10.draw(winP2)
 
-        Looper(17, winP2, Player2_Locations, P2confirmlist, P2BoxLoc, P2BoxConf,
-               confirmP2, "Patrol", instruct_text8, instruct_text9,
-               instruct_text10)
+        music, soundvar= Looper(17, winP2, Player2_Locations, P2confirmlist,
+                                P2BoxLoc, P2BoxConf,confirmP2, "Patrol",
+                                soundvar, music, instruct_text8, instruct_text9,
+                                instruct_text10)
         for point in range(15, 17):
             Pat2.append(P2BoxConf[point])
 
@@ -470,8 +570,25 @@ def Player2(stage):
         
         while True:
             length= len(P2att)
-            click_getter(winP2)
-            attack2()
+            x_click, y_click=click_getter(winP2)
+
+            original= music
+            music=musicplay(music, 1100, 1175, 65, 15, music_box, winP2)
+            if music==None:
+                music=original
+
+            original=soundvar
+            soundvar=soundplay(soundvar, 1185, 1260, 65, 15, sound_box, winP2)
+            if soundvar==None:
+                soundvar=original
+
+            if 35<x_click<530 and 60<y_click<590:
+                if soundvar:
+                    sound=pygame.mixer.Sound("error.ogg")
+                    sound.play()
+                    continue
+            
+            attack2(soundvar)
             length2= len(P2att)
             if length2==length+1:
                 break
@@ -492,8 +609,9 @@ def Player2(stage):
         checker(Frig1, "Frigate", P2att, 0, 3, frigbox, winP2, player1_name)
 
         if winner()=="Player2":
-            sound=pygame.mixer.Sound("victory.ogg")
-            sound.play()
+            if soundvar:
+                sound=pygame.mixer.Sound("victory.ogg")
+                sound.play()
             winner_text.draw(winP2)
             see_oth_player_box.draw(winP2)
             close_game.draw(winP2)
@@ -504,6 +622,20 @@ def Player2(stage):
 
             while True:
                 click_getter(winP2)
+
+                original= music
+                music=musicplay(music, 1100, 1175, 65, 15, music_box, winP2)
+                if music==None:
+                    music=original
+                if music != original:
+                    continue
+
+                original=soundvar
+                soundvar=soundplay(soundvar, 1185, 1260, 65,15,sound_box, winP2)
+                if soundvar==None:
+                    soundvar=original
+                if soundvar != original:
+                    continue
 
                 if single_detector(1100, 1260, 490, 420, see_oth_player_box,
                                    winP2) is True:
@@ -521,6 +653,21 @@ def Player2(stage):
         
         while True:
             click_getter(winP2)
+
+            original= music
+            music=musicplay(music, 1100, 1175, 65, 15, music_box, winP2)
+            if music==None:
+                music=original
+            if music != original:
+                continue
+
+            original=soundvar
+            soundvar=soundplay(soundvar, 1185, 1260, 65,15,sound_box, winP2)
+            if soundvar==None:
+                soundvar=original
+            if soundvar != original:
+                continue
+            
             if single_detector(1100, 1260, 520, 450, confirmP2, winP2) is True:
                 time.sleep(0.1)
                 break
@@ -550,6 +697,20 @@ def Player2(stage):
 
         while True:
             click_getter(winP2)
+
+            original= music
+            music=musicplay(music, 1100, 1175, 65, 15, music_box, winP2)
+            if music==None:
+                music=original
+            if music != original:
+                continue
+
+            original=soundvar
+            soundvar=soundplay(soundvar, 1185, 1260, 65,15,sound_box, winP2)
+            if soundvar==None:
+                soundvar=original
+            if soundvar != original:
+                continue
 
             if single_detector(1100, 1260, 490, 420, see_oth_player_box,
                                winP2) is True:

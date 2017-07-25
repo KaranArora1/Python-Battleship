@@ -45,7 +45,7 @@ def yes_no_detector(yes_left, yes_right, yes_top, yes_bottom, no_left, no_right
 
 #singledetectorconf
 def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship,
-                         conflist):
+                         conflist, soundvar):
     
     global P1confirmlist, P2confirmlist
     global P1x, P1y, P2x, P2y
@@ -57,8 +57,9 @@ def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship,
 
     if ok_left< x_click < ok_right and ok_bottom < y_click < ok_top:
         if in_a_row(ship, conflist) is True and near(ship, conflist) is True:
-            sound= pygame.mixer.Sound("confirm.ogg")
-            sound.play()
+            if soundvar:
+                sound= pygame.mixer.Sound("confirm.ogg")
+                sound.play()
             
             (box).setFill("white")
             win.update()
@@ -77,9 +78,9 @@ def single_detector_conf(ok_left, ok_right, ok_top, ok_bottom, box, win, ship,
             return True
         
         else:
-
-            sound=pygame.mixer.Sound("error.ogg")
-            sound.play()
+            if soundvar:
+                sound=pygame.mixer.Sound("error.ogg")
+                sound.play()
             
             box.setFill("brown2")
             win.update()
@@ -103,9 +104,44 @@ def single_detector(ok_left, ok_right, ok_top, ok_bottom, box, win):
         win.update()
         return True
 
+#musicplay
+def musicplay(var, ok_left, ok_right, ok_top, ok_bottom, box, win):
+    
+    if single_detector(ok_left, ok_right, ok_top, ok_bottom, box, win) is True:
+        if var==True:
+            var=False
+            pygame.mixer.music.stop()
+            music_on.undraw()
+            music_off.draw(win)
+
+        else:
+            var=True
+            pygame.mixer.music.load("seamusic.mp3")
+            pygame.mixer.music.play(-1)
+            music_off.undraw()
+            music_on.draw(win)
+   
+        return var
+
+#soundplay
+def soundplay(var, ok_left, ok_right, ok_top, ok_bottom, box, win):
+    
+     if single_detector(ok_left, ok_right, ok_top, ok_bottom, box, win) is True:
+        if var==True:
+            var=False
+            sound_on.undraw()
+            sound_off.draw(win)
+
+        else:
+            var=True
+            sound_off.undraw()
+            sound_on.draw(win)
+
+        return var
+
 #ListAppender
 def ListAppender(left, right, top, bottom, location, boxapp, appender,
-                 confirmlist, boxloc, x, y, xloc, yloc):
+                 confirmlist, boxloc, x, y, xloc, yloc, soundvar):
     
     reader= open("Pickler.py", "rb")
     x_click, y_click=pickle.load(reader)
@@ -128,23 +164,24 @@ def ListAppender(left, right, top, bottom, location, boxapp, appender,
             yloc.remove(y)
 
         elif appender in confirmlist:
-            sound=pygame.mixer.Sound("error.ogg")
-            sound.play()
+            if soundvar:
+                sound=pygame.mixer.Sound("error.ogg")
+                sound.play()
 
 #Listoflistappenders1
-def ListofListAppenders1():
+def ListofListAppenders1(soundvar):
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 60, 113, Player1_Locations,
                     boxrunner(BoxesP1A) ,stringrun(Astr), P1confirmlist,
-                     P1BoxLoc, xreturn(), 1, P1x, P1y)
+                     P1BoxLoc, xreturn(), 1, P1x, P1y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 113, 166, Player1_Locations,
                     boxrunner(BoxesP1B), stringrun(Bstr), P1confirmlist,
-                     P1BoxLoc, xreturn(), 2, P1x, P1y)
+                     P1BoxLoc, xreturn(), 2, P1x, P1y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 166, 219, Player1_Locations,
                      boxrunner(BoxesP1C), stringrun(Cstr), P1confirmlist,
-                     P1BoxLoc, xreturn(), 3, P1x, P1y)
+                     P1BoxLoc, xreturn(), 3, P1x, P1y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 219, 272, Player1_Locations,
                      boxrunner(BoxesP1D), stringrun(Dstr), P1confirmlist,
@@ -152,74 +189,74 @@ def ListofListAppenders1():
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 272, 325, Player1_Locations,
                      boxrunner(BoxesP1E),stringrun(Estr), P1confirmlist,
-                     P1BoxLoc, xreturn(), 5, P1x, P1y)
+                     P1BoxLoc, xreturn(), 5, P1x, P1y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 325, 378, Player1_Locations,
                      boxrunner(BoxesP1F), stringrun(Fstr), P1confirmlist,
-                     P1BoxLoc, xreturn(), 6, P1x, P1y)
+                     P1BoxLoc, xreturn(), 6, P1x, P1y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 378, 431, Player1_Locations,
                      boxrunner(BoxesP1G), stringrun(Gstr), P1confirmlist,
-                     P1BoxLoc, xreturn(), 7, P1x, P1y)
+                     P1BoxLoc, xreturn(), 7, P1x, P1y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 431, 484, Player1_Locations,
                      boxrunner(BoxesP1H), stringrun(Hstr), P1confirmlist,
-                     P1BoxLoc, xreturn(), 8, P1x, P1y)
+                     P1BoxLoc, xreturn(), 8, P1x, P1y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 484, 537, Player1_Locations,
                      boxrunner(BoxesP1I), stringrun(Istr), P1confirmlist,
-                     P1BoxLoc, xreturn(), 9, P1x, P1y)
+                     P1BoxLoc, xreturn(), 9, P1x, P1y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 537, 590, Player1_Locations,
                      boxrunner(BoxesP1J), stringrun(Jstr), P1confirmlist,
-                     P1BoxLoc, xreturn(), 10, P1x, P1y)
+                     P1BoxLoc, xreturn(), 10, P1x, P1y, soundvar)
         
 #Listoflistappenders2
-def ListofListAppenders2():
+def ListofListAppenders2(soundvar):
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 60, 113, Player2_Locations,
                     boxrunner(BoxesP2A) ,stringrun(Astr), P2confirmlist,
-                     P2BoxLoc, xreturn(), 1, P2x, P2y)
+                     P2BoxLoc, xreturn(), 1, P2x, P2y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 113, 166, Player2_Locations,
                     boxrunner(BoxesP2B), stringrun(Bstr), P2confirmlist,
-                     P2BoxLoc, xreturn(), 2, P2x, P2y)
+                     P2BoxLoc, xreturn(), 2, P2x, P2y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 166, 219, Player2_Locations,
                      boxrunner(BoxesP2C), stringrun(Cstr), P2confirmlist,
-                     P2BoxLoc, xreturn(), 3, P2x, P2y)
+                     P2BoxLoc, xreturn(), 3, P2x, P2y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 219, 272, Player2_Locations,
                      boxrunner(BoxesP2D), stringrun(Dstr), P2confirmlist,
-                     P2BoxLoc, xreturn(), 4, P2x, P2y)
+                     P2BoxLoc, xreturn(), 4, P2x, P2y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 272, 325, Player2_Locations,
                      boxrunner(BoxesP2E),stringrun(Estr), P2confirmlist,
-                     P2BoxLoc, xreturn(), 5, P2x, P2y)
+                     P2BoxLoc, xreturn(), 5, P2x, P2y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 325, 378, Player2_Locations,
                      boxrunner(BoxesP2F), stringrun(Fstr), P2confirmlist,
-                     P2BoxLoc, xreturn(), 6, P2x, P2y)
+                     P2BoxLoc, xreturn(), 6, P2x, P2y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 378, 431, Player2_Locations,
                      boxrunner(BoxesP2G), stringrun(Gstr), P2confirmlist,
-                     P2BoxLoc, xreturn(), 7, P2x, P2y)
+                     P2BoxLoc, xreturn(), 7, P2x, P2y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 431, 484, Player2_Locations,
                      boxrunner(BoxesP2H), stringrun(Hstr), P2confirmlist,
-                     P2BoxLoc, xreturn(), 8, P2x, P2y)
+                     P2BoxLoc, xreturn(), 8, P2x, P2y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 484, 537, Player2_Locations,
                      boxrunner(BoxesP2I), stringrun(Istr), P2confirmlist,
-                     P2BoxLoc, xreturn(), 9, P2x, P2y)
+                     P2BoxLoc, xreturn(), 9, P2x, P2y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 537, 590, Player2_Locations,
                      boxrunner(BoxesP2J), stringrun(Jstr), P2confirmlist,
-                     P2BoxLoc, xreturn(), 10, P2x, P2y)
+                     P2BoxLoc, xreturn(), 10, P2x, P2y, soundvar)
 
 #Attacker
 def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf, ownlist,
-             ownmiss, ownhit):
+             ownmiss, ownhit, soundvar):
     
     reader= open("Pickler.py", "rb")
     x_click, y_click=pickle.load(reader)
@@ -231,92 +268,117 @@ def Attacker(left, right, top, bottom, ownbox, OPbox, OPboxconf, ownlist,
             ownbox.setFill("brown2")
             if OPbox not in ownhit:
                 ownhit.append(OPbox)
-                sound= pygame.mixer.Sound("hit.ogg")
-                sound.play()
+
+                if soundvar:
+                    sound= pygame.mixer.Sound("hit.ogg")
+                    sound.play()
                 
             elif OPbox in ownhit:
-                sound= pygame.mixer.Sound("error.ogg")
-                sound.play()
+                if soundvar:
+                    sound= pygame.mixer.Sound("error.ogg")
+                    sound.play()
             
         elif OPbox not in OPboxconf:
             ownbox.setFill("ghost white")
             if OPbox not in ownmiss:
                 ownmiss.append(OPbox)
-                sound= pygame.mixer.Sound("miss.ogg")
-                sound.play()
+                if soundvar:
+                    sound= pygame.mixer.Sound("miss.ogg")
+                    sound.play()
 
             elif OPbox in ownmiss:
-                sound= pygame.mixer.Sound("error.ogg")
-                sound.play()
+                if soundvar:
+                    sound= pygame.mixer.Sound("error.ogg")
+                    sound.play()
                 
         if OPbox not in ownlist:
             ownlist.append(OPbox)
 
 #Attack1
-def attack1():
+def attack1(soundvar):
     for i in range(10):
         Attacker(leftatt(), rightatt(), 60, 113, boxrunner(BoxesP1ATT_A),
-                 boxrunner2(BoxesP2A), P2BoxConf, P1att, P1miss, P1hit)
+                 boxrunner2(BoxesP2A), P2BoxConf, P1att, P1miss, P1hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 113, 166, boxrunner(BoxesP1ATT_B),
-                 boxrunner2(BoxesP2B), P2BoxConf, P1att, P1miss, P1hit)
+                 boxrunner2(BoxesP2B), P2BoxConf, P1att, P1miss, P1hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 166, 219, boxrunner(BoxesP1ATT_C),
-                 boxrunner2(BoxesP2C), P2BoxConf, P1att, P1miss, P1hit)
+                 boxrunner2(BoxesP2C), P2BoxConf, P1att, P1miss, P1hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 219, 272, boxrunner(BoxesP1ATT_D),
-                 boxrunner2(BoxesP2D), P2BoxConf, P1att, P1miss, P1hit)
+                 boxrunner2(BoxesP2D), P2BoxConf, P1att, P1miss, P1hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 272, 325, boxrunner(BoxesP1ATT_E),
-                 boxrunner2(BoxesP2E), P2BoxConf, P1att, P1miss, P1hit)
+                 boxrunner2(BoxesP2E), P2BoxConf, P1att, P1miss, P1hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 325, 378, boxrunner(BoxesP1ATT_F),
-                 boxrunner2(BoxesP2F), P2BoxConf, P1att, P1miss, P1hit)
+                 boxrunner2(BoxesP2F), P2BoxConf, P1att, P1miss, P1hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 378, 431, boxrunner(BoxesP1ATT_G),
-                 boxrunner2(BoxesP2G), P2BoxConf, P1att, P1miss, P1hit)
+                 boxrunner2(BoxesP2G), P2BoxConf, P1att, P1miss, P1hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 431, 484, boxrunner(BoxesP1ATT_H),
-                 boxrunner2(BoxesP2H), P2BoxConf, P1att, P1miss, P1hit)
+                 boxrunner2(BoxesP2H), P2BoxConf, P1att, P1miss, P1hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 484, 537, boxrunner(BoxesP1ATT_I),
-                 boxrunner2(BoxesP2I), P2BoxConf, P1att, P1miss, P1hit)
+                 boxrunner2(BoxesP2I), P2BoxConf, P1att, P1miss, P1hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 537, 590, boxrunner(BoxesP1ATT_J),
-                 boxrunner2(BoxesP2J), P2BoxConf, P1att, P1miss, P1hit)
+                 boxrunner2(BoxesP2J), P2BoxConf, P1att, P1miss, P1hit
+                 , soundvar)
 
 #Attack2
-def attack2():
+def attack2(soundvar):
     for i in range(10):
         Attacker(leftatt(), rightatt(), 60, 113, boxrunner(BoxesP2ATT_A),
-                 boxrunner2(BoxesP1A), P1BoxConf, P2att, P2miss, P2hit)
+                 boxrunner2(BoxesP1A), P1BoxConf, P2att, P2miss, P2hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 113, 166, boxrunner(BoxesP2ATT_B),
-                 boxrunner2(BoxesP1B), P1BoxConf, P2att, P2miss, P2hit)
+                 boxrunner2(BoxesP1B), P1BoxConf, P2att, P2miss, P2hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 166, 219, boxrunner(BoxesP2ATT_C),
-                 boxrunner2(BoxesP1C), P1BoxConf, P2att, P2miss, P2hit)
+                 boxrunner2(BoxesP1C), P1BoxConf, P2att, P2miss, P2hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 219, 272, boxrunner(BoxesP2ATT_D),
-                 boxrunner2(BoxesP1D), P1BoxConf, P2att, P2miss, P2hit)
+                 boxrunner2(BoxesP1D), P1BoxConf, P2att, P2miss, P2hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 272, 325, boxrunner(BoxesP2ATT_E),
-                 boxrunner2(BoxesP1E), P1BoxConf, P2att, P2miss, P2hit)
+                 boxrunner2(BoxesP1E), P1BoxConf, P2att, P2miss, P2hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 325, 378, boxrunner(BoxesP2ATT_F),
-                 boxrunner2(BoxesP1F), P1BoxConf, P2att, P2miss, P2hit)
+                 boxrunner2(BoxesP1F), P1BoxConf, P2att, P2miss, P2hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 378, 431, boxrunner(BoxesP2ATT_G),
-                 boxrunner2(BoxesP1G), P1BoxConf, P2att, P2miss, P2hit)
+                 boxrunner2(BoxesP1G), P1BoxConf, P2att, P2miss, P2hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 431, 484, boxrunner(BoxesP2ATT_H),
-                 boxrunner2(BoxesP1H), P1BoxConf, P2att, P2miss, P2hit)
+                 boxrunner2(BoxesP1H), P1BoxConf, P2att, P2miss, P2hit,
+                 soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 484, 537, boxrunner(BoxesP2ATT_I),
-                 boxrunner2(BoxesP1I), P1BoxConf, P2att, P2miss, P2hit)
+                 boxrunner2(BoxesP1I), P1BoxConf, P2att, P2miss, P2hit
+                 , soundvar)
     for i in range(10):
         Attacker(leftatt(), rightatt(), 537, 590, boxrunner(BoxesP2ATT_J),
-                 boxrunner2(BoxesP1J), P1BoxConf, P2att, P2miss, P2hit)
+                 boxrunner2(BoxesP1J), P1BoxConf, P2att, P2miss, P2hit
+                 , soundvar)
 
 #Checker
 def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win, name):
@@ -574,7 +636,7 @@ def click_getter(win):
         return x_click, y_click
 
 #Drawer
-def drawer1(win):
+def drawer1(win, music, sound):
 
     OPship_line.draw(win)
     dialogue_line.draw(win)
@@ -591,6 +653,9 @@ def drawer1(win):
     fleet_title.draw(win)
     radar_title.draw(win)
     text_box_title.draw(win)
+
+    sound_box.draw(win)
+    music_box.draw(win)
     
     for box in BoxesP1A:
         box.draw(win)
@@ -648,8 +713,18 @@ def drawer1(win):
         if box in P2att:
             box.setFill("brown2")
 
+    if music:
+        music_on.draw(win)
+    else:
+        music_off.draw(win)
+
+    if sound:
+        sound_on.draw(win)
+    else:
+        sound_off.draw(win)
+
 #Drawer2
-def drawer2(win):
+def drawer2(win, music, sound):
 
     dialogue_line.draw(win)
     OPship_line.draw(win)
@@ -666,6 +741,9 @@ def drawer2(win):
     fleet_title.draw(win)
     radar_title.draw(win)
     text_box_title.draw(win)
+
+    sound_box.draw(win)
+    music_box.draw(win)
 
     for box in BoxesP2A:
         box.draw(win)
@@ -722,5 +800,19 @@ def drawer2(win):
     for box in P2BoxConf:
         if box in P1att:
             box.setFill("brown2")
+
+    if music:
+        music_on.draw(win)
+    else:
+        music_off.draw(win)
+
+    if sound:
+        sound_on.draw(win)
+    else:
+        sound_off.draw(win)
+        
+
+
+        
 
 

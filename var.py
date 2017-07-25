@@ -8,6 +8,9 @@ text_box= Rectangle(Point(1100, 80), Point(1260, 385))
 see_oth_player_box=Rectangle(Point(1100, 420), Point(1260, 490))
 close_game= Rectangle(Point(1100, 510), Point(1260, 580))
 
+music_box= Rectangle(Point(1100, 15), Point(1175, 65))
+sound_box= Rectangle(Point(1185, 15), Point(1260, 65))
+
 fleet_title= Text(Point(282.5, 20), "FLEET")
 radar_title= Text(Point(837.5, 20), "RADAR")
 confirm_title= Text(Point(1180, 485), "Confirm")
@@ -48,6 +51,12 @@ done_text2= Text(Point(1175, 145), "Click 'Done' and pass")
 
 hit_message= Text(Point(1175, 115), "It's a hit!")
 miss_message= Text(Point(1175, 115), "It's a miss.")
+captain_text= Text(Point(1175, 115), "Fire a shot, Captain!")
+
+music_on=Text(Point(1137.5, 40), "Music : On")
+music_off=Text(Point(1137.5, 40), "Music : Off")
+sound_on=Text(Point(1222.5, 40), "Sounds : On")
+sound_off=Text(Point(1222.5, 40), "Sounds : Off")
 
 winner_text= Text(Point(1175, 180), "You have won the game!")
 
@@ -55,6 +64,8 @@ close_game_text= Text(Point(1180, 545), "Close Game")
 
 fleet.setFill("cyan4")
 attack.setFill("cyan4")
+sound_box.setFill("AntiqueWhite")
+music_box.setFill("AntiqueWhite")
 see_oth_player_box.setFill("AntiqueWhite")
 close_game.setFill("AntiqueWhite")
 
@@ -63,6 +74,98 @@ radar_title.setSize(16)
 winner_text.setSize(11)
 
 winner_text.setStyle("italic")
+
+###############################################################################
+
+#Global text for starter
+#Boxes
+case= Rectangle(Point(25, 25), Point(575, 300))
+
+choice_yes= Rectangle(Point(130, 225), Point(215, 260))
+choice_no= Rectangle(Point(385, 225), Point(470, 260))
+choice_ok= Rectangle(Point(355, 180), Point(430, 220))
+instruction_line= Rectangle(Point(225, 70), Point(375, 70))
+choice_start= Rectangle(Point(262.5, 225),Point(337.5, 260))
+choice_next= Rectangle(Point(262.5, 225), Point(337.5, 260))
+
+#Text
+instruction6= Text(Point(300, 150), "Lets start!")
+
+instruction5_4= Text(Point(300, 190),"- The Patrol Boat has 2 points.")
+instruction5_3= Text(Point(300, 160), "- The Frigate and the Submarine both have 3 points")
+instruction5_2= Text(Point(300, 130), "- A Battleship has 4 points")
+instruction5= Text(Point(300, 100), "- An Aircraft Carrier has 5 points")  
+
+instruction4_2= Text(Point(300, 180), "click in your desired box.")
+instruction4=Text(Point(300, 130), "To place a ship or fire a shot, just")
+
+instruction3_3=Text(Point(300, 190), "still standing, you win!")
+instruction3_2=Text(Point(300, 150), "least one of your own ships are")
+instruction3=Text(Point(300, 110), "If you accomplish this, and at")
+
+instruction2_2= Text(Point(300, 170), "all of your opponents ships.")
+instruction2=Text(Point(300, 120), "The goal of Battleship is to sink")
+
+instruction1=Text(Point(300, 150),"Here are the instructions for Battleship.")
+
+title6= Text(Point(300, 170), "(This option can be changed during the the game)")
+title5= Text(Point(300, 135), "Would you like sound/music while playing?")
+title4= Text(Point(300, 150), "Would you like to read the instructions?")
+title3=Text(Point(300, 150), "What is Player 2's name?")
+title2= Text(Point(300, 150), "What is Player 1's name?")
+title= Text(Point(300, 150), "Do you want to play Battleship?")
+
+text_yes= Text(Point(172.5, 242.5), "Yes")
+text_no= Text(Point(427.5, 242.5), "No")
+text_ok= Text(Point(392.5, 200), "OK")
+text_next= Text(Point(300, 242.5), "Next")
+
+text_instruction= Text(Point(300, 55), "Instructions")
+
+text_start= Text(Point(300, 242.5), "Start!")
+
+#Entry
+nameentry_1=Entry(Point(250,200),30)
+nameentry_2=Entry(Point(250, 200),30)
+
+#Setfills and sizes
+case.setFill("AntiqueWhite1")
+
+title.setSize(26)
+title2.setSize(26)
+title3.setSize(26)
+title4.setSize(24)
+title5.setSize(24)
+title6.setSize(16)
+
+instruction1.setSize(26)
+
+instruction2.setSize(26)
+instruction2_2.setSize(26)
+
+instruction3.setSize(26)
+instruction3_2.setSize(26)
+instruction3_3.setSize(26)
+
+instruction4_2.setSize(26)
+instruction4.setSize(26)
+
+instruction5.setSize(20)
+instruction5_2.setSize(20)
+instruction5_3.setSize(20)
+instruction5_4.setSize(20)
+
+instruction6.setSize(26)
+
+text_instruction.setSize(28)
+
+choice_yes.setFill("AntiqueWhite2")
+choice_no.setFill("AntiqueWhite2")
+choice_ok.setFill("AntiqueWhite2")
+choice_start.setFill("AntiqueWhite2")
+choice_next.setFill("AntiqueWhite2")
+
+#############################################################################
 
 #Text
 A_text=Text(Point(20, 86.5), "A")
