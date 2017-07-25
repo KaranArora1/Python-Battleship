@@ -185,7 +185,7 @@ def ListofListAppenders1(soundvar):
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 219, 272, Player1_Locations,
                      boxrunner(BoxesP1D), stringrun(Dstr), P1confirmlist,
-                     P1BoxLoc, xreturn(), 4, P1x, P1y)
+                     P1BoxLoc, xreturn(), 4, P1x, P1y, soundvar)
     for i in range(10):
         ListAppender(leftbound(), rightbound(), 272, 325, Player1_Locations,
                      boxrunner(BoxesP1E),stringrun(Estr), P1confirmlist,
