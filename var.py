@@ -119,7 +119,10 @@ text_yes= Text(Point(172.5, 242.5), "Yes")
 text_no= Text(Point(427.5, 242.5), "No")
 text_ok= Text(Point(392.5, 200), "OK")
 text_next= Text(Point(300, 242.5), "Next")
-
+text_next2= Text(Point(172.5, 242.5), "Next")
+text_back= Text(Point(427.5, 242.5), "Back")
+text_finish= Text(Point(172.5, 242.5), "Finish")
+    
 text_instruction= Text(Point(300, 55), "Instructions")
 
 text_start= Text(Point(300, 242.5), "Start!")

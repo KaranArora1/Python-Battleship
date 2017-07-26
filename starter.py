@@ -101,60 +101,11 @@ def Instructions(stage, *args):
 
             doer!="yes"
 
-            title4.undraw()
-            choice_yes.undraw()
-            choice_no.undraw()
-            text_yes.undraw()
-            text_no.undraw()
-            
-            text_instruction.draw(win)
             instruction_line.draw(win)
-            choice_next.draw(win)
-            text_next.draw(win)
-
-            instruction1.draw(win)
-
-            next_detector(262.5, 337.5, 260, 225, choice_next, win)
-
-            instruction1.undraw()
-
-            instruction2.draw(win)
-            instruction2_2.draw(win)
-
-            next_detector(262.5, 337.5, 260, 225, choice_next, win)
-
-            instruction2.undraw()
-            instruction2_2.undraw()
-
-            instruction3.draw(win)
-            instruction3_2.draw(win)
-            instruction3_3.draw(win)
-
-            next_detector(262.5, 337.5, 260, 225, choice_next, win)
-
-            instruction3.undraw()
-            instruction3_2.undraw()
-            instruction3_3.undraw()
-
-            instruction4.draw(win)
-            instruction4_2.draw(win)
-
-            next_detector(262.5, 337.5, 260, 225, choice_next, win)
-
-            instruction4.undraw()
-            instruction4_2.undraw()
-
-            instruction5.draw(win)
-            instruction5_2.draw(win)
-            instruction5_3.draw(win)
-            instruction5_4.draw(win)
-
-            next_detector(262.5, 337.5, 260, 225, choice_next, win) 
-
-            instruction5.undraw()
-            instruction5_2.undraw()
-            instruction5_3.undraw()
-            instruction5_4.undraw()
+            text_instruction.draw(win)
+            title4.undraw()
+            
+            stage1(win, "not back")
 
         if doer=="yes":
             title4.undraw()

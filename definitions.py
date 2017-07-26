@@ -41,6 +41,122 @@ def yes_no_detector(yes_left, yes_right, yes_top, yes_bottom, no_left, no_right
             win.update()
             return False
 
+#stage5
+def stage5(win):
+    instruction4.undraw()
+    instruction4_2.undraw()
+    text_next2.undraw()
+
+    instruction5.draw(win)
+    instruction5_2.draw(win)
+    instruction5_3.draw(win)
+    instruction5_4.draw(win)
+    text_finish.draw(win)
+
+    if yes_no_detector(130, 215, 260, 225, 385, 470, 260, 225,
+                           win, choice_yes, choice_no):
+        choice_no.undraw()
+        choice_yes.undraw()
+        instruction5.undraw()
+        instruction5_2.undraw()
+        instruction5_3.undraw()
+        instruction5_4.undraw()
+        text_finish.undraw()
+        text_back.undraw()
+        
+    else:
+        stage4(win, "back")
+
+#stage4
+def stage4(win, direction):
+    if direction=="forward":
+        instruction3.undraw()
+        instruction3_2.undraw()
+        instruction3_3.undraw()
+
+    elif direction=="back":
+        instruction5.undraw()
+        instruction5_2.undraw()
+        instruction5_3.undraw()
+        instruction5_4.undraw()
+        text_finish.undraw()
+        text_next2.draw(win)
+
+    instruction4.draw(win)
+    instruction4_2.draw(win)
+
+    if yes_no_detector(130, 215, 260, 225, 385, 470, 260, 225,
+                           win, choice_yes, choice_no):
+        stage5(win)
+    else:
+        stage3(win, "back")
+
+#stage3
+def stage3(win, direction):
+    if direction=="forward":
+        instruction2.undraw()
+        instruction2_2.undraw()
+
+    elif direction=="back":
+        instruction4.undraw()
+        instruction4_2.undraw()
+
+    instruction3.draw(win)
+    instruction3_2.draw(win)
+    instruction3_3.draw(win)
+
+    if yes_no_detector(130, 215, 260, 225, 385, 470, 260, 225,
+                           win, choice_yes, choice_no):
+        stage4(win, "forward")
+    else:
+        stage2(win, "back")
+
+#stage2
+def stage2(win, direction):
+    if direction=="forward":
+        choice_next.undraw()
+        text_next.undraw()
+        instruction1.undraw()
+        choice_yes.draw(win)
+        choice_no.draw(win)
+        text_next2.draw(win)
+        text_back.draw(win)
+        
+    elif direction=="back":
+        instruction3.undraw()
+        instruction3_2.undraw()
+        instruction3_3.undraw()
+
+    instruction2.draw(win)
+    instruction2_2.draw(win)
+
+    if yes_no_detector(130, 215, 260, 225, 385, 470, 260, 225,
+                           win, choice_yes, choice_no):
+        stage3(win, "forward")
+    else:
+        stage1(win, "back")
+        
+#stage1
+def stage1(win, direction):
+    if direction=="back":
+        instruction2.undraw()
+        instruction2_2.undraw()
+        text_back.undraw()
+        text_next2.undraw()
+        
+    choice_yes.undraw()
+    choice_no.undraw()
+    choice_next.draw(win)
+    text_next.draw(win)
+    text_yes.undraw()
+    text_no.undraw()
+    instruction1.draw(win)
+    
+    next_detector(262.5, 337.5, 260, 225, choice_next, win)
+
+    stage2(win, "forward")
+    
+
 ###########################################################################
 
 #singledetectorconf
@@ -120,13 +236,16 @@ def musicplay(var, ok_left, ok_right, ok_top, ok_bottom, box, win):
             pygame.mixer.music.play(-1)
             music_off.undraw()
             music_on.draw(win)
-   
+            
+        return var
+    
+    else:
         return var
 
 #soundplay
 def soundplay(var, ok_left, ok_right, ok_top, ok_bottom, box, win):
-    
-     if single_detector(ok_left, ok_right, ok_top, ok_bottom, box, win) is True:
+
+    if single_detector(ok_left, ok_right, ok_top, ok_bottom, box, win) is True:
         if var==True:
             var=False
             sound_on.undraw()
@@ -136,7 +255,10 @@ def soundplay(var, ok_left, ok_right, ok_top, ok_bottom, box, win):
             var=True
             sound_off.undraw()
             sound_on.draw(win)
-
+            
+        return var
+    
+    else:
         return var
 
 #ListAppender
