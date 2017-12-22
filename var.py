@@ -830,10 +830,8 @@ Sub2=[]
 Frig2=[]
 
 #ShipLists
-shipsP1=["Aircraft Carrier"]
-''',"Battleship ,"Submarine", "Frigate", "Patrol Boat"]'''
-shipsP2=["Aircraft Carrier"]
-''', "Battleship","Submarine", "Frigate", "Patrol Boat"]'''
+shipsP1=["Aircraft Carrier", "Battleship","Submarine", "Frigate", "Patrol Boat"]
+shipsP2=["Aircraft Carrier", "Battleship","Submarine", "Frigate", "Patrol Boat"]
 
 
 #Listvars

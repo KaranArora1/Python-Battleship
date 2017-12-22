@@ -11,13 +11,13 @@ from var import *
 from zellegraphics import *
 
 #Calls starter code
-'''player1_name, player2_name, music, soundvar=Instructions("1", "Start")'''
+player1_name, player2_name, music, soundvar=Instructions("1", "Start")
 
-#Sets variables that are normally set by starter code
+'''#Sets variables that are normally set by starter code
 player1_name= "Karan"
 player2_name= "Rajan"
 soundvar=False
-music=False
+music=False'''
 
 #initialization of pygame
 pygame.init()
@@ -232,7 +232,7 @@ def Player1(stage):
         instruct_text3.undraw()
         instruct_text4.undraw()
 
-        '''instruct_text5.draw(winP1)
+        instruct_text5.draw(winP1)
         instruct_text7.draw(winP1)
 
         #Frigate looper + sound and music variable setting
@@ -276,7 +276,7 @@ def Player1(stage):
         instruct_text9.undraw()
         instruct_text10.undraw()
 
-        time.sleep(0.25)'''
+        time.sleep(0.25)
 
         #Change confirm title to Done! and draw done_text
         confirm_title.undraw()
@@ -321,12 +321,15 @@ def Player1(stage):
 
         #Check the status of all ships and fill in the boxes red or green
         checker(Aircraft2, "Aircraft Carrier", P1att, 0, 5, airbox, winP1,
-                player2_name)
+                player2_name, soundvar)
         checker(Bship2, "Battleship", P1att, 0, 4, bshipbox, winP1,
-                player2_name)
-        checker(Pat2,"Patrol Boat", P1att, 0, 2, patbox, winP1, player2_name)
-        checker(Sub2, "Submarine", P1att, 0, 3, subbox, winP1, player2_name)
-        checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1, player2_name)
+                player2_name, soundvar)
+        checker(Pat2,"Patrol Boat", P1att, 0, 2, patbox, winP1, player2_name,
+                soundvar)
+        checker(Sub2, "Submarine", P1att, 0, 3, subbox, winP1, player2_name,
+                soundvar)
+        checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1, player2_name,
+                soundvar)
 
         #Attacking
         while True:
@@ -379,12 +382,15 @@ def Player1(stage):
         #Check the status of all of the ships again and fill in their
         #status box with the appropriate color
         checker(Aircraft2, "Aircraft Carrier", P1att, 0, 5, airbox, winP1,
-                player2_name)
+                player2_name, soundvar)
         checker(Bship2, "Battleship", P1att, 0, 4, bshipbox, winP1,
-                player2_name)
-        checker(Pat2, "Patrol Boat", P1att, 0, 2, patbox, winP1, player2_name)
-        checker(Sub2, "Submarine", P1att, 0, 3, subbox, winP1, player2_name)
-        checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1, player2_name)
+                player2_name, soundvar)
+        checker(Pat2, "Patrol Boat", P1att, 0, 2, patbox, winP1, player2_name,
+                soundvar)
+        checker(Sub2, "Submarine", P1att, 0, 3, subbox, winP1, player2_name,
+                soundvar)
+        checker(Frig2, "Frigate", P1att, 0, 3, frigbox, winP1, player2_name,
+                soundvar)
 
         #If there is a winner, and it is Player1
         if winner()=="Player1":
@@ -576,7 +582,7 @@ def Player2(stage):
         instruct_text1.undraw()
         instruct_text2.undraw()
 
-        '''instruct_text3.draw(winP2)
+        instruct_text3.draw(winP2)
         instruct_text4.draw(winP2)
         
         music, soundvar= Looper(9, winP2, Player2_Locations, P2confirmlist,
@@ -625,7 +631,7 @@ def Player2(stage):
         instruct_text9.undraw()
         instruct_text10.undraw()
 
-        time.sleep(0.25)'''
+        time.sleep(0.25)
         
         confirm_title.undraw()
         confirm_title= Text(Point(1180, 485), "Done!")
@@ -661,11 +667,15 @@ def Player2(stage):
         misslen=len(P2miss)
         
         checker(Aircraft1,"Aircraft Carrier", P2att, 0, 5, airbox, winP2,
-                player1_name)
-        checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2, player1_name)
-        checker(Pat1, "Patrol Boat", P2att, 0, 2, patbox, winP2, player1_name)
-        checker(Sub1, "Submarine" ,P2att, 0, 3, subbox, winP2, player1_name)
-        checker(Frig1,"Frigate", P2att, 0, 3, frigbox, winP2, player1_name)
+                player1_name, soundvar)
+        checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2, player1_name,
+                soundvar)
+        checker(Pat1, "Patrol Boat", P2att, 0, 2, patbox, winP2, player1_name,
+                soundvar)
+        checker(Sub1, "Submarine" ,P2att, 0, 3, subbox, winP2, player1_name,
+                soundvar)
+        checker(Frig1,"Frigate", P2att, 0, 3, frigbox, winP2, player1_name,
+                soundvar)
         
         while True:
             length= len(P2att)
@@ -701,11 +711,15 @@ def Player2(stage):
             miss_message.draw(winP2)
 
         checker(Aircraft1, "Aircraft Carrier", P2att, 0, 5, airbox, winP2,
-                player1_name)       
-        checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2, player1_name)
-        checker(Pat1, "Patrol Boat", P2att, 0, 2, patbox, winP2, player1_name)
-        checker(Sub1, "Submarine", P2att, 0, 3, subbox, winP2, player1_name)
-        checker(Frig1, "Frigate", P2att, 0, 3, frigbox, winP2, player1_name)
+                player1_name, soundvar)       
+        checker(Bship1,"Battleship", P2att, 0, 4, bshipbox, winP2, player1_name,
+                soundvar)
+        checker(Pat1, "Patrol Boat", P2att, 0, 2, patbox, winP2, player1_name,
+                soundvar)
+        checker(Sub1, "Submarine", P2att, 0, 3, subbox, winP2, player1_name,
+                soundvar)
+        checker(Frig1, "Frigate", P2att, 0, 3, frigbox, winP2, player1_name,
+                soundvar)
 
         if winner()=="Player2":
             if soundvar:
@@ -815,8 +829,6 @@ def Player2(stage):
 
 
 #################################################################################
-
-'''os.startfile('/Users/karanarora/Desktop')'''
 
 Player1('1')
 Player2('1')

@@ -503,7 +503,8 @@ def attack2(soundvar):
                  , soundvar)
 
 #Checker
-def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win, name):
+def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win, name,
+            soundvar):
     
     for point in ship:
         if point in attacklist:
@@ -517,6 +518,10 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win, name):
                 message= Text(Point(1175, 140), "%(1)s's %(2)s"
                               %{"1": name, "2": shipstring})
                 message2= Text(Point(1175, 155), "has sunken!")
+
+                if soundvar:
+                    sound= pygame.mixer.Sound("sink.ogg")
+                    sound.play()                   
     
                 message.draw(win)
                 message2.draw(win)
@@ -528,6 +533,10 @@ def checker(ship, shipstring ,attacklist, ognum, comparenum, box, win, name):
                 message= Text(Point(1175, 140), "%(1)s's %(2)s"
                               %{"1": name, "2": shipstring})
                 message2= Text(Point(1175, 155), "has sunken!")
+
+                if soundvar:
+                    sound= pygame.mixer.Sound("sink.ogg")
+                    sound.play() 
             
                 message.draw(win)
                 message2.draw(win)
